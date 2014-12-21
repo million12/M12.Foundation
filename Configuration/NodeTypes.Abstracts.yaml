@@ -29,7 +29,7 @@
             placeholder: 'None'
       validation:
         regularExpression:
-          regularExpression: '/^[a-z0-9\- ]+$/i'
+          regularExpression: '/^[-a-z0-9_ ]+$/i'
     customHtmlId:
       type: string
       defaultValue: ''
@@ -44,7 +44,7 @@
             placeholder: 'None'
       validation:
         regularExpression:
-          regularExpression: '/^[a-z0-9\-]+$/i'
+          regularExpression: '/^[-a-z0-9_]+$/i'
     customCssCode:
       type: string
       defaultValue: ''
