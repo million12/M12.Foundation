@@ -10,9 +10,9 @@
     - 'TYPO3.Neos:Content'
     - 'M12.Foundation:AbstractNavSailingType'
   ui:
-    label: 'Form'
+    label: 'Form container'
     icon: 'icon-th-list'
-    group: 'foundationForms'
+    group: 'forms'
     inlineEditable: TRUE
     inspector:
       groups:
@@ -55,7 +55,7 @@
   superTypes:
     - 'TYPO3.Neos:Content'
   ui:
-    group: 'foundationForms'
+    group: 'forms'
     inspector:
       groups:
         formInputSettings:
@@ -245,7 +245,7 @@
   ui:
     label: 'Form fieldset'
     icon: 'icon-check-empty'
-    group: 'foundationForms'
+    group: 'forms'
     inspector:
       groups:
         formInputSettings:
@@ -283,7 +283,7 @@
   ui:
     label: 'Form label'
     icon: 'icon-paperclip'
-    group: 'foundationForms'
+    group: 'forms'
     inspector:
       groups:
         dev:
@@ -392,7 +392,7 @@
   ui:
     label: 'Input Pre/Postfix'
     icon: 'icon-check-empty'
-    group: 'foundationForms'
+    group: 'forms'
     inspector:
       groups:
         formInputSettings:

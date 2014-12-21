@@ -12,7 +12,6 @@
   ui:
     label: 'Reveal Modal'
     icon: 'icon-fullscreen'
-    group: 'foundationCalloutsPrompts'
     inlineEditable: TRUE
     inspector:
       groups:
@@ -65,7 +64,6 @@
   ui:
     label: 'Alert'
     icon: 'icon-warning-sign'
-    group: 'foundationCalloutsPrompts'
     inlineEditable: TRUE
     inspector:
       groups:
@@ -108,7 +106,6 @@
   ui:
     label: 'Panel'
     icon: 'icon-check-empty'
-    group: 'foundationCalloutsPrompts'
     inlineEditable: TRUE
     inspector:
       groups:

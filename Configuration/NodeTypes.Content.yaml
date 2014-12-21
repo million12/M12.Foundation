@@ -55,7 +55,7 @@
   ui:
     label: 'Dropdown: Links'
     icon: 'icon-sort-down'
-    group: 'foundationContent'
+    group: 'interactive'
   properties:
     text:
       type: string
@@ -100,7 +100,7 @@
   ui:
     label: 'Dropdown: Content'
     icon: 'icon-collapse'
-    group: 'foundationContent'
+    group: 'interactive'
     inlineEditable: TRUE
   childNodes:
     content:
@@ -138,7 +138,7 @@
   ui:
     label: 'Accordion'
     icon: 'icon-reorder'
-    group: 'foundationContent'
+    group: 'structure'
     inlineEditable: TRUE
   constraints:
     nodeTypes:
@@ -169,7 +169,7 @@
   ui:
     label: 'Accordion Item'
     icon: 'icon-reorder'
-    group: 'foundationContent'
+    group: 'structure'
   constraints:
     nodeTypes:
       '*': FALSE # No children items allowed apart of child ContentCollection
@@ -273,7 +273,7 @@
   ui:
     label: 'Tabs'
     icon: 'icon-double-angle-right'
-    group: 'foundationContent'
+    group: 'structure'
     inlineEditable: TRUE
     inspector:
       groups:
@@ -310,7 +310,6 @@
   ui:
     label: 'Font Awesome icon'
     icon: 'icon-flag'
-    group: 'foundationContent'
     inspector:
       groups:
         fontIconOptions:

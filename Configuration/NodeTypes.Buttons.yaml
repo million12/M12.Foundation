@@ -11,7 +11,7 @@
   ui:
     label: 'Button / Link'
     icon: 'icon-sign-blank'
-    group: 'foundationButtons'
+    group: 'interactive'
     inspector:
       groups:
         options:
@@ -224,7 +224,7 @@
   ui:
     label: 'Button Group'
     icon: 'icon-minus'
-    group: 'foundationButtons'
+    group: 'interactive'
     inlineEditable: TRUE
   constraints:
     nodeTypes:
@@ -241,7 +241,7 @@
   ui:
     label: 'Button Bar'
     icon: 'icon-minus'
-    group: 'foundationButtons'
+    group: 'interactive'
     inlineEditable: TRUE
   constraints:
     nodeTypes:

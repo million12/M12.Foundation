@@ -11,7 +11,7 @@
   ui:
     label: 'Container'
     icon: 'icon-hdd'
-    group: 'foundationStructure'
+    group: 'structure'
     inlineEditable: TRUE
   constraints:
     nodeTypes:
@@ -42,6 +42,7 @@
   ui:
     label: 'Grid Column'
     icon: 'icon-th-large'
+    group: 'structure'
     inspector:
       groups:
         grid:
@@ -85,7 +86,7 @@
   ui:
     icon: 'icon-columns'
     inlineEditable: TRUE
-    group: 'foundationStructure'
+    group: 'structure'
     inspector:
       groups:
         gridOptions:
@@ -164,7 +165,7 @@
   ui:
     label: 'Block Grid'
     icon: 'icon-th-large'
-    group: 'foundationStructure'
+    group: 'structure'
     inlineEditable: TRUE
     inspector:
       groups:

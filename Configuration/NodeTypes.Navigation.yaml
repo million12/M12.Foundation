@@ -15,7 +15,7 @@
   ui:
     label: 'Top Bar'
     icon: 'icon-sitemap'
-    group: 'foundationNavigation'
+    group: 'navigation'
     inspector:
       groups:
         navOptions:
@@ -68,7 +68,7 @@
   ui:
     label: 'Side Nav'
     icon: 'icon-th-list'
-    group: 'foundationNavigation'
+    group: 'navigation'
     inlineEditable: TRUE
   childNodes:
     content:
@@ -85,7 +85,7 @@
     - 'M12.Foundation:AbstractNavSailingType'
   ui:
     label: 'Side Nav (live)'
-    group: 'foundationNavigation'
+    group: 'navigation'
     inspector:
       groups:
         sailingOptions:
@@ -101,7 +101,7 @@
   ui:
     label: 'Sub Nav'
     icon: 'icon-barcode'
-    group: 'foundationNavigation'
+    group: 'navigation'
     inlineEditable: TRUE
     inspector:
       groups:
@@ -133,7 +133,7 @@
     - 'M12.Foundation:AbstractNavSailingType'
   ui:
     label: 'Sub Nav (live)'
-    group: 'foundationNavigation'
+    group: 'navigation'
     inspector:
       groups:
         navOptions:
@@ -162,7 +162,7 @@
   ui:
     label: 'Nav Item'
     icon: 'icon-minus'
-    group: 'foundationNavigation'
+    group: 'navigation'
     inspector:
       groups:
         options:

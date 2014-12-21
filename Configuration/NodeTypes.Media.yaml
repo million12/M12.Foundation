@@ -7,7 +7,6 @@
   ui:
     label: Flex Video
     icon: 'icon-facetime-video'
-    group: 'foundationMedia'
     inspector:
       groups:
         'video':
