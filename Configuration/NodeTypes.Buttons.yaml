@@ -1,23 +1,26 @@
 # -----------------------------------------------------------------------------
 #
-# Button
+# Button & Link - abstract
 #
 # -----------------------------------------------------------------------------
-'M12.Foundation:Button':
+'M12.Foundation:ButtonLinkAbstract':
+  abstract: TRUE
   superTypes:
     - 'TYPO3.Neos:Content'
     - 'M12.Foundation:AbstractNavSailingType'
     - 'M12.Foundation:AbstractFontIcon'
   ui:
-    label: 'Button / Link'
     icon: 'icon-sign-blank'
     group: 'interactive'
     inspector:
       groups:
-        options:
+        buttonOptions:
           label: 'Button options'
           position: 6
-        extraOptions:
+        linkOptions:
+          label: 'Link options'
+          position: 7
+        revDropOptions:
           label: 'Reveal & Dropdown options'
           position: 8
   constraints:
@@ -26,11 +29,12 @@
   properties:
     label:
       type: string
-      defaultValue: 'Button'
+      defaultValue: 'Link label'
       ui:
+        label: 'Link label'
         inlineEditable: TRUE
         inspector:
-          group: 'options'
+          group: 'linkOptions'
         aloha:
           format:
             strong: TRUE
@@ -55,39 +59,138 @@
             button: FALSE
             formatlessPasteOption: TRUE
             autoparagraph: FALSE
-    buttonType:
+    url:
       type: string
       ui:
-        label: ''
+        label: 'Link (internal)'
         reloadIfChanged: TRUE
         inspector:
-          group: 'options'
+          group: 'linkOptions'
+          editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
+    # TODO: 'urlExt' can be removed once LinkEditor is fixed and allows pasting custom/external links.
+    urlExt:
+      type: string
+      ui:
+        label: 'Link (external)'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'linkOptions'
+          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
+          editorOptions:
+            placeholder: 'e.g. http://example.com/'
+    htmlTargetBlank:
+      type: string
+      ui:
+        label: 'Open in new window'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'linkOptions'
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
-            placeholder: 'Button type'
+            placeholder: 'No'
             allowEmpty: TRUE
             values:
-              button:
-                label: 'Type: Button'
-              submit:
-                label: 'Type: Submit'
-              reset:
-                label: 'Type: Reset'
-    renderAnchor:
-      type: boolean
+              _blank:
+                label: 'Yes'
+    # Reveal Modal related properties.
+    htmlDataRevealId:
+      type: string
+      defaultValue: ''
       ui:
-        label: 'Render as an anchor (link)'
+        label: 'Reveal Modal ID'
         reloadIfChanged: TRUE
         inspector:
-          group: 'options'
+          group: 'revDropOptions'
+          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
+          editorOptions:
+            placeholder: 'e.g. myModal'
+      validation:
+        regularExpression:
+          regularExpression: '/^[-a-z0-9_]+$/i'
+    # Dropdown related properties.
+    htmlDataDropdownId:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Dropdown ID'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'revDropOptions'
+          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
+          editorOptions:
+            placeholder: 'e.g. myDropdown'
+      validation:
+        regularExpression:
+          regularExpression: '/^[-a-z0-9_]+$/i'
+    dropdownHoverable:
+      type: boolean
+      ui:
+        label: 'Dropdown hoverable'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'revDropOptions'
+    dropdownDirection:
+      type: string
+      ui:
+        label: 'Dropdown direction'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'revDropOptions'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Default / Bottom'
+            allowEmpty: TRUE
+            values:
+              'top':
+                label: 'Top'
+              'right':
+                label: 'Right'
+              'bottom':
+                label: 'Bottom'
+              'left':
+                label: 'Left'
+
+
+# -----------------------------------------------------------------------------
+#
+# Link
+#
+# -----------------------------------------------------------------------------
+'M12.Foundation:Link':
+  label: "${'Link: ' + q(node).property('label') + ' (' + node.name + ')'}"
+  superTypes:
+    - 'M12.Foundation:ButtonLinkAbstract'
+  ui:
+    label: 'Link'
+    icon: 'icon-link'
+
+
+# -----------------------------------------------------------------------------
+#
+# Button
+#
+# -----------------------------------------------------------------------------
+'M12.Foundation:Button':
+  label: "${'Button: ' + q(node).property('label') + ' (' + node.name + ')'}"
+  superTypes:
+    - 'M12.Foundation:ButtonLinkAbstract'
+  ui:
+    label: 'Button'
+  properties:
+    label: # Override parent 'label'
+      defaultValue: 'Button'
+      ui:
+        label: 'Button label'
+        inspector:
+          group: 'buttonOptions'
     classOptions:
       type: array
       defaultValue: ['']
       ui:
-        label: ''
+        label: 'Button options'
         reloadIfChanged: TRUE
         inspector:
-          group: 'options'
+          group: 'buttonOptions'
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             placeholder: 'Button options'
@@ -139,83 +242,32 @@
               expand:
                 label: 'Expanded button'
                 group: 'Misc'
-    htmlHref:
+    buttonType:
       type: string
       ui:
-        label: 'Link'
+        label: 'Button type'
         reloadIfChanged: TRUE
         inspector:
-          group: 'options'
-          # TODO: Replace with LinkEditor when it is fixed (Neos 1.2.0: seems to be buggy, does not allow external URLs)
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
-          editorOptions:
-            placeholder: 'e.g. http://www.example.com'
-    htmlTargetBlank:
-      type: string
-      ui:
-        label: 'Open in new window'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'options'
+          group: 'buttonOptions'
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
-            placeholder: 'No'
+            placeholder: 'Button type'
             allowEmpty: TRUE
             values:
-              _blank:
-                label: 'Yes'
-    # Reveal Modal related properties.
-    htmlDataRevealId:
-      type: string
-      defaultValue: ''
-      ui:
-        label: 'Reveal Modal ID'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'extraOptions'
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
-          editorOptions:
-            placeholder: 'e.g. myModal'
-    # Dropdown related properties.
-    htmlDataDropdownId:
-      type: string
-      defaultValue: ''
-      ui:
-        label: 'Dropdown ID'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'extraOptions'
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
-          editorOptions:
-            placeholder: 'e.g. myDropdown'
-    dropdownHoverable:
+              button:
+                label: 'Type: Button'
+              submit:
+                label: 'Type: Submit'
+              reset:
+                label: 'Type: Reset'
+    renderAnchor:
       type: boolean
       ui:
-        label: 'Dropdown hoverable'
+        label: 'Render button as an anchor (link)'
         reloadIfChanged: TRUE
         inspector:
-          group: 'extraOptions'
-    dropdownDirection:
-      type: string
-      ui:
-        label: 'Dropdown direction'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'extraOptions'
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
-          editorOptions:
-            placeholder: 'Default / Bottom'
-            allowEmpty: TRUE
-            values:
-              'top':
-                label: 'Top'
-              'right':
-                label: 'Right'
-              'bottom':
-                label: 'Bottom'
-              'left':
-                label: 'Left'
-
+          group: 'linkOptions'
+          position: 10
 
 # Button Group (list of buttons)
 'M12.Foundation:ButtonGroup':
