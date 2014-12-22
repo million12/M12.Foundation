@@ -1,0 +1,5 @@
+prototype(TYPO3.Neos.NodeTypes:ContentReferences) {
+	# Remove default ContentReferences wrapper
+	@process.wrapRemover = M12.Utils:WrapRemover
+	@process.wrapRemover.wrapperClass = 'typo3-neos-nodetypes-contentreferences'
+}

@@ -61,6 +61,12 @@
     abstractNavSailingType: 'M12.Foundation:AbstractNavSailingType'
     abstractDevCustomTag: 'M12.Foundation:AbstractDevCustomTag'
 
+'TYPO3.Neos.NodeTypes:ContentReferences':
+  ui:
+    # Experimental! Make all referenced nodes inline editable.
+    # This might be confusing as user might unintentionally edit
+    # referenced content (which might reside on another pages etc).
+    inlineEditable: TRUE
 
 'TYPO3.Neos:ContentCollection':
   constraints:
