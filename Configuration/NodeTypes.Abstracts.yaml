@@ -1,4 +1,20 @@
 #
+# Mixin to define node title used as a node reference name
+# Note: it is based on 'TYPO3.Neos:Node.label' definition
+# which takes the 'title' property as a displayed node label.
+#
+'M12.Foundation:AbstractNodeTitle':
+  abstract: TRUE
+  properties:
+    title:
+      type: string
+      ui:
+        label: 'Node title/label (for reference)'
+        inspector:
+          group: 'type'
+          position: 10
+
+#
 # Mixin with custom id / css class / inline css
 #
 'M12.Foundation:AbstractDevBase':
