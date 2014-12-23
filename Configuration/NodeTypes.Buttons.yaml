@@ -92,6 +92,13 @@
             values:
               _blank:
                 label: 'Yes'
+    htmlTitle:
+      type: string
+      defaultValue: 'Link title'
+      ui:
+        label: 'Link title'
+        inspector:
+          group: 'linkOptions'
     # Reveal Modal related properties.
     htmlDataRevealId:
       type: string

@@ -4,9 +4,9 @@ prototype(M12.Foundation:ButtonLinkAbstract) < prototype(M12.Foundation:Content)
 	url.@process.1 = TYPO3.Neos:ConvertUris
 	@override.url = ${this.url}
 
-	
 	attributes.target = ${url && q(node).property('htmlTargetBlank') ? q(node).property('htmlTargetBlank') : null}
 	attributes.href = ${url ? url : null}
+	attributes.title = ${q(node).property('htmlTitle') ? String.trim(q(node).property('htmlTitle')) : null}
 
 	# Extra link/button options
 	attributes.data-reveal-id = ${q(node).property('htmlDataRevealId') ? String.trim(q(node).property('htmlDataRevealId')) : null}
