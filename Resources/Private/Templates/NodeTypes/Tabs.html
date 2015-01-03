@@ -16,7 +16,7 @@
 <!-- Tabs navigation -->
 <f:section name="tabNavItem">
 	<f:if condition="{iterator.isFirst}"><ul{extraAttributes -> f:format.raw()}></f:if>
-		<li{attributes -> f:format.raw()}><a href="#{href}">{title}</a></li>
+		<li{attributes -> f:format.raw()}><a href="#{href}">{neos:contentElement.editable(property: 'title')}</a></li>
 	<f:if condition="{iterator.isLast}"></ul></f:if>
 </f:section>
 

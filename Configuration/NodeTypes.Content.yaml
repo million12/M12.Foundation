@@ -252,6 +252,7 @@
       type: string
       defaultValue: 'Tab'
       ui:
+        inlineEditable: TRUE
         inspector:
           group: 'tabSettings'
           position: 10
