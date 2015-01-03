@@ -6,10 +6,10 @@
 'M12.Foundation:Orbit':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:AbstractNodeTitle'
   ui:
     label: 'Orbit'
     icon: 'icon-picture'
-    group: 'foundationMedia'
     inlineEditable: TRUE
     inspector:
       groups:
