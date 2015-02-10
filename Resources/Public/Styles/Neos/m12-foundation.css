@@ -1,6 +1,0 @@
-/** Custom M12.Foundation code for Neos backend **/
-
-/** Restore Neos colors after they were overridden by Foundation **/ 
-.neos label {
-	color: inherit;
-}
