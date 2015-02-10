@@ -4,22 +4,15 @@
     "description": "Foundation content elements",
     "license": ["MIT"],
     "authors": [
-        {
-            "name": "Marcin Ryzycki",
-            "email": "marcin@m12.io",
-            "homepage": "http://m12.io",
-            "role": "Developer"
-        },
-        {
-            "name": "Samuel Ryzycki",
-            "email": "samuel@m12.io",
-            "homepage": "http://m12.io",
-            "role": "Developer"
-        }
+        { "name": "Marcin Ryzycki", "role": "Developer", "email": "marcin@m12.io", "homepage": "http://m12.io" },
+        { "name": "Samuel Ryzycki", "role": "Developer", "email": "samuel@m12.io", "homepage": "http://m12.io" }
     ],
     "require": {
-        "typo3/neos-nodetypes": "~1.2.0",
+        "typo3/neos-nodetypes": "*",
         "m12/neos-utils": "*"
+    },
+    "conflict": {
+        "typo3/neosdemotypo3org": "*"
     },
     "autoload": {
         "psr-0": {
