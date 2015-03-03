@@ -6,9 +6,7 @@ prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
 	attributes.class.divider = ${q(node).property('classDivider') ? 'divider' : null}
 	attributesHref = ${q(node).property('htmlHref') ? String.trim(q(node).property('htmlHref')) : null}
 
-	navItemContent = TYPO3.Neos:ContentCollection {
-		nodePath = 'content'
-	}
+	navItemContent = TYPO3.Neos:ContentCollectionRenderer
 
 	tag = ${this.isSubNav ? 'dd' : 'li'}
 }

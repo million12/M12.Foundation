@@ -28,7 +28,5 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
     	id = ${accordionItemId}
 	}
 
-	accordionItemContent = TYPO3.Neos:ContentCollection {
-		nodePath = 'content'
-	}
+	accordionItemContent = TYPO3.Neos:ContentCollectionRenderer
 }

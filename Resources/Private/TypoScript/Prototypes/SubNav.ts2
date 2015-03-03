@@ -3,7 +3,5 @@ prototype(M12.Foundation:SubNav) < prototype(M12.Foundation:Content) {
 
 	subNavTitle = ${q(node).property('title') ? q(node).property('title') : null}
 
-	subNavContent = TYPO3.Neos:ContentCollection {
-		nodePath = 'content'
-	}
+	subNavContent = TYPO3.Neos:ContentCollectionRenderer
 }

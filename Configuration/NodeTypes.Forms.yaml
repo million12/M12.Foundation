@@ -8,6 +8,7 @@
 'M12.Foundation:Form':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
     - 'M12.Foundation:AbstractNavSailingType'
   ui:
     label: 'Form container'
@@ -19,12 +20,6 @@
         formSettings:
           label: 'Form settings'
           position: 5
-  constraints:
-    nodeTypes:
-      '*': FALSE # All content must go into child ContentCollection
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
   properties:
     actionUri:
       type: string
@@ -64,9 +59,6 @@
         dev:
           label: 'Advanced form element settings'
           position: 9
-  constraints:
-    nodeTypes:
-      '*': FALSE # All content must go into child ContentCollection
   properties:
     inputName:
       type: string
@@ -136,9 +128,6 @@
         formLabelSettings:
           label: 'Form label settings'
           position: 6
-  constraints:
-    nodeTypes:
-      '*': FALSE # All content must go into child ContentCollection
   properties:
     inputLabel:
       type: string
@@ -242,6 +231,7 @@
 'M12.Foundation:FormFieldset':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Form fieldset'
     icon: 'icon-check-empty'
@@ -251,12 +241,6 @@
         formInputSettings:
           label: 'Form input settings'
           position: 9
-  constraints:
-    nodeTypes:
-      '*': FALSE # All content must go into child ContentCollection
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
   properties:
     legendTxt:
       type: string

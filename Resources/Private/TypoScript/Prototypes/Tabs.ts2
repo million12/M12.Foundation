@@ -59,7 +59,5 @@ prototype(M12.Foundation:TabItem) < prototype(M12.Foundation:Content) {
 	attributes.class.active = ${q(node).property('activeTab') ? 'active' : null}
 	attributes.id = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-'+q(node).property('_nodeData.identifier'))}
 
-	content = TYPO3.Neos:ContentCollection {
-		nodePath = 'content'
-	}
+	content = TYPO3.Neos:ContentCollectionRenderer
 }

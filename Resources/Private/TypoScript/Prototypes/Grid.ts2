@@ -13,9 +13,7 @@ prototype(M12.Foundation:Column) < prototype(M12.Foundation:Content) {
 	attributes.class.gridResetOrder = ${q(node).property('classGridResetOrder') ? Array.join(q(node).property('classGridResetOrder'), ' ') : null}
 	attributes.class.gridAlign = ${q(node).property('classGridAlign') ? Array.join(q(node).property('classGridAlign'), ' ') : null}
 
-	columnContent = TYPO3.Neos:ContentCollection {
-		nodePath = 'column'
-	}
+	columnContent = TYPO3.Neos:ContentCollectionRenderer
 }
 
 # Basic implementation of a flexible GridColumns element,

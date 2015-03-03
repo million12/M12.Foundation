@@ -2,7 +2,5 @@ prototype(M12.Foundation:Alert) < prototype(M12.Foundation:Content) {
 	attributes.class.base = 'alert-box'
 	attributes.class.appearance = ${q(node).property('classAppearance') ? q(node).property('classAppearance') : null}
 
-	alertContent = TYPO3.Neos:ContentCollection {
-		nodePath = 'content'
-	}
+	alertContent = TYPO3.Neos:ContentCollectionRenderer
 }
