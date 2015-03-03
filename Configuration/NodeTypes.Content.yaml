@@ -97,14 +97,12 @@
   superTypes:
     - 'TYPO3.Neos:Content'
     - 'M12.Foundation:DropdownAbstract'
+    - 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Dropdown: Content'
     icon: 'icon-collapse'
     group: 'interactive'
     inlineEditable: TRUE
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
   properties:
     dropdownPadding:
       type: boolean
@@ -166,16 +164,11 @@
   superTypes:
     - 'TYPO3.Neos:Content'
     - 'M12.Foundation:AccordionAbstract'
+    - 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Accordion Item'
     icon: 'icon-reorder'
     group: 'structure'
-  constraints:
-    nodeTypes:
-      '*': FALSE # No children items allowed apart of child ContentCollection
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
   properties:
     accordionItemLabel:
       type: string
@@ -233,6 +226,7 @@
 'M12.Foundation:TabItem':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Tab Item'
     icon: 'icon-angle-right'
@@ -241,12 +235,6 @@
         tabSettings:
           label: 'Tab item options'
           position: 9
-  constraints:
-    nodeTypes:
-      '*': FALSE # All content must go to child ContentCollection
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
   properties:
     title:
       type: string

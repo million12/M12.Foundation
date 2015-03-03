@@ -65,14 +65,12 @@
 'M12.Foundation:SideNav':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Side Nav'
     icon: 'icon-th-list'
     group: 'navigation'
     inlineEditable: TRUE
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
 
 
 #
@@ -98,6 +96,7 @@
 'M12.Foundation:SubNav':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Sub Nav'
     icon: 'icon-barcode'
@@ -118,9 +117,6 @@
         inspector:
           group: 'options'
           editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
 
 
 #

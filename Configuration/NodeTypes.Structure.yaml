@@ -6,6 +6,7 @@
 'M12.Foundation:Container':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
     - 'M12.Foundation:AbstractDevCustomTag'
     - 'M12.Foundation:AbstractNavSailingType'
     - 'M12.Foundation:AbstractNodeTitle'
@@ -14,12 +15,6 @@
     icon: 'icon-hdd'
     group: 'structure'
     inlineEditable: TRUE
-  constraints:
-    nodeTypes:
-      '*': FALSE # Disallow everything, all content must go into child ContentCollection
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
 
 
 
@@ -38,6 +33,7 @@
 'M12.Foundation:Column':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
     - 'M12.Foundation:AbstractDevCustomTag'
     - 'M12.Foundation:AbstractNavSailingType'
     - 'M12.Foundation:AbstractNodeTitle'
@@ -50,12 +46,6 @@
         grid:
           label: 'Grid options'
           position: 6
-  constraints:
-    nodeTypes:
-      '*': FALSE # Disallow everything, all content must go into child ContentCollection
-  childNodes:
-    column:
-      type: 'TYPO3.Neos:ContentCollection'
   postprocessors:
     GridColumnPropertiesPostprocesor:
       postprocessor: 'M12\Foundation\NodeTypePostprocessor\GridColumnNodeTypePostprocessor'
@@ -164,6 +154,7 @@
 'M12.Foundation:BlockGrid':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
     - 'M12.Foundation:AbstractNavSailingType'
   ui:
     label: 'Block Grid'
@@ -175,12 +166,6 @@
         grid:
           label: 'Block Grid settings'
           position: 9
-  constraints:
-    nodeTypes:
-      '*': FALSE # Disallow everything, all content must go into child ContentCollection
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
   postprocessors:
     ColumnPostprocesor:
       postprocessor: 'M12\Foundation\NodeTypePostprocessor\BlockGridNodeTypePostprocessor'

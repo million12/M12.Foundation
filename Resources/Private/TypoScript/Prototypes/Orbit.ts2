@@ -22,9 +22,7 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 
 	@override.parentAttributes = ${this.attributes}
 
-	orbitContent = TYPO3.Neos:ContentCollection {
-		nodePath = 'content'
-
+	orbitContent = TYPO3.Neos:ContentCollectionRenderer {
 		iterationName = 'iterator'
 		itemName = 'orbitNodeItem'
 		itemRenderer = M12.Foundation:OrbitItem

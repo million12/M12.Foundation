@@ -6,9 +6,7 @@ prototype(M12.Foundation:BlockGrid) < prototype(M12.Foundation:Content) {
 	attributes.class.itemsPerRow = ${q(node).property('classGridItemsPerRow') ? String.trim(Array.join(q(node).property('classGridItemsPerRow'), ' ')) : null}
 	@override.parentAttributes = ${this.attributes}
 
-	blockGridContent = TYPO3.Neos:ContentCollection {
-		nodePath = 'content'
-
+	blockGridContent = TYPO3.Neos:ContentCollectionRenderer {
 		iterationName = 'iterator'
 		itemName = 'node'
 		itemRenderer = M12.Foundation:BlockGridItem

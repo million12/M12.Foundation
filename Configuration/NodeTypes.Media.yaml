@@ -6,6 +6,7 @@
 'M12.Foundation:Orbit':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
     - 'M12.Foundation:AbstractNodeTitle'
   ui:
     label: 'Orbit'
@@ -16,9 +17,6 @@
         orbitSettings:
           label: 'Orbit settings'
           position: 9
-  childNodes:
-    content:
-      type: 'TYPO3.Neos:ContentCollection'
   properties:
     animation:
       type: string
