@@ -4,6 +4,7 @@ machine:
   hosts:
     neos: 127.0.0.1
     dev.neos: 127.0.0.1
+    dev.something: 127.0.0.2
 
 dependencies:
   pre:
