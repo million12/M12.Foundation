@@ -1,5 +1,6 @@
 #
-# ok, some comments should be here...
+# Feature 1 with some changes
+# and some extra new patches
 #
 machine:
   services:
