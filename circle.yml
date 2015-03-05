@@ -1,6 +1,3 @@
-#
-# some another change
-#
 machine:
   services:
     - docker
