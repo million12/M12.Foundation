@@ -1,5 +1,8 @@
 #
-# ok, some comments should be here...
+# Feature 1 with great changes
+# and some extra new patches
+#
+# And here's more changes...
 #
 machine:
   services:
