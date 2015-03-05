@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a1969be_6a2b7a94",
+        "filename": "circle.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 41,
+      "author": {
+        "id": 1004068
+      },
+      "writtenOn": "2015-03-05T15:55:43Z",
+      "side": 1,
+      "message": "what\u0027s that?",
+      "revId": "887ae1089bb9cf4a1410869c4684ab9332e5a82b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
