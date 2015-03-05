@@ -1,5 +1,7 @@
 #
-# tralala change
+# yet another change
+# after adding to [remote origin]
+# push = refs/heads/*:refs/for/*
 #
 machine:
   services:
