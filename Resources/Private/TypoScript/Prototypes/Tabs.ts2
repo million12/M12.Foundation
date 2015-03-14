@@ -3,24 +3,28 @@
 prototype(M12.Foundation:Tabs) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Tabs.html'
 	sectionName = 'tabs'
-	
-	node = ${node}
-	@override.parentNode = ${node}
+
+	tabsNavContent = TYPO3.TypoScript:Tag {
+		tagName = 'ul'
+		attributes.data-tab = ''
+		attributes.class = TYPO3.TypoScript:RawArray {
+			base = 'tabs'
+			vertical = ${q(node).property('vertical') ? ' vertical' : null}
+		}
+		content = TYPO3.TypoScript:Collection {
+			collection = ${q(node).children('[instanceof M12.Foundation:TabItem]')}
+			itemRenderer = M12.Foundation:TabNavItem
+			itemName = 'node'
+		}
+	}
 
 	# Attributes around div.tabs-content
 	extraAttributes.class.base = 'tabs-content'
 	extraAttributes.class.vertical = ${q(node).property('vertical') ? 'vertical' : null}
 
-	tabsNavContent = TYPO3.TypoScript:Collection {
-		collection = ${q(node).children('[instanceof M12.Foundation:TabItem]')}
-		itemRenderer = M12.Foundation:TabNavItem
-		itemRenderer.parentNode = ${parentNode}
-		itemName = 'node'
-		iterationName = 'iterator'
-	}
 	tabsContent = TYPO3.TypoScript:Collection {
 		collection = ${q(node).children('[instanceof M12.Foundation:TabItem]')}
-		itemRenderer = M12.Foundation:TabItem
+		itemRenderer = M12.Foundation:TabContentItem
 		itemName = 'node'
 	}
 
@@ -31,33 +35,23 @@ prototype(M12.Foundation:Tabs) < prototype(M12.Foundation:Content) {
 prototype(M12.Foundation:TabNavItem) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Tabs.html'
 	sectionName = 'tabNavItem'
-	node = ${node}
-	parentNode = ${parentNode}
-	iterator = ${iterator}
 
 	# Attributes for each LI element
 	attributes.class.tabTitle = 'tab-title'
 	attributes.class.active = ${q(node).property('activeTab') ? 'active' : null}
 
-	# Attributes for UL.tabs
-	extraAttributes.class.base = 'tabs'
-	extraAttributes.class.tabsCount = ${tabsNodeCount}
-	extraAttributes.class.vertical = ${q(parentNode).property('vertical') ? 'vertical' : null}
-	extraAttributes.data-tab = ''
-
 	title = ${q(node).property('title')}
-	href = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-'+q(node).property('_nodeData.identifier'))}
+	href = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-' + q(node).property('_identifier'))}
 }
 
 # Abstract render definition for a grid column
-prototype(M12.Foundation:TabItem) < prototype(M12.Foundation:Content) {
+prototype(M12.Foundation:TabContentItem) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Tabs.html'
 	sectionName = 'tabContentItem'
-	node = ${node}
 
 	attributes.class.base = 'content'
 	attributes.class.active = ${q(node).property('activeTab') ? 'active' : null}
-	attributes.id = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-'+q(node).property('_nodeData.identifier'))}
+	attributes.id = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-' + q(node).property('_identifier'))}
 
 	content = TYPO3.Neos:ContentCollectionRenderer
 }
