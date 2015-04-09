@@ -37,8 +37,12 @@ prototype(M12.Foundation:TabNavItem) < prototype(M12.Foundation:Content) {
 	sectionName = 'tabNavItem'
 
 	# Attributes for each LI element
-	attributes.class.tabTitle = 'tab-title'
-	attributes.class.active = ${q(node).property('activeTab') ? 'active' : null}
+	attributes.class {
+		tabTitle = 'tab-title'
+		active = ${q(node).property('activeTab') ? 'active' : null}
+		hideCcOverlay = 'neos-hide-empty-contentcollection-overlay'
+		hideCcOverlay.@if.isBackend = ${node.context.workspace.name != 'live'}
+	}
 
 	title = ${q(node).property('title')}
 	href = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-' + q(node).property('_identifier'))}
