@@ -26,7 +26,7 @@
   properties:
     topBarTitle:
       type: string
-      defaultValue: ''
+      defaultValue: 'Home'
       ui:
         label: 'Top Bar title'
         reloadIfChanged: TRUE
@@ -35,9 +35,9 @@
           editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
     classSectionAlign:
       type: string
-      defaultValue: 'left'
+      defaultValue: 'right'
       ui:
-        label: 'TopBar section align'
+        label: 'TopBar links align'
         reloadIfChanged: TRUE
         inspector:
           group: 'navOptions'
@@ -51,13 +51,18 @@
                 label: 'right'
     topBarGridContained:
       type: boolean
+      defaultValue: TRUE
       ui:
         label: 'Contain to grid'
         reloadIfChanged: TRUE
         inspector:
           group: 'navOptions'
-
-
+    # Override default values from parent TYPO3.Neos.NodeTypes:Menu
+    maximumLevels:
+      defaultValue: 3
+    selection:
+      ui:
+        label: 'Override / manually select pages'
 
 #
 # Side Nav
