@@ -27,16 +27,17 @@
     abstractDev: 'M12.Foundation:AbstractDevBase'
     abstractCustomLook: 'M12.Foundation:AbstractDevCustomLook'
   properties:
+    # Custom JS code at the end of BODY
     customJsCode:
       type: string
       ui:
         reloadIfChanged: TRUE
         inspector:
           group: 'devCode'
-          position: 31 # after 'customCssCode'
+          position: 30 # before 'customCssCode'
           editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
           editorOptions:
-            buttonLabel: 'Add custom JS code'
+            label: 'Custom JS code'
             highlightingMode: 'text/javascript'
     # Inherited from M12.Foundation:AbstractDevBase
     # Replace it with CssEditor
@@ -46,7 +47,7 @@
         inspector:
           editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
           editorOptions:
-            buttonLabel: 'Add custom CSS styles'
+            label: 'Custom CSS styles'
             highlightingMode: 'text/css'
     # Inherited from M12.Foundation:AbstractDevBase
     customHtmlId:
