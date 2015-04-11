@@ -1,4 +1,5 @@
 # M12.Foundation - Foundation components inside TYPO3 Neos
+[![Circle CI](https://circleci.com/gh/million12/M12.Foundation.svg?style=svg)](https://circleci.com/gh/million12/M12.Foundation)
 
 M12.Foundation aims to implement all [Zurb Foundation](http://foundation.zurb.com/) components, in the best possible way, inside [TYPO3 Neos](http://neos.typo3.org/) CMS.
 
