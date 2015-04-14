@@ -52,45 +52,39 @@ prototype(M12.Foundation:Button) < prototype(M12.Foundation:ButtonLinkAbstract) 
 	tagName = ${renderAnchor ? 'a' : 'button'}
 }
 
-prototype(M12.Foundation:ButtonGroup) < prototype(M12.Foundation:Content) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/ButtonLink.html'
-	sectionName = 'buttonGroup'
-	
-	attributes.class.base = 'button-group'
-	
-	@override.parentAttributes = ${this.attributes}
-
-	buttons = TYPO3.TypoScript:Collection {
+prototype(M12.Foundation:ButtonGroup) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'ul'
+	attributes.class = TYPO3.TypoScript:RawArray {
+		base = 'button-group'
+	}
+	content = TYPO3.TypoScript:Collection {
 		collection = ${q(node).children('[instanceof M12.Foundation:Button]')}
 		itemRenderer = M12.Foundation:ButtonGroupItem
 		itemName = 'node'
 		iterationName = 'iterator'
 	}
-	
-	@process.wrapRemover = M12.Utils:WrapRemover
-	@process.wrapRemover.wrapperClass = 'extra-wrapper-required-by-neos-backend'
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }
 
-prototype(M12.Foundation:ButtonGroupItem) < prototype(M12.Foundation:Content) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/ButtonLink.html'
-	sectionName = 'buttonGroupItem'
-	
-	iterator = ${iterator}
-	parentAttributes = ${parentAttributes}
-
-	button = TYPO3.Neos:ContentCase
+prototype(M12.Foundation:ButtonGroupItem) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'li'
+	content = TYPO3.Neos:ContentCase
+	prototype(TYPO3.Neos:Content) {
+		# Remove contentElementWrapping, because wrapping was already added in ButtonGroupItem
+		@process.contentElementWrapping>
+	}
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }
 
 # ButtonBar: group of button group(s)
-prototype(M12.Foundation:ButtonBar) < prototype(M12.Foundation:Content) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/ButtonLink.html'
-	sectionName = 'buttonBar'
-	
-	attributes.class.base = 'button-bar'
-
-	buttonGroups = TYPO3.TypoScript:Collection {
+prototype(M12.Foundation:ButtonBar) < prototype(TYPO3.TypoScript:Tag) {
+	attributes.class = TYPO3.TypoScript:RawArray {
+		base = 'button-bar'
+	}
+	content = TYPO3.TypoScript:Collection {
 		collection = ${q(node).children('[instanceof M12.Foundation:ButtonGroup]')}
 		itemRenderer = M12.Foundation:ButtonGroup
 		itemName = 'node'
 	}
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

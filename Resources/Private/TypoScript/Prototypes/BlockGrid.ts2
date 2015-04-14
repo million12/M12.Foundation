@@ -1,27 +1,35 @@
 prototype(M12.Foundation:BlockGrid) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/BlockGrid.html'
-	sectionName = 'blockGrid'
 	node = ${node}
-	
-	attributes.class.itemsPerRow = ${q(node).property('classGridItemsPerRow') ? String.trim(Array.join(q(node).property('classGridItemsPerRow'), ' ')) : null}
-	@override.parentAttributes = ${this.attributes}
 
-	blockGridContent = TYPO3.Neos:ContentCollectionRenderer {
-		iterationName = 'iterator'
-		itemName = 'node'
-		itemRenderer = M12.Foundation:BlockGridItem
+	blockGridContent = TYPO3.TypoScript:Tag {
+		attributes.class = TYPO3.TypoScript:RawArray {
+			itemsPerRow = ${q(node).property('classGridItemsPerRow') ? String.trim(Array.join(q(node).property('classGridItemsPerRow'), ' ')) : null}
+		}
+		tagName = 'ul'
+		content = TYPO3.Neos:ContentCollectionRenderer {
+			iterationName = 'iterator'
+			itemName = 'node'
+			itemRenderer = M12.Foundation:BlockGridItem
+		}
+
+		# Add additional wrapping, because otherwise createjs won't work (it requires elements of contentcollection to be direct children of contentcollection).
+		# Can be removed when createjs is dropped.
+		@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 	}
 
 	@process.wrapRemover = M12.Utils:WrapRemover
 	@process.wrapRemover.wrapperClass = 'extra-wrapper-required-by-neos-backend'
 }
 
-prototype(M12.Foundation:BlockGridItem) < prototype(M12.Foundation:Content) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/BlockGrid.html'
-	sectionName = 'blockGridItem'
+prototype(M12.Foundation:BlockGridItem) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'li'
 
-	iterator = ${iterator}
-	parentAttributes = ${parentAttributes}
+	content = TYPO3.Neos:ContentCase
 
-	blockGridItemContent = TYPO3.Neos:ContentCase
+	prototype(TYPO3.Neos:Content) {
+		# Remove contentElementWrapping, because wrapping was already added in BlockGridItem
+		@process.contentElementWrapping>
+	}
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

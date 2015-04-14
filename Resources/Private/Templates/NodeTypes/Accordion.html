@@ -8,8 +8,6 @@
 <f:section name="AccordionItem">
 	<li{attributes -> f:format.raw()}>
 		<a href="{accordionItemLabelHref}">{neos:contentElement.editable(property: 'accordionItemLabel')}</a>
-		<div{extraAttributes -> f:format.raw()}>
-			<ts:render path="accordionItemContent" />
-		</div>
+		<ts:render path="accordionItemContent" />
 	</li>
 </f:section>

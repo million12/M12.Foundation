@@ -77,5 +77,5 @@ prototype(TYPO3.Neos:Content) {
 
 	# Support for font icon in all content types
 	# Or shall it be included on per-content basis, only where necessary?
-	fontIcon = M12.Foundation:FontIconSimple
+	fontIcon = M12.Foundation:FontIconAbstract
 }

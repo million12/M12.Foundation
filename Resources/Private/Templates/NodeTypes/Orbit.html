@@ -9,34 +9,8 @@
 	</div>
 </f:section>
 
-<!-- Slider item -->
-<f:section name="sliderItem">
-	<li>{orbitItemContent -> f:format.raw()}</li>
-</f:section>
-
-
-<!-- Image, when rendered inside slider
- 
-Note: currently (Neos 2.0-dev) it has to be rendered using <f:render /> instead of directly,
-due to some escaping errors in Fluid/Flow.
-
-How to check if that extra `<f:render />` can be removed? 
-Insert image inside slider, switch on image caption, start editing the caption.
-Neos will start saving the changes in the background. Currently following exception is then thrown,
-when sending PUT request to `/neos/service/node/update`:
-
-Uncaught exception #1297759968 in line 271 of Data/Temporary/Development/Cache/Code/Flow_Object_Classes/TYPO3_Flow_Mvc_Controller_Argument.php: 
-Exception while property mapping for target type "TYPO3\TYPO3CR\Domain\Model\Node",at property path "": 
-Exception while property mapping for target type "TYPO3\Media\Domain\Model\ImageInterface", at property path "":
-The given type "TYPO3\\Media\\Domain\\Model\\Image" is not a subtype of "TYPO3\Media\Domain\Model\ImageInterface”.
-
-If it's not the case anymore, it can be removed ;)
--->
+<!-- Image, when rendered inside slider -->
 <f:section name="sliderItemImage">
-	<f:render section="Image" arguments="{_all}" />
-</f:section>
-
-<f:section name="Image">
 	<figure{f:if(condition: imageClassName, then: ' class="{imageClassName}"')}>
 	<f:if condition="{image}">
 		<f:then>

@@ -280,6 +280,7 @@
 'M12.Foundation:ButtonGroup':
   superTypes:
     - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
   ui:
     label: 'Button Group'
     icon: 'icon-minus'

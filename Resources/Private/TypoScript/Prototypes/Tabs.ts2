@@ -46,6 +46,9 @@ prototype(M12.Foundation:TabNavItem) < prototype(M12.Foundation:Content) {
 
 	title = ${q(node).property('title')}
 	href = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-' + q(node).property('_identifier'))}
+
+	# Unset contentElementWrapping, as tabNavItems don't need it
+	@process.contentElementWrapping>
 }
 
 # Abstract render definition for a grid column

@@ -1,7 +1,7 @@
 # Create separate TypoScript object which will be rendered inside another NodeType.
 # It's done this way to avoid default TYPO3.Neos:Content behaviour in Neos backend
 # (ie. we don't want there toolbar with add/remove icons etc as it would be misleading).
-prototype(M12.Foundation:FontIconSimple) < prototype(TYPO3.TypoScript:Template) {
+prototype(M12.Foundation:FontIconAbstract) < prototype(TYPO3.TypoScript:Template) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/FontIcon.html'
 	node = ${node}
 
@@ -10,9 +10,8 @@ prototype(M12.Foundation:FontIconSimple) < prototype(TYPO3.TypoScript:Template) 
 	faCustomCss     = ${q(node).property('faCustomCss')}
 }
 
-prototype(M12.Foundation:FontIcon) < prototype(M12.Foundation:Content) {
-	node = ${node}
-
-	# Join 'faOptions' same way as in M12.Foundation:FontIconSimple
-	faOptions < prototype(M12.Foundation:FontIconSimple).faOptions
+prototype(M12.Foundation:FontIcon) < prototype(M12.Foundation:FontIconAbstract) {
+	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
+	# This line prevents faOptions to be overriden by TS generated in generateNodeTypeDefinitions
+	faOptions < prototype(M12.Foundation:FontIconAbstract).faOptions
 }
