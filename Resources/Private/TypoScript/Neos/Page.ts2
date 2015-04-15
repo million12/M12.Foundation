@@ -11,7 +11,7 @@ prototype(TYPO3.Neos:Page) {
 				customClass = ${q(node).property('customCssClass') ? q(node).property('customCssClass') : null}
 
 				# At the end remove extra spaces after many class items were joined
-				@process.trimThatWitch {
+				@process.joinAndTrim {
 					expression = ${String.trim(String.pregReplace(Array.join(value,' '),'/\s+/',' '))}
 					@position = 'end'
 				}
@@ -19,7 +19,7 @@ prototype(TYPO3.Neos:Page) {
 				# Note: TBD if it should be added always...
 				@process.nodeTypeShort {
 					expression = ${value ? nodeTypeShort + ' ' + value : null}
-					@position = 'after trimThatWitch'
+					@position = 'after joinAndTrim'
 				}
 			}
 			id = ${q(node).property('customHtmlId') ? String.trim(q(node).property('customHtmlId')) : null}
@@ -46,4 +46,13 @@ prototype(TYPO3.Neos:Page) {
 		}
 		javascripts.@process.appendCustomJsCode = ${value + customJsCode}
 	}
+}
+
+# rawContent is a TYPO3.Neos:Page obj which renders the content in 'Raw Content' editing mode.
+# It overrides the `bodyTag.attributes.class` with simple string, which won't work
+# with the above changes, where bodyTag.attributes.class is required to be an array,
+# so the 'joinAndTrim' processor can work. Because it's not needed here, switch it off.
+# See https://github.com/million12/M12.Foundation/issues/28
+rawContent {
+	bodyTag.attributes.class.@process.joinAndTrim >
 }

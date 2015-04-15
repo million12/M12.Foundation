@@ -45,7 +45,7 @@ prototype(TYPO3.Neos:Content) {
 		customClass.@position = 'end 20'
 
 		# At the end remove extra spaces after many class items were joined
-		@process.trimThatWitch {
+		@process.joinAndTrim {
 		 	expression = ${String.trim(String.pregReplace(Array.join(value,' '),'/\s+/',' '))}
 		 	@position = 'end'
 		}
@@ -54,11 +54,11 @@ prototype(TYPO3.Neos:Content) {
 	attributes.style = ${q(node).property('customCssCode') ? String.trim(q(node).property('customCssCode')) : null}
 	attributes.customUserAttributes = ${q(node).property('customUserAttributes') ? q(node).property('customUserAttributes') : null}
 
-	# Prepare container for another set of attributes - can be used for
-	# additional outer wrapper etc. Not harmful when not used / empty.
+	# Prepare container for another/extra set of attributes - can be used for
+	# additional outer wrapper etc. Not harmful when not used and/or empty.
 	extraAttributes = TYPO3.TypoScript:Attributes {
 		class = TYPO3.TypoScript:RawArray
-		class.@process.trimThatWitch {
+		class.@process.joinAndTrim {
 			expression = ${String.trim(String.pregReplace(Array.join(value,' '),'/\s+/',' '))}
 			@position = 'end'
 		}
@@ -67,7 +67,7 @@ prototype(TYPO3.Neos:Content) {
 		# extraAttributes exists and if so, extra wrapper might be rendered.
 		class.@process.nullify {
 			expression = ${value ? value : null}
-			@position = 'after trimThatWitch'
+			@position = 'after joinAndTrim'
 		}
 	}
 
