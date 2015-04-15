@@ -71,7 +71,7 @@ prototype(M12.Foundation:ButtonGroupItem) < prototype(TYPO3.TypoScript:Tag) {
 	content = TYPO3.Neos:ContentCase
 	prototype(TYPO3.Neos:Content) {
 		# Remove contentElementWrapping, because wrapping was already added in ButtonGroupItem
-		@process.contentElementWrapping>
+		@process.contentElementWrapping >
 	}
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

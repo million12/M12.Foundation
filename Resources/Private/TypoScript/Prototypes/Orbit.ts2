@@ -42,14 +42,15 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 prototype(M12.Foundation:OrbitItem) < prototype(TYPO3.TypoScript:Tag) {
 	content = TYPO3.Neos:ContentCase
 
+	prototype(TYPO3.Neos:Content) {
+		# Remove contentElementWrapping, because wrapping is already added for OrbitItem (see below)
+		@process.contentElementWrapping >
+	}
 	# Re-define how Image is rendered inside slider
 	prototype(TYPO3.Neos.NodeTypes:Image) {
 		templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Orbit.html'
 		sectionName = 'sliderItemImage'
 	}
-	prototype(TYPO3.Neos:Content) {
-		# Remove contentElementWrapping, because wrapping was already added in OrbitItem
-		@process.contentElementWrapping>
-	}
+
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

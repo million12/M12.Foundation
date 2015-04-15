@@ -29,7 +29,7 @@ prototype(M12.Foundation:BlockGridItem) < prototype(TYPO3.TypoScript:Tag) {
 
 	prototype(TYPO3.Neos:Content) {
 		# Remove contentElementWrapping, because wrapping was already added in BlockGridItem
-		@process.contentElementWrapping>
+		@process.contentElementWrapping >
 	}
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

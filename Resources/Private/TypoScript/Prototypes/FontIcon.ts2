@@ -12,6 +12,6 @@ prototype(M12.Foundation:FontIconAbstract) < prototype(TYPO3.TypoScript:Template
 
 prototype(M12.Foundation:FontIcon) < prototype(M12.Foundation:FontIconAbstract) {
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
-	# This line prevents faOptions to be overriden by TS generated in generateNodeTypeDefinitions
+	# This line prevents faOptions to be overridden by TS generated in generateNodeTypeDefinitions
 	faOptions < prototype(M12.Foundation:FontIconAbstract).faOptions
 }
