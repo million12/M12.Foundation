@@ -9,30 +9,3 @@
 		<span data-dropdown="{htmlDataDropdownId}"></span>
 	</f:if>
 </{tagName}>
-
-<!-- Buttons: Button Group -->
-<f:section name="buttonGroup">
-	<div class="extra-wrapper-required-by-neos-backend">
-		<ts:render path="buttons" />
-	</div>
-</f:section>
-
-<!-- Buttons: Button Group Item -->
-<f:section name="buttonGroupItem">
-	<f:if condition="{iterator.isFirst}">
-		<ul{parentAttributes -> f:format.raw()}>
-	</f:if>
-
-	<li><ts:render path="button" /></li>
-
-	<f:if condition="{iterator.isLast}">
-		</ul>
-	</f:if>
-</f:section>
-
-<!-- Buttons: Button Bar -->
-<f:section name="buttonBar">
-	<div{attributes -> f:format.raw()}>
-		<ts:render path="buttonGroups" />
-	</div>
-</f:section>

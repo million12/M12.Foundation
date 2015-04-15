@@ -1,5 +1,3 @@
-# Basic implementation of a flexible Tabs element,
-# not exposed directly but inherited by all specific M12.Foundation:TabsX content elements
 prototype(M12.Foundation:Tabs) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Tabs.html'
 	sectionName = 'tabs'
@@ -40,12 +38,13 @@ prototype(M12.Foundation:TabNavItem) < prototype(M12.Foundation:Content) {
 	attributes.class {
 		tabTitle = 'tab-title'
 		active = ${q(node).property('activeTab') ? 'active' : null}
-		hideCcOverlay = 'neos-hide-empty-contentcollection-overlay'
-		hideCcOverlay.@if.isBackend = ${node.context.workspace.name != 'live'}
 	}
 
 	title = ${q(node).property('title')}
 	href = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ('tab-' + q(node).property('_identifier'))}
+
+	# Unset contentElementWrapping, as tabNavItems don't need it
+	@process.contentElementWrapping >
 }
 
 # Abstract render definition for a grid column

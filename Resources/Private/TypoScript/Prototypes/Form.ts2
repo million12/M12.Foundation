@@ -11,7 +11,7 @@ prototype(M12.Foundation:Form) < prototype(M12.Foundation:Content) {
 
 # Abstract prototype for all form elements.
 prototype(M12.Foundation:FormElementAbstract) < prototype(M12.Foundation:Content) {
-	@override.inputId = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : 'field-'+q(node).property('_nodeData.identifier')}
+	@override.inputId = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : 'field-'+q(node).property('_identifier')}
 	@override.errorState = ${q(node).property('errorState')}
 	
 	# Get 'name' attribute. If not provided, set to $inputId

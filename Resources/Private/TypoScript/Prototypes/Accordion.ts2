@@ -16,17 +16,23 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Accordion.html'
 	sectionName = 'AccordionItem'
 
-	@override.accordionItemId = ${q(node).property('accordionItemId') ? q(node).property('accordionItemId') : ( 'acc-' + q(node).property('_nodeData.identifier') )}
+	@override.accordionItemId = ${q(node).property('accordionItemId') ? q(node).property('accordionItemId') : ( 'acc-' + q(node).property('_identifier') )}
 	accordionItemLabelHref = ${'#' + accordionItemId}
 
 	attributes.class.base = 'accordion-navigation'
 
-	# These attributes are added to DIV content container.
-	extraAttributes {
-		class.base = 'content'
-    	class.active = ${q(node).property('isAccordionItemActive') ? 'active' : null}
-    	id = ${accordionItemId}
+	accordionItemContent = TYPO3.TypoScript:Tag {
+		# These attributes are added to DIV content container.
+		attributes {
+			class = TYPO3.TypoScript:RawArray {
+				base = 'content'
+				active = ${q(node).property('isAccordionItemActive') ? 'active' : null}
+			}
+			id = ${accordionItemId}
+		}
+		content = TYPO3.Neos:ContentCollectionRenderer
+		# Add additional wrapping, because otherwise createjs won't work (it requires elements of contentcollection to be direct children of contentcollection).
+		# Can be removed when createjs is dropped.
+		@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 	}
-
-	accordionItemContent = TYPO3.Neos:ContentCollectionRenderer
 }
