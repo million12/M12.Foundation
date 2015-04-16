@@ -1,11 +1,12 @@
 prototype(M12.Foundation:DropdownAbstract) < prototype(M12.Foundation:Content) {
 	attributes {
-		id = ${q(node).property('customHtmlId')}
 		class {
 			base = 'f-dropdown'
 			size = ${q(node).property('dropdownSize')}
 		}
 		data-dropdown-content = ''
+		# Set auto-close to FALSE always in the back-end, to make it possible to edit, without the need to switch to Raw content mode.
+		aria-autoclose = ${node.context.workspace.name != 'live' ? 'false' : (q(node).property('autoClose') ? 'true' : 'false')}
 	}
 }
 

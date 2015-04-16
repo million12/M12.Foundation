@@ -40,6 +40,14 @@
                 label: 'Medium'
               large:
                 label: 'Large'
+    autoClose:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Auto-close after click'
+        reloadIfChanged: FALSE
+        inspector:
+          group: 'dropdownOptions'
     customHtmlId:
       ui:
         label: 'Dropdown element ID'
