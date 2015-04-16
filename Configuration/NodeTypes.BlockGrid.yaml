@@ -1,0 +1,18 @@
+'M12.Foundation:BlockGrid':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
+    - 'M12.Foundation:AbstractNavSailingType'
+  ui:
+    label: 'Block Grid'
+    icon: 'icon-th-large'
+    group: 'structure'
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        grid:
+          label: 'Block Grid settings'
+          position: 9
+  postprocessors:
+    ColumnPostprocesor:
+      postprocessor: 'M12\Foundation\NodeTypePostprocessor\BlockGridNodeTypePostprocessor'

@@ -1,0 +1,51 @@
+'M12.Foundation:Video':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+  ui:
+    label: Flex Video
+    icon: 'icon-facetime-video'
+    inspector:
+      groups:
+        'video':
+          label: Video
+          position: 50
+  properties:
+    videoId:
+      type: string
+      ui:
+        label: 'Video ID'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'video'
+          editorOptions:
+            placeholder: 'Video ID from the video URL address...'
+    videoSource:
+      type: string
+      ui:
+        label: 'Video source'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'video'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              '':
+                label: 'YouTube (default)'
+              vimeo:
+                label: 'Vimeo'
+    width:
+      type: integer
+      defaultValue: 400
+      ui:
+        label: 'Width'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'video'
+    height:
+      type: integer
+      defaultValue: 300
+      ui:
+        label: 'Height'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'video'

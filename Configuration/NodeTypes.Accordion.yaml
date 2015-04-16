@@ -1,0 +1,97 @@
+# -----------------------------------------------------------------------------
+# Accordion
+# -----------------------------------------------------------------------------
+'M12.Foundation:AccordionAbstract':
+  abstract: TRUE
+  superTypes:
+    - 'M12.Foundation:AbstractDevBase'
+  ui:
+    inspector:
+      groups:
+        accordionSettings:
+          label: 'Accordion settings'
+          position: 9
+
+'M12.Foundation:Accordion':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:AccordionAbstract'
+  ui:
+    label: 'Accordion'
+    icon: 'icon-reorder'
+    group: 'structure'
+    inlineEditable: TRUE
+  constraints:
+    nodeTypes:
+      'M12.Foundation:AccordionItem': TRUE
+      '*': FALSE # No children items allowed
+  childNodes:
+    content:
+      type: 'M12.Foundation:AccordionItem'
+  properties:
+    accordionGroupName:
+      type: string
+      ui:
+        label: 'Accordion group name'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'accordionSettings'
+          editorOptions:
+            placeholder: '...for distributed accordion groups only'
+      validation:
+        regularExpression:
+          regularExpression: '/^[a-z0-9\-]+$/i'
+
+
+'M12.Foundation:AccordionItem':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:AccordionAbstract'
+    - 'TYPO3.Neos:ContentCollection'
+  ui:
+    label: 'Accordion Item'
+    icon: 'icon-reorder'
+    group: 'structure'
+    inspector:
+      groups:
+        accordionSettings:
+          label: 'Accordion item settings'
+  properties:
+    accordionItemLabel:
+      type: string
+      defaultValue: 'Accordion item label'
+      ui:
+        inspector:
+          group: 'accordionSettings'
+        aloha:
+          format:
+            strong: TRUE
+            em: TRUE
+            u: TRUE
+            sub: TRUE
+            sup: TRUE
+            p: FALSE
+            h1: FALSE
+            h2: FALSE
+            h3: FALSE
+            h4: FALSE
+            h5: FALSE
+          link:
+            a: FALSE
+          alignment:
+            left: FALSE
+            center: FALSE
+            right: FALSE
+            justify: FALSE
+          formatlesspaste:
+            button: FALSE
+            formatlessPasteOption: TRUE
+            autoparagraph: FALSE
+    isAccordionItemActive:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Make this accordion item active'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'accordionSettings'

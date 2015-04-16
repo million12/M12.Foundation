@@ -48,3 +48,30 @@ prototype(M12.Foundation:SideNavLive) < prototype(M12.Foundation:Menu) {
 	tag = 'ul'
 	itemTag = 'li'
 }
+
+prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
+	isSubNav  = ${String.endsWith(q(node).parent().parent().property('_nodeType.name'), 'SubNav')}
+	isDivider = ${q(node).property('classDivider') ? true : false}
+
+	attributes.class.active = ${q(node).property('classActive') ? 'active' : null}
+	attributes.class.divider = ${q(node).property('classDivider') ? 'divider' : null}
+	attributesHref = ${q(node).property('htmlHref') ? String.trim(q(node).property('htmlHref')) : null}
+
+	navItemContent = TYPO3.Neos:ContentCollectionRenderer
+
+	tag = ${this.isSubNav ? 'dd' : 'li'}
+}
+
+prototype(M12.Foundation:SideNav) < prototype(M12.Foundation:Content) {
+	attributes.class.base = 'side-nav'
+
+	sideNavContent = TYPO3.Neos:ContentCollectionRenderer
+}
+
+prototype(M12.Foundation:SubNav) < prototype(M12.Foundation:Content) {
+	attributes.class.base = 'sub-nav'
+
+	subNavTitle = ${q(node).property('title') ? q(node).property('title') : null}
+
+	subNavContent = TYPO3.Neos:ContentCollectionRenderer
+}

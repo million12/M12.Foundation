@@ -1,0 +1,68 @@
+# -----------------------------------------------------------------------------
+# Tabs
+# -----------------------------------------------------------------------------
+'M12.Foundation:TabItem':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'TYPO3.Neos:ContentCollection'
+  ui:
+    label: 'Tab Item'
+    icon: 'icon-angle-right'
+    inspector:
+      groups:
+        tabSettings:
+          label: 'Tab item options'
+          position: 9
+  properties:
+    title:
+      type: string
+      defaultValue: 'Tab'
+      ui:
+        label: 'Tab title'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'tabSettings'
+          position: 10
+    activeTab:
+      type: boolean
+      ui:
+        label: 'Make an active tab'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'tabSettings'
+          position: 20
+
+
+'M12.Foundation:Tabs':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:AbstractDevCustomTag'
+    - 'M12.Foundation:AbstractNavSailingType'
+  ui:
+    label: 'Tabs'
+    icon: 'icon-double-angle-right'
+    group: 'structure'
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        tabSettings:
+          label: 'Tab settings'
+          position: 9
+  constraints:
+    nodeTypes:
+      'M12.Foundation:TabItem': TRUE
+      '*': FALSE
+  childNodes:
+    tab1:
+      type: 'M12.Foundation:TabItem'
+    tab2:
+      type: 'M12.Foundation:TabItem'
+  properties:
+    vertical:
+      type: boolean
+      ui:
+        label: 'Vertical tabs'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'tabSettings'
+          position: 10

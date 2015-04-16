@@ -1,0 +1,34 @@
+'M12.Foundation:Alert':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:AbstractDevCustomTag'
+    - 'TYPO3.Neos:ContentCollection'
+  ui:
+    label: 'Alert'
+    icon: 'icon-warning-sign'
+    inlineEditable: TRUE
+    inspector:
+      groups:
+        options:
+          label: 'Alert box options'
+          position: 9
+  properties:
+    classAppearance:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Appearance'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'options'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              '':
+                label: ''
+              success:
+                label: 'Success'
+              warning:
+                label: 'Warning'
+              info:
+                label: 'Info'

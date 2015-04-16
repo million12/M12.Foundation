@@ -1,0 +1,105 @@
+#
+# Mixin: Font Awesome icon
+#
+'M12.Foundation:AbstractFontIcon':
+  abstract: TRUE
+  ui:
+    inspector:
+      groups:
+        fontIconOptions:
+          label: 'FontAwesome.io icon'
+          position: 90
+          tab: view
+  properties:
+    faName:
+      type: string
+      ui:
+        label: 'Icon name (without fa- prefix)'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'fontIconOptions'
+          editorOptions:
+            placeholder: '...as listed on fontawesome.io'
+    faOptions:
+      type: array
+      defaultValue: ['']
+      ui:
+        label: 'Icon options'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'fontIconOptions'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Icon options'
+            allowEmpty: TRUE
+            values:
+              # Icon size
+              fa-lg:
+                label: 'Size: large'
+                group: 'Icon size'
+              fa-2x:
+                label: 'Size: x2'
+                group: 'Icon size'
+              fa-3x:
+                label: 'Size: x3'
+                group: 'Icon size'
+              fa-4x:
+                label: 'Size: x4'
+                group: 'Icon size'
+              fa-5x:
+                label: 'Size: x5'
+                group: 'Icon size'
+              # Icon rotation:
+              fa-rotate-90:
+                label: 'Rotate 90 degree'
+                group: 'Icon rotation'
+              fa-rotate-180:
+                label: 'Rotate 180 degree'
+                group: 'Icon rotation'
+              fa-rotate-270:
+                label: 'Rotate 270 degree'
+                group: 'Icon rotation'
+              fa-flip-horizontal:
+                label: 'Flip horizontal'
+                group: 'Icon rotation'
+              fa-flip-vertical:
+                label: 'Flip vertical'
+                group: 'Icon rotation'
+              # Make it...
+              fa-spin:
+                label: 'a spinner'
+                group: 'Make it...'
+              fa-fw:
+                label: 'have a fixed width'
+                group: 'Make it...'
+              right:
+                label: 'right aligned'
+                group: 'Make it...'
+    faCustomCss:
+      type: string
+      ui:
+        label: 'Icon custom inline CSS'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'fontIconOptions'
+          editorOptions:
+            placeholder: 'e.g. padding-right: 5px;'
+
+
+'M12.Foundation:FontIcon':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:AbstractFontIcon'
+  ui:
+    label: 'Font Awesome icon'
+    icon: 'icon-flag'
+    inspector:
+      groups:
+        fontIconOptions:
+          # Put this group at the very beginning for this content element
+          # Also move it to the very 1st, default tab
+          position: 10
+          tab: default
+  properties:
+    faName:
+      defaultValue: 'circle-o-notch'

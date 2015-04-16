@@ -1,0 +1,118 @@
+#
+# Dropdown abstract
+#
+'M12.Foundation:DropdownAbstract':
+  label: "${'Dropdown: ' + q(node).property('customHtmlId')}"
+  abstract: TRUE
+  superTypes:
+    - 'M12.Foundation:AbstractDevBase'
+  ui:
+    inspector:
+      groups:
+        dropdownOptions:
+          label: 'Dropdown options'
+          position: 9
+  constraints:
+    nodeTypes:
+      '*': FALSE # No children items allowed
+  properties:
+    dropdownSize:
+      type: string
+      ui:
+        label: 'Dropdown size'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'dropdownOptions'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Default (Tiny)'
+            allowEmpty: TRUE
+            values:
+              tiny:
+                label: 'Tiny'
+              small:
+                label: 'Small'
+              medium:
+                label: 'Medium'
+              large:
+                label: 'Large'
+    autoClose:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Auto-close after click'
+        reloadIfChanged: FALSE
+        inspector:
+          group: 'dropdownOptions'
+    customHtmlId:
+      ui:
+        label: 'Dropdown element ID'
+        inspector:
+          group: 'dropdownOptions'
+
+
+# Dropdown that can handle list of links only.
+'M12.Foundation:Dropdown':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:DropdownAbstract'
+  ui:
+    label: 'Dropdown: Links'
+    icon: 'icon-sort-down'
+    group: 'interactive'
+  properties:
+    text:
+      type: string
+      defaultValue: |
+        <ul>
+          <li><a href="#">Link 1</a></li>
+          <li><a href="#">Link 2</a></li>
+          <li><a href="#">Link 3</a></li>
+        </ul>
+      ui:
+        inlineEditable: TRUE
+        aloha:
+          format:
+            strong: TRUE
+            em: TRUE
+            u: TRUE
+            sub: TRUE
+            sup: TRUE
+            p: FALSE
+            h1: FALSE
+            h2: FALSE
+            h3: FALSE
+            h4: FALSE
+            h5: FALSE
+          link:
+            a: TRUE
+          alignment:
+            left: FALSE
+            center: FALSE
+            right: FALSE
+            justify: FALSE
+          formatlesspaste:
+            button: FALSE
+            formatlessPasteOption: TRUE
+            autoparagraph: FALSE
+
+# Dropdown that can handle custom content.
+'M12.Foundation:DropdownContent':
+  superTypes:
+    - 'TYPO3.Neos:Content'
+    - 'M12.Foundation:DropdownAbstract'
+    - 'TYPO3.Neos:ContentCollection'
+  ui:
+    label: 'Dropdown: Content'
+    icon: 'icon-collapse'
+    group: 'interactive'
+    inlineEditable: TRUE
+  properties:
+    dropdownPadding:
+      type: boolean
+      defaultValue: TRUE
+      ui:
+        label: 'Add padding to dropdown container'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'dropdownOptions'
