@@ -1,0 +1,16 @@
+# TYPO3.Neos:RawContent is a renderer for 'rawContent' page.
+# While in this context, inline styles should not be displayed.
+prototype(TYPO3.Neos:RawContent) {
+	prototype(TYPO3.Neos:Content) {
+		attributes.style >
+	}
+}
+
+# rawContent is a TYPO3.Neos:Page obj which renders the content in 'Raw Content' editing mode.
+# It overrides the `bodyTag.attributes.class` with simple string, which won't work
+# with the above changes, where bodyTag.attributes.class is required to be an array,
+# so the 'joinAndTrim' processor can work. Because it's not needed here, switch it off.
+# See https://github.com/million12/M12.Foundation/issues/28
+rawContent {
+	bodyTag.attributes.class.@process.joinAndTrim >
+}

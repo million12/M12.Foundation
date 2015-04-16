@@ -47,12 +47,3 @@ prototype(TYPO3.Neos:Page) {
 		javascripts.@process.appendCustomJsCode = ${value + customJsCode}
 	}
 }
-
-# rawContent is a TYPO3.Neos:Page obj which renders the content in 'Raw Content' editing mode.
-# It overrides the `bodyTag.attributes.class` with simple string, which won't work
-# with the above changes, where bodyTag.attributes.class is required to be an array,
-# so the 'joinAndTrim' processor can work. Because it's not needed here, switch it off.
-# See https://github.com/million12/M12.Foundation/issues/28
-rawContent {
-	bodyTag.attributes.class.@process.joinAndTrim >
-}
