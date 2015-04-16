@@ -19,7 +19,11 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
 	@override.accordionItemId = ${q(node).property('accordionItemId') ? q(node).property('accordionItemId') : ( 'acc-' + q(node).property('_identifier') )}
 	accordionItemLabelHref = ${'#' + accordionItemId}
 
-	attributes.class.base = 'accordion-navigation'
+	attributes.class {
+		base = 'accordion-navigation'
+		hideCcOverlay = 'neos-hide-empty-contentcollection-overlay'
+		hideCcOverlay.@if.isBackend = ${node.context.workspace.name != 'live'}
+	}
 
 	accordionItemContent = TYPO3.TypoScript:Tag {
 		# These attributes are added to DIV content container.
