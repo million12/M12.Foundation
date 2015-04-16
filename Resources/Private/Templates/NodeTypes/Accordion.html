@@ -7,7 +7,7 @@
 
 <f:section name="AccordionItem">
 	<li{extraAttributes -> f:format.raw()}>
-		<a href="{accordionItemLabelHref}">{neos:contentElement.editable(property: 'accordionItemLabel')}</a>
+		<a href="#{accordionItemId}">{neos:contentElement.editable(property: 'accordionItemLabel')}</a>
 		<ts:render path="accordionItemContent" />
 	</li>
 </f:section>

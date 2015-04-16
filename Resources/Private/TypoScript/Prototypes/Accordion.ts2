@@ -24,20 +24,19 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
 		hideCcOverlay.@if.isBackend = ${node.context.workspace.name != 'live'}
 	}
 
-	@override.accordionItemId = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ( 'acc-' + q(node).property('_identifier') )}
-	accordionItemLabelHref = ${'#' + accordionItemId}
-
 	# These attributes are added to div.content, which contains the accordion item content.
 	# Note: it's a bit debatable if these should be applied to the div.content inside
 	# the li.accordion-navigation or to the li.accordion-navigation itself, which is actually the
 	# root element for accordion item. IMHO (ryzy) it makes more sense and it's more useful
 	# to apply it for div.content element.
-	attributes.id = ${accordionItemId}
+	attributes.id = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : 'acc-'+q(node).property('_identifier')}
 	attributes.class {
 		base = 'content'
 		active = ${q(node).property('isAccordionItemActive') ? 'active' : null}
 	}
 	@override.attributes = ${this.attributes}
+
+	accordionItemId = ${this.attributes.id}
 
 	accordionItemContent = TYPO3.TypoScript:Tag {
 		# These attributes are added to div.content, which contains the accordion item content.
