@@ -1,0 +1,5 @@
+# Image TS Object
+prototype(TYPO3.Neos.NodeTypes:Image) {
+	# Use Foundation text-left, text-center, text-right align classes
+	imageClassName = ${q(node).property('alignment') ? ('text-' + q(node).property('alignment')) : ''}
+}
