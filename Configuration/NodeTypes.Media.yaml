@@ -161,6 +161,8 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'video'
+          editorOptions:
+            placeholder: 'Video ID from the video URL address...'
     videoSource:
       type: string
       ui:

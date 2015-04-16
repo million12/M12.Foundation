@@ -23,13 +23,13 @@
     dropdownSize:
       type: string
       ui:
-        label: 'Dropdown content size'
+        label: 'Dropdown size'
         reloadIfChanged: TRUE
         inspector:
           group: 'dropdownOptions'
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
-            placeholder: 'Default / Tiny'
+            placeholder: 'Default (Tiny)'
             allowEmpty: TRUE
             values:
               tiny:
@@ -177,6 +177,10 @@
     label: 'Accordion Item'
     icon: 'icon-reorder'
     group: 'structure'
+    inspector:
+      groups:
+        accordionSettings:
+          label: 'Accordion item settings'
   properties:
     accordionItemLabel:
       type: string
@@ -238,14 +242,15 @@
       type: string
       defaultValue: 'Tab'
       ui:
-        inlineEditable: TRUE
+        label: 'Tab title'
+        reloadIfChanged: TRUE
         inspector:
           group: 'tabSettings'
           position: 10
     activeTab:
       type: boolean
       ui:
-        label: 'Active tab'
+        label: 'Make an active tab'
         reloadIfChanged: TRUE
         inspector:
           group: 'tabSettings'
@@ -265,7 +270,7 @@
     inspector:
       groups:
         tabSettings:
-          label: 'Tab item options'
+          label: 'Tab settings'
           position: 9
   constraints:
     nodeTypes:

@@ -43,15 +43,3 @@ prototype(M12.Foundation:GridRow3Col) < prototype(M12.Foundation:GridRowAbstract
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Grid.html'
 	sectionName = 'grid'
 }
-prototype(M12.Foundation:GridRow4Col) < prototype(M12.Foundation:GridRowAbstract) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Grid.html'
-	sectionName = 'grid'
-}
-prototype(M12.Foundation:GridRow5Col) < prototype(M12.Foundation:GridRowAbstract) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Grid.html'
-	sectionName = 'grid'
-}
-prototype(M12.Foundation:GridRow6Col) < prototype(M12.Foundation:GridRowAbstract) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Grid.html'
-	sectionName = 'grid'
-}
