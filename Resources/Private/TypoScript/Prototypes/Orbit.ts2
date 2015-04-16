@@ -43,6 +43,7 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 
 
 prototype(M12.Foundation:OrbitItem) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'li'
 	content = TYPO3.Neos:ContentCase
 
 	prototype(TYPO3.Neos:Content) {
