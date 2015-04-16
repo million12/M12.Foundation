@@ -200,16 +200,6 @@
             button: FALSE
             formatlessPasteOption: TRUE
             autoparagraph: FALSE
-    accordionItemId:
-      type: string
-      ui:
-        label: 'Accordion item ID'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'accordionSettings'
-      validation:
-        regularExpression:
-          regularExpression: '/^[a-z0-9\-]+$/i'
     isAccordionItemActive:
       type: boolean
       defaultValue: TRUE

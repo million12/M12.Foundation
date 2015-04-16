@@ -16,24 +16,32 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Accordion.html'
 	sectionName = 'AccordionItem'
 
-	@override.accordionItemId = ${q(node).property('accordionItemId') ? q(node).property('accordionItemId') : ( 'acc-' + q(node).property('_identifier') )}
-	accordionItemLabelHref = ${'#' + accordionItemId}
-
-	attributes.class {
+	# These attributes are added to li.accordion-navigation, 
+	# the parent element for div.content containing the accordion item content.
+	extraAttributes.class {
 		base = 'accordion-navigation'
 		hideCcOverlay = 'neos-hide-empty-contentcollection-overlay'
 		hideCcOverlay.@if.isBackend = ${node.context.workspace.name != 'live'}
 	}
 
+	@override.accordionItemId = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : ( 'acc-' + q(node).property('_identifier') )}
+	accordionItemLabelHref = ${'#' + accordionItemId}
+
+	# These attributes are added to div.content, which contains the accordion item content.
+	# Note: it's a bit debatable if these should be applied to the div.content inside
+	# the li.accordion-navigation or to the li.accordion-navigation itself, which is actually the
+	# root element for accordion item. IMHO (ryzy) it makes more sense and it's more useful
+	# to apply it for div.content element.
+	attributes.id = ${accordionItemId}
+	attributes.class {
+		base = 'content'
+		active = ${q(node).property('isAccordionItemActive') ? 'active' : null}
+	}
+	@override.attributes = ${this.attributes}
+
 	accordionItemContent = TYPO3.TypoScript:Tag {
-		# These attributes are added to DIV content container.
-		attributes {
-			class = TYPO3.TypoScript:RawArray {
-				base = 'content'
-				active = ${q(node).property('isAccordionItemActive') ? 'active' : null}
-			}
-			id = ${accordionItemId}
-		}
+		# These attributes are added to div.content, which contains the accordion item content.
+		attributes = ${attributes}
 		content = TYPO3.Neos:ContentCollectionRenderer
 		# Add additional wrapping, because otherwise createjs won't work (it requires elements of contentcollection to be direct children of contentcollection).
 		# Can be removed when createjs is dropped.
