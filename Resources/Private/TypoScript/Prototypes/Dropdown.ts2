@@ -1,5 +1,7 @@
 prototype(M12.Foundation:DropdownAbstract) < prototype(M12.Foundation:Content) {
 	attributes {
+		# ID *have to* be set, otherwise all other Dropdowns on the same page stop working ;/ 
+		id = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : 'dd-'+q(node).property('_identifier')}
 		class {
 			base = 'f-dropdown'
 			size = ${q(node).property('dropdownSize')}
