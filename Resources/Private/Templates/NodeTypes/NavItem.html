@@ -1,10 +1,10 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 <{tag}{attributes -> f:format.raw()}>
 	<f:if condition="{isDivider}">
-	<f:else>
-	<a href="{attributesHref -> f:format.raw()}">
-		{neos:contentElement.editable(property: 'label')}
-	</a>
-	</f:else>
+		<f:else>
+			<a href="{attributesHref -> f:format.raw()}">
+				{neos:contentElement.editable(property: 'label')}
+			</a>
+		</f:else>
 	</f:if>
 </{tag}>
