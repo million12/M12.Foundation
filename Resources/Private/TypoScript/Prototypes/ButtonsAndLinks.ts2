@@ -52,7 +52,8 @@ prototype(M12.Foundation:Button) < prototype(M12.Foundation:ButtonLinkAbstract) 
 	tagName = ${renderAnchor ? 'a' : 'button'}
 }
 
-prototype(M12.Foundation:ButtonGroup) < prototype(TYPO3.TypoScript:Tag) {
+prototype(M12.Foundation:ButtonGroup) < prototype(M12.Foundation:Content) {
+	@class = 'TYPO3\\TypoScript\\TypoScriptObjects\\TagImplementation'
 	tagName = 'ul'
 	attributes.class = TYPO3.TypoScript:RawArray {
 		base = 'button-group'
@@ -77,7 +78,8 @@ prototype(M12.Foundation:ButtonGroupItem) < prototype(TYPO3.TypoScript:Tag) {
 }
 
 # ButtonBar: group of button group(s)
-prototype(M12.Foundation:ButtonBar) < prototype(TYPO3.TypoScript:Tag) {
+prototype(M12.Foundation:ButtonBar) < prototype(M12.Foundation:Content) {
+	@class = 'TYPO3\\TypoScript\\TypoScriptObjects\\TagImplementation'
 	attributes.class = TYPO3.TypoScript:RawArray {
 		base = 'button-bar'
 	}
