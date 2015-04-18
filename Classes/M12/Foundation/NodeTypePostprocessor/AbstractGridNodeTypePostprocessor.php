@@ -67,8 +67,7 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 			$propertyName = sprintf('classGrid%s', ucfirst($set));
 
 			$editorValues = [];
-			$defaultValue = isset($setData['defaults']) ? $setData['defaults'] : [''];
-			
+
 			/** @var string $device: small, medium, large */
 			foreach ($this->settings['devices'] as $device => $deviceData) {
 				$groupLabel = $deviceData['label'];
@@ -77,7 +76,6 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 
 			$configuration['properties'][$propertyName] = [
 				'type' => 'array',
-				'defaultValue' => $defaultValue,
 				'ui' => [
 					'label' => $setData['label'],
 					'reloadIfChanged' => true,
@@ -86,19 +84,17 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 						'position' => ($k+1)*10,
 						'editor' => 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor',
 						'editorOptions' => [
-							'multiple' => TRUE,
-							'allowEmpty' => TRUE,
-							'placeholder' => 'placeholder text...',
 							'values' => $editorValues,
 						],
 					],
 				],
 			];
-			
+			if (isset($setData['defaults'])) {
+				$configuration['properties'][$propertyName]['defaultValue'] = $setData['defaults'];
+			}
+
 			$k++;
 		}
-		
-//		\TYPO3\Flow\var_dump($configuration);
 	}
 
 	/**

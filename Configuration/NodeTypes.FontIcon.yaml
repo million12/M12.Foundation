@@ -22,7 +22,6 @@
             placeholder: '...as listed on fontawesome.io'
     faOptions:
       type: array
-      defaultValue: ['']
       ui:
         label: 'Icon options'
         reloadIfChanged: TRUE
@@ -31,7 +30,6 @@
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             placeholder: 'Icon options'
-            allowEmpty: TRUE
             values:
               # Icon size
               fa-lg:
