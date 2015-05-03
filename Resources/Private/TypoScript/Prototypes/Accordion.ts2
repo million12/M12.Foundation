@@ -31,6 +31,8 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
 	# to apply it for div.content element.
 	attributes.id = ${q(node).property('customHtmlId') ? q(node).property('customHtmlId') : 'acc-'+q(node).property('_identifier')}
 	attributes.class {
+		contentcollection = 'neos-contentcollection'
+		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}
 		base = 'content'
 		active = ${q(node).property('isAccordionItemActive') ? 'active' : null}
 	}

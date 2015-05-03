@@ -29,7 +29,11 @@ prototype(M12.Foundation:DropdownContent) < prototype(M12.Foundation:DropdownAbs
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Dropdown.html'
 	sectionName = 'dropdownContent'
 
-	attributes.class.content = ${q(node).property('dropdownPadding') ? 'content' : null}
+	attributes.class {
+		contentcollection = 'neos-contentcollection'
+		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}
+		content = ${q(node).property('dropdownPadding') ? 'content' : null}
+	}
 
 	content = TYPO3.Neos:ContentCollectionRenderer
 }
