@@ -4,15 +4,17 @@ prototype(M12.Foundation:Column) < prototype(M12.Foundation:Content) {
 	sectionName = 'gridColumn'
 	node = ${node}
 
-	attributes.class.nodeType.@process.columns = ${value + ' columns'}
-	attributes.class.endColumn = ${q(node).property('classEndColumn') ? 'end' : null}
-
-	attributes.class.gridSize = ${q(node).property('classGridSize') ? Array.join(q(node).property('classGridSize'), ' '): null}
-	attributes.class.gridOffset = ${q(node).property('classGridOffset') ? Array.join(q(node).property('classGridOffset'), ' ') : null}
-	attributes.class.gridPushPull = ${q(node).property('classGridPushPull') ? Array.join(q(node).property('classGridPushPull'), ' ') : null}
-	attributes.class.gridResetOrder = ${q(node).property('classGridResetOrder') ? Array.join(q(node).property('classGridResetOrder'), ' ') : null}
-	attributes.class.gridAlign = ${q(node).property('classGridAlign') ? Array.join(q(node).property('classGridAlign'), ' ') : null}
-
+	attributes.class {
+		contentcollection = 'neos-contentcollection'
+		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}
+		nodeType.@process.columns = ${value + ' columns'}
+		endColumn = ${q(node).property('classEndColumn') ? 'end' : null}
+		gridSize = ${q(node).property('classGridSize') ? Array.join(q(node).property('classGridSize'), ' '): null}
+		gridOffset = ${q(node).property('classGridOffset') ? Array.join(q(node).property('classGridOffset'), ' ') : null}
+		gridPushPull = ${q(node).property('classGridPushPull') ? Array.join(q(node).property('classGridPushPull'), ' ') : null}
+		gridResetOrder = ${q(node).property('classGridResetOrder') ? Array.join(q(node).property('classGridResetOrder'), ' ') : null}
+		gridAlign = ${q(node).property('classGridAlign') ? Array.join(q(node).property('classGridAlign'), ' ') : null}
+	}
 	columnContent = TYPO3.Neos:ContentCollectionRenderer
 }
 
