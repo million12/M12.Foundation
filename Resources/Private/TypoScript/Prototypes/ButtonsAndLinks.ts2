@@ -1,10 +1,12 @@
 prototype(M12.Foundation:ButtonLinkAbstract) < prototype(M12.Foundation:Content) {
-	# Get URL
-	url = ${q(node).property('urlExt') ? q(node).property('urlExt') : q(node).property('url')}
+	url = ${q(node).property('url')}
 	url.@process.1 = TYPO3.Neos:ConvertUris
 	@override.url = ${this.url}
 
+	# Only render target (e.g. _blank) in front-end, otherwise, with _blank you cannot anymore edit the button (click on it goes to the href location)
 	attributes.target = ${url && q(node).property('htmlTargetBlank') ? q(node).property('htmlTargetBlank') : null}
+	attributes.target.@if.isLive = ${node.context.workspace.name == 'live'}
+
 	attributes.href = ${url ? url : null}
 	attributes.title = ${q(node).property('htmlTitle') ? String.trim(q(node).property('htmlTitle')) : null}
 

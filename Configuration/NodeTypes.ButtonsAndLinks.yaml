@@ -62,22 +62,13 @@
     url:
       type: string
       ui:
-        label: 'Link (internal)'
+        label: 'Link / URL'
         reloadIfChanged: TRUE
         inspector:
           group: 'linkOptions'
           editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
-    # TODO: 'urlExt' can be removed once LinkEditor is fixed and allows pasting custom/external links.
-    urlExt:
-      type: string
-      ui:
-        label: 'Link (external)'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'linkOptions'
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
           editorOptions:
-            placeholder: 'e.g. http://example.com/'
+            placeholder: 'Page name or external URL...'
     htmlTargetBlank:
       type: string
       ui:
