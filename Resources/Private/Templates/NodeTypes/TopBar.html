@@ -9,7 +9,7 @@
 		<ul class="title-area">
 			<f:if condition="{topBarTitle}">
 				<li class="name">
-					<h1><a href="/"><span>{topBarTitle -> f:format.raw()}</span></a></h1>
+					<h1><neos:link.node node="~"><span>{topBarTitle -> f:format.raw()}</span></neos:link.node></h1>
 				</li>
 			</f:if>
 
