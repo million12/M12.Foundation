@@ -28,10 +28,25 @@ M12:
         label: 'Medium device'
       large:
         label: 'Large device'
+      xlarge:
+        label: 'X-Large device'
+
+    gridRowSettings:
+      classCollapse:
+        label: 'Collapse: remove column gutters (pading)'
+        cssClassSuffixes: [ '-collapse', '-uncollapse' ] # e.g. small-text-left
+        appliedPerColumn: false
+        uiInspectorGroup: gridOptions
+        extraValues:
+          start:
+            'collapse':
+              label: 'all devices: collapse'
+              group: All devices
+          end: [ ]
 
     # @see AbstractGridNodeTypePostprocessor which utilizes these settings
     # to generate required properties for M12.Foundation:Column node type
-    gridSettings:
+    gridColumnSettings:
       size:
         label: 'Grid column width'
         cssClassSuffixes: [ '-' ]         # DEVICE-X, eg: small-X, medium-Y, large-Z
@@ -70,3 +85,26 @@ M12:
           - small-block-grid-1
           - medium-block-grid-2
           - large-block-grid-3
+
+    genericHelpers:
+      classTextAlign:
+        label: 'Text align'
+        cssClassSuffixes: [ '-text-left', '-text-center', '-text-right', '-text-justify' ] # e.g. small-text-left
+        appliedPerColumn: false
+        uiInspectorGroup: utilityClasses
+        uiInspectorPosition: 25
+        extraValues:
+          start:
+            'text-left':
+              label: 'all devices: left'
+              group: All devices
+            'text-center':
+              label: 'all deviecs: center'
+              group: All devices
+            'text-right':
+              label: 'all devices: right'
+              group: All devices
+            'text-justify':
+              label: 'all devices: justify'
+              group: All devices
+          end: [ ]

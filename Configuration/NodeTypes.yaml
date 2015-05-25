@@ -36,6 +36,9 @@
           label: 'Show/hide content'
           position: 94
           tab: device
+  postprocessors:
+    GenericHelpersPostprocesor:
+      postprocessor: 'M12\Foundation\NodeTypePostprocessor\GenericHelpersPostprocesor'
   properties:
     classHide:
       type: boolean
@@ -72,29 +75,6 @@
                 label: 'left'
               right:
                 label: 'right'
-    classTextAlign:
-      type: string
-      defaultValue: ''
-      ui:
-        label: 'Text align'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'utilityClasses'
-          position: 25
-          editor: Content/Inspector/Editors/SelectBoxEditor
-          editorOptions:
-            placeholder: 'None'
-            values:
-              '':
-                label: ''
-              text-left:
-                label: 'left'
-              text-right:
-                label: 'right'
-              text-center:
-                label: 'center'
-              text-justify:
-                label: 'justify'
     classRadiusAndRounded:
       type: string
       defaultValue: ''

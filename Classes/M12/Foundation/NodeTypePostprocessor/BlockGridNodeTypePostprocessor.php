@@ -19,4 +19,6 @@ class BlockGridNodeTypePostprocessor extends AbstractGridNodeTypePostprocessor {
 	 * @var string
 	 */
 	protected static $SETTINGS_SECTION = 'blockGridSettings';
+
+	protected static $PROPERTY_NAME_PATTERN = 'classGrid%s';
 }

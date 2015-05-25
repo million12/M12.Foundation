@@ -27,9 +27,19 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 
 	/**
 	 * Settings section used to generate properties
+	 * 
 	 * @var string
 	 */
 	protected static $SETTINGS_SECTION;
+
+	/**
+	 * String to prefix all generated property names.
+	 * For example, when set to 'cssClass%s', all generated properties will be cssClassSomeProperty.
+	 * If empty, no prefix is added to property name(s).
+	 *
+	 * @var string
+	 */
+	protected static $PROPERTY_NAME_PATTERN;
 
 	/**
 	 * @var ConfigurationManager
@@ -64,15 +74,23 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 
 		$k = 0;
 		foreach ($this->settings[static::$SETTINGS_SECTION] as $set => $setData) {
-			$propertyName = sprintf('classGrid%s', ucfirst($set));
+			$propertyName = empty(static::$PROPERTY_NAME_PATTERN) 
+				? $set 
+				: sprintf(static::$PROPERTY_NAME_PATTERN, ucfirst($set));
 
 			$editorValues = [];
+			
+			if (!empty($setData['extraValues']['start']) && is_array($setData['extraValues']['start']))
+				$editorValues += $setData['extraValues']['start'];
 
 			/** @var string $device: small, medium, large */
 			foreach ($this->settings['devices'] as $device => $deviceData) {
 				$groupLabel = $deviceData['label'];
 				$editorValues += $this->getEditorValues($set, $setData, $device, $groupLabel);
 			}
+
+			if (!empty($setData['extraValues']['end']) && is_array($setData['extraValues']['end']))
+				$editorValues += $setData['extraValues']['end'];
 
 			$configuration['properties'][$propertyName] = [
 				'type' => 'array',
@@ -81,7 +99,7 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 					'reloadIfChanged' => true,
 					'inspector' => [
 						'group' => $setData['uiInspectorGroup'],
-						'position' => ($k+1)*10,
+						'position' => isset($setData['uiInspectorPosition']) ? (int)$setData['uiInspectorPosition'] : ($k+1)*10,
 						'editor' => 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor',
 						'editorOptions' => [
 							'values' => $editorValues,
@@ -95,6 +113,8 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 
 			$k++;
 		}
+		
+//		\TYPO3\Flow\var_dump($configuration);
 	}
 
 	/**
@@ -121,7 +141,7 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 				$col = 1;
 				do {
 					$valueName = $cssClass.$col;
-					$labelName = $valueName;
+					$labelName = "$device: $col / {$this->settings['gridSize']}";
 					$editorValues[$valueName] = array(
 						'label' => $labelName,
 						'group' => $groupLabel,
@@ -135,7 +155,7 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 			//
 			else {
 				$valueName = $cssClass;
-				$labelName = $valueName;
+				$labelName = "$device: " . str_replace('-', ' ', str_replace($device,'',$cssClass));
 				$editorValues[$valueName] = array(
 					'label' => $labelName,
 					'group' => $groupLabel,
@@ -151,9 +171,9 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 			throw new \TYPO3\Neos\Exception(get_called_class().'::$SETTINGS_SECTION needs to be defined.', 1396555463);
 
 		if (empty($this->settings['devices']) || !is_array($this->settings['devices']))
-			throw new \TYPO3\Neos\Exception('M12.Foundation.devices settings are missing. Please check Settings.yaml file!', 1396555463);
+			throw new \TYPO3\Neos\Exception('Sorry, `M12.Foundation.devices` settings are missing. Please check Settings.yaml file!', 1396555463);
 
 		if (empty($this->settings[static::$SETTINGS_SECTION]) || !is_array($this->settings[static::$SETTINGS_SECTION]))
-			throw new \TYPO3\Neos\Exception('M12.Foundation.gridSettings settings are missing. Please check Settings.yaml file!', 1396555464);
+			throw new \TYPO3\Neos\Exception('Sorry, `M12.Foundation.gridSettings` settings are missing. Please check Settings.yaml file!', 1396555464);
 	}
 }

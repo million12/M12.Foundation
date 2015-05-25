@@ -8,5 +8,7 @@ class GridColumnNodeTypePostprocessor extends AbstractGridNodeTypePostprocessor 
 	 * @see Settings.yaml
 	 * @var string
 	 */
-	protected static $SETTINGS_SECTION = 'gridSettings';
+	protected static $SETTINGS_SECTION = 'gridColumnSettings';
+
+	protected static $PROPERTY_NAME_PATTERN = 'classGrid%s';
 }

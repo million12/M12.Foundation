@@ -20,7 +20,7 @@
           label: 'Grid options'
           position: 6
   postprocessors:
-    GridColumnPropertiesPostprocesor:
+    GridColumnNodeTypePostprocessor:
       postprocessor: 'M12\Foundation\NodeTypePostprocessor\GridColumnNodeTypePostprocessor'
 
 
@@ -58,6 +58,9 @@
         gridOptions:
           label: 'Grid options'
           position: 9
+  postprocessors:
+    GridRowNodeTypePostprocessor:
+      postprocessor: 'M12\Foundation\NodeTypePostprocessor\GridRowNodeTypePostprocessor'
   constraints:
     nodeTypes:
       'M12.Foundation:Column': TRUE
@@ -67,12 +70,6 @@
       type: boolean
       ui:
         label: 'Add extra wrapper'
-        inspector:
-          group: 'gridOptions'
-    classCollapse:
-      type: boolean
-      ui:
-        label: 'Collapse columns'
         inspector:
           group: 'gridOptions'
 
