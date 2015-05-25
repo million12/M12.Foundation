@@ -6,9 +6,9 @@
 'M12.Foundation:ButtonLinkAbstract':
   abstract: TRUE
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AbstractNavSailingType'
-    - 'M12.Foundation:AbstractFontIcon'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractFontIcon': TRUE
   ui:
     icon: 'icon-sign-blank'
     group: 'interactive'
@@ -157,7 +157,7 @@
 'M12.Foundation:Link':
   label: "${'Link: ' + q(node).property('label') + ' (' + node.name + ')'}"
   superTypes:
-    - 'M12.Foundation:ButtonLinkAbstract'
+    'M12.Foundation:ButtonLinkAbstract': TRUE
   ui:
     label: 'Link'
     icon: 'icon-link'
@@ -171,7 +171,7 @@
 'M12.Foundation:Button':
   label: "${'Button: ' + q(node).property('label') + ' (' + node.name + ')'}"
   superTypes:
-    - 'M12.Foundation:ButtonLinkAbstract'
+    'M12.Foundation:ButtonLinkAbstract': TRUE
   ui:
     label: 'Button'
   properties:
@@ -268,8 +268,8 @@
 # Button Group (list of buttons)
 'M12.Foundation:ButtonGroup':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Button Group'
     icon: 'icon-minus'
@@ -286,7 +286,7 @@
 # Button Bar (group of button groups)
 'M12.Foundation:ButtonBar':
   superTypes:
-    - 'TYPO3.Neos:Content'
+    'TYPO3.Neos:Content': TRUE
   ui:
     label: 'Button Bar'
     icon: 'icon-minus'

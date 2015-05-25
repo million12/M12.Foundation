@@ -164,7 +164,7 @@
 #
 'M12.Foundation:AbstractNavSailingType':
   superTypes:
-    - 'M12.Foundation:AbstractNavFragmentId'
+    'M12.Foundation:AbstractNavFragmentId': TRUE
   abstract: TRUE
   properties:
     magellanSupport:

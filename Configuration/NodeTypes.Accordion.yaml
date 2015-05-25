@@ -4,7 +4,7 @@
 'M12.Foundation:AccordionAbstract':
   abstract: TRUE
   superTypes:
-    - 'M12.Foundation:AbstractDevBase'
+    'M12.Foundation:AbstractDevBase': TRUE
   ui:
     inspector:
       groups:
@@ -14,8 +14,8 @@
 
 'M12.Foundation:Accordion':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AccordionAbstract'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AccordionAbstract': TRUE
   ui:
     label: 'Accordion'
     icon: 'icon-reorder'
@@ -45,9 +45,9 @@
 
 'M12.Foundation:AccordionItem':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AccordionAbstract'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AccordionAbstract': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Accordion Item'
     icon: 'icon-reorder'

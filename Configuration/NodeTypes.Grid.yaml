@@ -5,11 +5,11 @@
 #
 'M12.Foundation:Column':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
-    - 'M12.Foundation:AbstractDevCustomTag'
-    - 'M12.Foundation:AbstractNavSailingType'
-    - 'M12.Foundation:AbstractNodeTitle'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     label: 'Grid Column'
     icon: 'icon-th-large'
@@ -27,7 +27,7 @@
 # The last child node for M12.Foundation:GridColumnsX with extra classEndColumn property
 'M12.Foundation:ColumnEnd':
   superTypes:
-    - 'M12.Foundation:Column'
+    'M12.Foundation:Column': TRUE
   ui:
     label: 'Grid Column (end)'
   properties:
@@ -44,10 +44,10 @@
 # Abstract NodeType for all M12.Foundation:GridColumnsX
 'M12.Foundation:GridRowAbstract':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AbstractDevCustomTag'
-    - 'M12.Foundation:AbstractNavSailingType'
-    - 'M12.Foundation:AbstractNodeTitle'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
   abstract: TRUE
   ui:
     icon: 'icon-columns'
@@ -83,7 +83,7 @@
 #
 'M12.Foundation:GridRow1Col':
   superTypes:
-    - 'M12.Foundation:GridRowAbstract'
+    'M12.Foundation:GridRowAbstract': TRUE
   ui:
     label: 'Grid row: 1 column'
     icon: 'icon-laptop'
@@ -93,7 +93,7 @@
 
 'M12.Foundation:GridRow2Col':
   superTypes:
-    - 'M12.Foundation:GridRowAbstract'
+    'M12.Foundation:GridRowAbstract': TRUE
   ui:
     label: 'Grid row: 2 columns'
   childNodes:
@@ -104,7 +104,7 @@
 
 'M12.Foundation:GridRow3Col':
   superTypes:
-    - 'M12.Foundation:GridRowAbstract'
+    'M12.Foundation:GridRowAbstract': TRUE
   ui:
     label: 'Grid row: 3 columns'
   childNodes:

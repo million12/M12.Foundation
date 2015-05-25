@@ -7,9 +7,9 @@
 # <form> element.
 'M12.Foundation:Form':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
-    - 'M12.Foundation:AbstractNavSailingType'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Form container'
     icon: 'icon-th-list'
@@ -48,7 +48,7 @@
 'M12.Foundation:FormElementAbstract':
   abstract: TRUE
   superTypes:
-    - 'TYPO3.Neos:Content'
+    'TYPO3.Neos:Content': TRUE
   ui:
     group: 'forms'
     inspector:
@@ -230,8 +230,8 @@
 # Fieldset.
 'M12.Foundation:FormFieldset':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Form fieldset'
     icon: 'icon-check-empty'
@@ -262,8 +262,8 @@
 # <label> element.
 'M12.Foundation:FormLabel':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:FormInputLabelAbstract'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:FormInputLabelAbstract': TRUE
   ui:
     label: 'Form label'
     icon: 'icon-paperclip'
@@ -325,9 +325,9 @@
 # NodeType for text based <input> fields, e.g. text, password, email, number etc.
 'M12.Foundation:FormInput':
   superTypes:
-    - 'M12.Foundation:FormElementAbstract'
-    - 'M12.Foundation:FormInputLabelAbstract'
-    - 'M12.Foundation:FormInputPlaceholderAbstract'
+    'M12.Foundation:FormElementAbstract': TRUE
+    'M12.Foundation:FormInputLabelAbstract': TRUE
+    'M12.Foundation:FormInputPlaceholderAbstract': TRUE
   ui:
     label: 'Text field'
     icon: 'icon-pencil'
@@ -371,8 +371,8 @@
 # Pre/postfix element.
 'M12.Foundation:FormInputPrePostfix':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AbstractDevCustomTag'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
   ui:
     label: 'Input Pre/Postfix'
     icon: 'icon-check-empty'
@@ -420,9 +420,9 @@
 # NodeType for checkbox input.
 'M12.Foundation:FormInputCheckbox':
   superTypes:
-    - 'M12.Foundation:FormElementAbstract'
-    - 'M12.Foundation:FormInputLabelAbstract'
-    - 'M12.Foundation:FormInputCheckedAbstract'
+    'M12.Foundation:FormElementAbstract': TRUE
+    'M12.Foundation:FormInputLabelAbstract': TRUE
+    'M12.Foundation:FormInputCheckedAbstract': TRUE
   ui:
     label: 'Checkbox field'
     icon: 'icon-check'
@@ -431,9 +431,9 @@
 # NodeType for radio input.
 'M12.Foundation:FormInputRadio':
   superTypes:
-    - 'M12.Foundation:FormElementAbstract'
-    - 'M12.Foundation:FormInputLabelAbstract'
-    - 'M12.Foundation:FormInputCheckedAbstract'
+    'M12.Foundation:FormElementAbstract': TRUE
+    'M12.Foundation:FormInputLabelAbstract': TRUE
+    'M12.Foundation:FormInputCheckedAbstract': TRUE
   ui:
     label: 'Radio field'
     icon: 'icon-circle-blank'
@@ -442,8 +442,8 @@
 # NodeType for select.
 'M12.Foundation:FormInputSelect':
   superTypes:
-    - 'M12.Foundation:FormElementAbstract'
-    - 'M12.Foundation:FormInputLabelAbstract'
+    'M12.Foundation:FormElementAbstract': TRUE
+    'M12.Foundation:FormInputLabelAbstract': TRUE
   ui:
     label: 'Select field'
     icon: 'icon-chevron-down'
@@ -466,8 +466,8 @@
 # NodeType for textarea.
 'M12.Foundation:FormInputTextarea':
   superTypes:
-    - 'M12.Foundation:FormElementAbstract'
-    - 'M12.Foundation:FormInputLabelAbstract'
+    'M12.Foundation:FormElementAbstract': TRUE
+    'M12.Foundation:FormInputLabelAbstract': TRUE
   ui:
     label: 'Textarea'
     icon: 'icon-align-left'

@@ -1,10 +1,10 @@
 'M12.Foundation:Container':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
-    - 'M12.Foundation:AbstractDevCustomTag'
-    - 'M12.Foundation:AbstractNavSailingType'
-    - 'M12.Foundation:AbstractNodeTitle'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     label: 'Container'
     icon: 'icon-hdd'

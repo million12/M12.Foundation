@@ -1,6 +1,6 @@
 'TYPO3.Neos:Document':
   superTypes:
-    fragmentId: 'M12.Foundation:AbstractNavFragmentId'
+    'M12.Foundation:AbstractNavFragmentId': TRUE
   properties:
     title:
       ui:
@@ -24,8 +24,8 @@
 
 'TYPO3.Neos.NodeTypes:Page':
   superTypes:
-    abstractDev: 'M12.Foundation:AbstractDevBase'
-    abstractCustomLook: 'M12.Foundation:AbstractDevCustomLook'
+    'M12.Foundation:AbstractDevBase': TRUE
+    'M12.Foundation:AbstractDevCustomLook': TRUE
   properties:
     # Custom JS code at the end of BODY
     customJsCode:

@@ -225,6 +225,6 @@
 # -----------------------------------------------------------------------------
 'TYPO3.Neos:Content':
   superTypes:
-    abstractGenericHelpers: 'M12.Foundation:AbstractGenericHelpers'
-    abstractDevBase:        'M12.Foundation:AbstractDevBase'
-    abstractDevCustomLook:  'M12.Foundation:AbstractDevCustomLook'
+    'M12.Foundation:AbstractGenericHelpers': TRUE
+    'M12.Foundation:AbstractDevBase': TRUE
+    'M12.Foundation:AbstractDevCustomLook': TRUE

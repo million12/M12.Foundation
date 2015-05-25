@@ -3,8 +3,8 @@
 # -----------------------------------------------------------------------------
 'M12.Foundation:TabItem':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Tab Item'
     icon: 'icon-angle-right'
@@ -35,9 +35,9 @@
 
 'M12.Foundation:Tabs':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AbstractDevCustomTag'
-    - 'M12.Foundation:AbstractNavSailingType'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Tabs'
     icon: 'icon-double-angle-right'

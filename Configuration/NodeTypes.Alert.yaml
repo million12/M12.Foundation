@@ -1,8 +1,8 @@
 'M12.Foundation:Alert':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AbstractDevCustomTag'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Alert'
     icon: 'icon-warning-sign'

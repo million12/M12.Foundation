@@ -86,8 +86,8 @@
 
 'M12.Foundation:FontIcon':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:AbstractFontIcon'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractFontIcon': TRUE
   ui:
     label: 'Font Awesome icon'
     icon: 'icon-flag'

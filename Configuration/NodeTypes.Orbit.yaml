@@ -1,8 +1,8 @@
 'M12.Foundation:Orbit':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
-    - 'M12.Foundation:AbstractNodeTitle'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     label: 'Carousel (Orbit Slider)'
     icon: 'icon-picture'

@@ -30,9 +30,9 @@
 
 'TYPO3.Neos.NodeTypes:Headline':
   superTypes:
-    abstractNavSailingType: 'M12.Foundation:AbstractNavSailingType'
-    abstractDevCustomTag: 'M12.Foundation:AbstractDevCustomTag'
-    abstractFontIcon: 'M12.Foundation:AbstractFontIcon'
+    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
+    'M12.Foundation:AbstractFontIcon': TRUE
   properties:
     'title':
       ui:
@@ -45,8 +45,8 @@
 
 'TYPO3.Neos.NodeTypes:Text':
   superTypes:
-    abstractDevCustomTag: 'M12.Foundation:AbstractDevCustomTag'
-    abstractFontIcon: 'M12.Foundation:AbstractFontIcon'
+    'M12.Foundation:AbstractDevCustomTag': TRUE
+    'M12.Foundation:AbstractFontIcon': TRUE
   properties:
     text:
       ui:
@@ -58,8 +58,8 @@
 
 'TYPO3.Neos.NodeTypes:Html':
   superTypes:
-    abstractNavSailingType: 'M12.Foundation:AbstractNavSailingType'
-    abstractDevCustomTag: 'M12.Foundation:AbstractDevCustomTag'
+    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractDevCustomTag': TRUE
 
 'TYPO3.Neos.NodeTypes:ContentReferences':
   ui:

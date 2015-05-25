@@ -5,7 +5,7 @@
   label: "${'Dropdown: ' + q(node).property('customHtmlId')}"
   abstract: TRUE
   superTypes:
-    - 'M12.Foundation:AbstractDevBase'
+    'M12.Foundation:AbstractDevBase': TRUE
   ui:
     inspector:
       groups:
@@ -54,8 +54,8 @@
 # Dropdown that can handle list of links only.
 'M12.Foundation:Dropdown':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:DropdownAbstract'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:DropdownAbstract': TRUE
   ui:
     label: 'Dropdown: Links'
     icon: 'icon-sort-down'
@@ -99,9 +99,9 @@
 # Dropdown that can handle custom content.
 'M12.Foundation:DropdownContent':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'M12.Foundation:DropdownAbstract'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:DropdownAbstract': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Dropdown: Content'
     icon: 'icon-collapse'

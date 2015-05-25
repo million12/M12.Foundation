@@ -9,9 +9,9 @@
 #
 'M12.Foundation:TopBar':
   superTypes:
-    - 'TYPO3.Neos.NodeTypes:Menu'
-    - 'M12.Foundation:AbstractNavFixedSticky'
-    - 'M12.Foundation:AbstractNavSailingType'
+    'TYPO3.Neos.NodeTypes:Menu': TRUE
+    'M12.Foundation:AbstractNavFixedSticky': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Top Bar'
     icon: 'icon-sitemap'
@@ -69,8 +69,8 @@
 #
 'M12.Foundation:SideNav':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Side Nav'
     icon: 'icon-th-list'
@@ -83,9 +83,9 @@
 #
 'M12.Foundation:SideNavLive':
   superTypes:
-    - 'TYPO3.Neos.NodeTypes:Menu'
-    - 'M12.Foundation:AbstractNavFixedSticky'
-    - 'M12.Foundation:AbstractNavSailingType'
+    'TYPO3.Neos.NodeTypes:Menu': TRUE
+    'M12.Foundation:AbstractNavFixedSticky': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Side Nav (live)'
     group: 'navigation'
@@ -100,8 +100,8 @@
 #
 'M12.Foundation:SubNav':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Sub Nav'
     icon: 'icon-barcode'
@@ -129,9 +129,9 @@
 #
 'M12.Foundation:SubNavLive':
   superTypes:
-    - 'TYPO3.Neos.NodeTypes:Menu'
-    - 'M12.Foundation:AbstractNavFixedSticky'
-    - 'M12.Foundation:AbstractNavSailingType'
+    'TYPO3.Neos.NodeTypes:Menu': TRUE
+    'M12.Foundation:AbstractNavFixedSticky': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Sub Nav (live)'
     group: 'navigation'
@@ -159,7 +159,7 @@
 #
 'M12.Foundation:NavItem':
   superTypes:
-    - 'TYPO3.Neos:Content'
+    'TYPO3.Neos:Content': TRUE
   ui:
     label: 'Nav Item'
     icon: 'icon-minus'

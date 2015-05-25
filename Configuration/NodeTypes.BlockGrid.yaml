@@ -1,8 +1,8 @@
 'M12.Foundation:BlockGrid':
   superTypes:
-    - 'TYPO3.Neos:Content'
-    - 'TYPO3.Neos:ContentCollection'
-    - 'M12.Foundation:AbstractNavSailingType'
+    'TYPO3.Neos:Content': TRUE
+    'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Block Grid'
     icon: 'icon-th-large'
