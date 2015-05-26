@@ -3,6 +3,7 @@
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
     label: 'Alert'
     icon: 'icon-warning-sign'

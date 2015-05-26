@@ -167,6 +167,7 @@
 'M12.Foundation:NavItem':
   superTypes:
     'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
     label: 'Nav Item'
     icon: 'icon-minus'

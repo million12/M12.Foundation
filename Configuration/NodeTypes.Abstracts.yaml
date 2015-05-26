@@ -236,3 +236,76 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'menuPosition'
+
+#
+# Mixin: tooltip
+#
+'M12.Foundation:AbstractTitleTooltip':
+  abstract: TRUE
+  superTypes:
+    'TYPO3.Neos:Content': TRUE
+  ui:
+    inspector:
+      groups:
+        tooltip:
+          label: 'Tooltip'
+          position: 91 # after AbstractFontIcon
+          tab: view
+  properties:
+    htmlTitle:
+      type: string
+      defaultValue: ''
+      ui:
+        label: 'Tooltip text'
+        reloadIfChanged: FALSE
+        inspector:
+          group: 'tooltip'
+          position: 10
+          editorOptions:
+            placeholder: 'Empty'
+    tooltip:
+      type: boolean
+      ui:
+        label: "Render as an enhanced tooltip"
+        inspector:
+          group: 'tooltip'
+          position: 20
+    classTooltipPosition:
+      type: string
+      ui:
+        label: 'Tooltip position'
+        inspector:
+          group: 'tooltip'
+          position: 30
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Default (Bottom)'
+            allowEmpty: TRUE
+            values:
+              tip-top:
+                label: 'Top'
+              tip-bottom:
+                label: 'Bottom'
+              tip-left:
+                label: 'Left'
+              tip-right:
+                label: 'Right'
+    tooltipOptions:
+      type: array
+      ui:
+        label: 'Tooltip options'
+        inspector:
+          group: 'tooltip'
+          position: 40
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Tooltip options'
+            values:
+              'disable_for_touch:true':
+                label: 'Disable for touch'
+              'show_on:small':
+                label: 'Show on small device only'
+              'show_on:medium':
+                label: 'Show on: medium device only'
+              'show_on:large':
+                label: 'Show on: large device only'

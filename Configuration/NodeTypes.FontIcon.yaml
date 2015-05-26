@@ -91,6 +91,7 @@
   superTypes:
     'TYPO3.Neos:Content': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
     label: 'Font Awesome icon'
     icon: 'icon-flag'
@@ -100,6 +101,8 @@
           # Put this group at the very beginning for this content element
           # Also move it to the very 1st, default tab
           position: 10
+          tab: default
+        tooltip:
           tab: default
   properties:
     faName:

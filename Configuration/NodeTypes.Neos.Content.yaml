@@ -33,6 +33,7 @@
     'M12.Foundation:AbstractNavSailingType': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   properties:
     'title':
       ui:
@@ -47,6 +48,7 @@
   superTypes:
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   properties:
     text:
       ui:

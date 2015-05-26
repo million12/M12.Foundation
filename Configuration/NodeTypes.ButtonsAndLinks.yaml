@@ -9,6 +9,7 @@
     'TYPO3.Neos:Content': TRUE
     'M12.Foundation:AbstractNavSailingType': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
     icon: 'icon-sign-blank'
     group: 'interactive'

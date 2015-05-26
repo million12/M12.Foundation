@@ -37,6 +37,8 @@ prototype(TYPO3.Neos:Content) {
 		hide = ${q(node).property('classHide') ? 'hide' : null}
 		hide.@position = '100'
 
+		classTooltipPosition = ${q(node).property('classTooltipPosition')}
+
 		# Add extra class 'style-x [nodeTypeShort]-style-x
 		customLook = ${q(node).property('customLook') ? q(node).property('customLook')+' '+nodeTypeShort+'-'+q(node).property('customLook') : null}
 		customLook.@position = 'end 10'
@@ -47,6 +49,9 @@ prototype(TYPO3.Neos:Content) {
 	
 	# Some Zurb Components use 'data-options' attribute. Define it here. Add common options.
 	attributes.data-options = TYPO3.TypoScript:Array {
+		tooltipOptions = ${q(node).property('tooltipOptions') ? Array.join(q(node).property('tooltipOptions'), '; ') : null}
+		tooltipOptions.@if.tooltip = ${q(node).property('tooltip') && q(node).property('htmlTitle')}
+
 		@process.nullify {
 			expression = ${value ? value : null}
 			@position = 'end'
@@ -59,6 +64,10 @@ prototype(TYPO3.Neos:Content) {
 	
 	# Title and/or tooltip
 	attributes.title = ${q(node).property('htmlTitle') ? q(node).property('htmlTitle') : null}
+	attributes.data-tooltip = ${q(node).property('tooltip') && q(node).property('htmlTitle') ? true : false}
+	attributes.data-tooltip.@if.isLive = ${node.context.workspace.name == 'live'}
+	attributes.aria-haspopup = ${q(node).property('tooltip') && q(node).property('htmlTitle') ? 'true' : null}
+	
 	# Prepare container for another/extra set of attributes - can be used for
 	# additional outer wrapper etc. Not harmful when not used and/or empty.
 	extraAttributes = TYPO3.TypoScript:Attributes {
