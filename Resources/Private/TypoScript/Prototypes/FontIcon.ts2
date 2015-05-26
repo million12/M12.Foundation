@@ -1,17 +1,38 @@
-# Create separate TypoScript object which will be rendered inside another NodeType.
-# It's done this way to avoid default TYPO3.Neos:Content behaviour in Neos backend
-# (ie. we don't want there toolbar with add/remove icons etc as it would be misleading).
+# There are two separate objects for font icon: 
+# 1. Abstract FontIconAbstract, which is rendered inside another objects (e.g. button).
+#    See TYPO3.Neos:Content.fontIcon.
+#    This icon is only rendered for nodes which have `M12.Foundation:AbstractFontIcon`
+#    set in `superTypes` and it's a simplified version of regular FontIcon.
+# 2. Full-fledged FontIcon, which is a regular node type, available to insert 
+#    at any place via `New content` dialog.
+#    It inherits after `M12.Foundation:Content`, so it has all its features
+#    e.g. ability to define all common properties like floats, show on X device,
+#    tooltip, custom html attributes etc.
+
 prototype(M12.Foundation:FontIconAbstract) < prototype(TYPO3.TypoScript:Template) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/FontIcon.html'
+	sectionName = 'abstractFontIcon'
 	node = ${node}
 
 	faName          = ${q(node).property('faName')}
-	faOptions       = ${q(node).property('faOptions') ? String.trim(Array.join(q(node).property('faOptions'), ' ')) : null}
+	faOptions       = ${q(node).property('faOptions') ? Array.join(q(node).property('faOptions'), ' ') : null}
 	faCustomCss     = ${q(node).property('faCustomCss')}
 }
 
-prototype(M12.Foundation:FontIcon) < prototype(M12.Foundation:FontIconAbstract) {
-	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
-	# This line prevents faOptions to be overridden by TS generated in generateNodeTypeDefinitions
-	faOptions < prototype(M12.Foundation:FontIconAbstract).faOptions
+prototype(M12.Foundation:FontIcon) < prototype(M12.Foundation:Content) {
+	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/FontIcon.html'
+	sectionName = 'fontIcon'
+
+	# Note: we don't use here `faCustomCss` property.
+	# We use instead the standard `customCssCode` defined in M12.Foundation:Content.
+	# We only needed `faCustomCss` for that abstract font icon, to have separate inline styles
+	# for the node and for the icon inside it.
+	attributes.class {
+		nodeType = 'fa'
+		icon = ${'fa-' + q(node).property('faName')}
+		iconOptions = ${q(node).property('faOptions') ? Array.join(q(node).property('faOptions'), ' ') : null}
+	}
+
+	# Unset 'fontIcon' defined in parent M12.Foundation:Content
+	fontIcon >
 }

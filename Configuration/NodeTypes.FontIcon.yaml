@@ -18,6 +18,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'fontIconOptions'
+          position: 10
           editorOptions:
             placeholder: '...as listed on fontawesome.io'
     faOptions:
@@ -27,6 +28,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'fontIconOptions'
+          position: 20
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             placeholder: 'Icon options'
@@ -76,10 +78,11 @@
     faCustomCss:
       type: string
       ui:
-        label: 'Icon custom inline CSS'
+        label: 'Icon inline CSS'
         reloadIfChanged: TRUE
         inspector:
           group: 'fontIconOptions'
+          position: 30
           editorOptions:
             placeholder: 'e.g. padding-right: 5px;'
 
@@ -101,3 +104,10 @@
   properties:
     faName:
       defaultValue: 'circle-o-notch'
+    # faCustomCss is only used in AbstractFontIcon, which is used to render icon
+    # inside another node type. Only then there's an extra field needed for
+    # font icon styles only (as customCssCode is then applied for the actual element).
+    faCustomCss:
+      ui:
+        inspector:
+          group: 'hide-this-field'
