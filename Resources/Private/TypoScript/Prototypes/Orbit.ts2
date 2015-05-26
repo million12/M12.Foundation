@@ -3,7 +3,7 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 	sectionName = 'sliderRoot'
 
 	attributes.data-orbit = ''
-	attributes.data-options = TYPO3.TypoScript:RawArray {
+	attributes.data-options {
 		animation = ${q(node).property('animation')                 ? 'animation:' + q(node).property('setAnimation') + ';' : null}
 		animationSpeed = ${q(node).property('animationSpeed')       ? 'animation_speed:' + String.toInteger(q(node).property('animationSpeed')) + ';' : null}
 		timerSpeed = ${q(node).property('timerSpeed')               ? 'timer_speed:' + String.toInteger(q(node).property('timerSpeed')) + ';' : null}

@@ -44,10 +44,21 @@ prototype(TYPO3.Neos:Content) {
 		customClass = ${q(node).property('customCssClass')}
 		customClass.@position = 'end 20'
 	}
+	
+	# Some Zurb Components use 'data-options' attribute. Define it here. Add common options.
+	attributes.data-options = TYPO3.TypoScript:Array {
+		@process.nullify {
+			expression = ${value ? value : null}
+			@position = 'end'
+		}
+	}
+
 	attributes.id = ${q(node).property('customHtmlId') ? String.trim(q(node).property('customHtmlId')) : null}
 	attributes.style = ${q(node).property('customCssCode') ? String.trim(q(node).property('customCssCode')) : null}
 	attributes.customUserAttributes = ${q(node).property('customUserAttributes') ? q(node).property('customUserAttributes') : null}
-
+	
+	# Title and/or tooltip
+	attributes.title = ${q(node).property('htmlTitle') ? q(node).property('htmlTitle') : null}
 	# Prepare container for another/extra set of attributes - can be used for
 	# additional outer wrapper etc. Not harmful when not used and/or empty.
 	extraAttributes = TYPO3.TypoScript:Attributes {

@@ -8,23 +8,13 @@ prototype(M12.Foundation:ButtonLinkAbstract) < prototype(M12.Foundation:Content)
 	attributes.target.@if.isLive = ${node.context.workspace.name == 'live'}
 
 	attributes.href = ${url ? url : null}
-	attributes.title = ${q(node).property('htmlTitle') ? String.trim(q(node).property('htmlTitle')) : null}
 
 	# Extra link/button options
 	attributes.data-reveal-id = ${q(node).property('htmlDataRevealId') ? String.trim(q(node).property('htmlDataRevealId')) : null}
 	attributes.data-dropdown = ${q(node).property('htmlDataDropdownId') and !q(node).property('isButtonSplit') ? String.trim(q(node).property('htmlDataDropdownId')) : null}
-	attributes.data-options = TYPO3.TypoScript:RawArray {
-		dropdownDirection = ${q(node).property('dropdownDirection') ? 'align: ' + q(node).property('dropdownDirection') + ';' : null}
-		dropdownHoverable = ${q(node).property('dropdownHoverable') ? 'is_hover: true;' : null}
-		# We don't want always 'data-options' attribute here.. so make sure it's set to NULL when it's empty
-		@process.stringify {
-			expression = ${String.trim(String.pregReplace(Array.join(value,' '),'/\s+/',' '))}
-			@position = '1'
-		}
-		@process.nullify {
-			expression = ${value ? value : null}
-			@position = 'end'
-		}
+	attributes.data-options {
+		dropdownDirection = ${q(node).property('dropdownDirection') ? 'align:' + q(node).property('dropdownDirection') + ';' : null}
+		dropdownHoverable = ${q(node).property('dropdownHoverable') ? 'is_hover:true;' : null}
 	}
 }
 
