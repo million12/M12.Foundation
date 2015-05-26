@@ -100,8 +100,8 @@
 'M12.Foundation:DropdownContent':
   superTypes:
     'TYPO3.Neos:Content': TRUE
-    'M12.Foundation:DropdownAbstract': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:DropdownAbstract': TRUE
   ui:
     label: 'Dropdown: Content'
     icon: 'icon-collapse'
