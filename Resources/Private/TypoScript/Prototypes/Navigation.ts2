@@ -13,7 +13,8 @@ prototype(M12.Foundation:Menu) < prototype(TYPO3.Neos.NodeTypes:Menu) {
 }
 
 prototype(M12.Foundation:TopBar) < prototype(M12.Foundation:Menu) {
-	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/TopBar.html'
+	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Navigation.html'
+	sectionName = 'TopBar'
 	node = ${node}
 
 	# Set nodeType class manually - othwerise it inherits page class when inserted from TS
@@ -50,7 +51,10 @@ prototype(M12.Foundation:SideNavLive) < prototype(M12.Foundation:Menu) {
 }
 
 prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
-	isSubNav  = ${String.endsWith(q(node).parent().parent().property('_nodeType.name'), 'SubNav')}
+	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Navigation.html'
+	sectionName = 'NavItem'
+	
+	isSubNav  = ${String.endsWith(q(node).parent().property('_nodeType.name'), 'SubNav')}
 	isDivider = ${q(node).property('classDivider') ? true : false}
 
 	attributes.class {
@@ -60,6 +64,7 @@ prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
 		divider = ${q(node).property('classDivider') ? 'divider' : null}
 	}
 	attributesHref = ${q(node).property('htmlHref') ? String.trim(q(node).property('htmlHref')) : null}
+	attributesHref.@process.1 = TYPO3.Neos:ConvertUris
 
 	navItemContent = TYPO3.Neos:ContentCollectionRenderer
 
@@ -67,6 +72,9 @@ prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
 }
 
 prototype(M12.Foundation:SideNav) < prototype(M12.Foundation:Content) {
+	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Navigation.html'
+	sectionName = 'SideNav'
+	
 	attributes.class {
 		contentcollection = 'neos-contentcollection'
 		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}
@@ -77,6 +85,9 @@ prototype(M12.Foundation:SideNav) < prototype(M12.Foundation:Content) {
 }
 
 prototype(M12.Foundation:SubNav) < prototype(M12.Foundation:Content) {
+	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Navigation.html'
+	sectionName = 'SubNav'
+	
 	attributes.class {
 		contentcollection = 'neos-contentcollection'
 		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}

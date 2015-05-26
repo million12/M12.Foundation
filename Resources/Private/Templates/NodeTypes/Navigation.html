@@ -1,0 +1,74 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+{namespace ts=TYPO3\TypoScript\ViewHelpers}
+
+<f:section name="SideNav">
+	<ul{attributes -> f:format.raw()}>
+		<ts:render path="sideNavContent" />
+	</ul>
+</f:section>
+
+<f:section name="SubNav">
+	<dl{attributes -> f:format.raw()}>
+		<dt>{subNavTitle}</dt>
+		<ts:render path="subNavContent" />
+	</dl>
+</f:section>
+
+<f:section name="NavItem">
+	<{tag}{attributes -> f:format.raw()}>
+		<f:if condition="{isDivider}">
+			<f:else>
+				<a href="{attributesHref -> f:format.raw()}">
+					{neos:contentElement.editable(property: 'label')}
+				</a>
+			</f:else>
+		</f:if>
+	</{tag}>
+</f:section>
+
+<f:section name="TopBar">
+	<f:render partial="Anchor" arguments="{_all}" />
+
+	<f:if condition="{extraAttributes}"><div{extraAttributes -> f:format.raw()}></f:if>
+
+	<nav{attributes -> f:format.raw()} data-topbar>
+		<ul class="title-area">
+			<f:if condition="{topBarTitle}">
+				<li class="name">
+					<h1><neos:link.node node="~"><span>{topBarTitle -> f:format.raw()}</span></neos:link.node></h1>
+				</li>
+			</f:if>
+		
+			<li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+		</ul>
+		
+		<div class="top-bar-section">
+			<ul class="{sectionAlign}">
+				<f:render section="TopBarItems" arguments="{items: items, magellanSupport: magellanSupport}" />
+			</ul>
+		</div>
+	</nav>
+	
+	<f:if condition="{extraAttributes}"></div></f:if>
+</f:section>
+
+<f:section name="TopBarItems">
+	<f:for each="{items}" as="item">
+		<li class="{item.cssClasses}"<f:if condition="{magellanSupport}"><f:if condition="{item.fragmentId}">data-magellan-arrival="{item.fragmentId}"</f:if></f:if>>
+		<f:if condition="{item.fragmentId}">
+			<f:then>
+				<neos:link.node node="{item.node}" section="{item.fragmentId}">{item.label}</neos:link.node>
+			</f:then>
+			<f:else>
+				<neos:link.node node="{item.node}">{item.label}</neos:link.node>
+			</f:else>
+		</f:if>
+
+		<f:if condition="{item.subItems}">
+			<ul class="dropdown">
+				<f:render section="TopBarItems" arguments="{items: item.subItems}" />
+			</ul>
+		</f:if>
+		</li>
+	</f:for>
+</f:section>
