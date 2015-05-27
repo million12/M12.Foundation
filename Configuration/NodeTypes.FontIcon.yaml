@@ -14,13 +14,16 @@
     faName:
       type: string
       ui:
-        label: 'Icon name (without fa- prefix)'
+        label: 'Icon name'
         reloadIfChanged: TRUE
         inspector:
           group: 'fontIconOptions'
           position: 10
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
-            placeholder: '...as listed on fontawesome.io'
+            dataSourceIdentifier: 'font-icon-list'
+            allowEmpty: TRUE
+            placeholder: 'Type to search...'
     faOptions:
       type: array
       ui:
@@ -105,8 +108,6 @@
         tooltip:
           tab: default
   properties:
-    faName:
-      defaultValue: 'circle-o-notch'
     # faCustomCss is only used in AbstractFontIcon, which is used to render icon
     # inside another node type. Only then there's an extra field needed for
     # font icon styles only (as customCssCode is then applied for the actual element).

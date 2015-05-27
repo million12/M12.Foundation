@@ -29,7 +29,11 @@ prototype(M12.Foundation:FontIcon) < prototype(M12.Foundation:Content) {
 	# for the node and for the icon inside it.
 	attributes.class {
 		nodeType = 'fa'
-		icon = ${'fa-' + q(node).property('faName')}
+		
+		icon = ${q(node).property('faName') ? q(node).property('faName') : 'fa-coffee'}
+		# Backward-compatibility: in the previous versions icon names were stored w/o fa- prefix... Add it if necessary.
+		icon.@process.makeSureFaPrefixIsPresent = ${String.startsWith(value, 'fa-') ? value : 'fa-'+value}
+		
 		iconOptions = ${q(node).property('faOptions') ? Array.join(q(node).property('faOptions'), ' ') : null}
 	}
 
