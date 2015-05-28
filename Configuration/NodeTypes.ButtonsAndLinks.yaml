@@ -36,6 +36,7 @@
         inlineEditable: TRUE
         inspector:
           group: 'linkOptions'
+          position: 10
         aloha:
           format:
             strong: TRUE
@@ -67,6 +68,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'linkOptions'
+          position: 20
           editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
           editorOptions:
             placeholder: 'Page name or external URL...'
@@ -77,6 +79,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'linkOptions'
+          position: 30
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             placeholder: 'No'
@@ -91,6 +94,7 @@
         label: 'Link title'
         inspector:
           group: 'linkOptions'
+          position: 40
     # Reveal Modal related properties.
     htmlDataRevealId:
       type: string

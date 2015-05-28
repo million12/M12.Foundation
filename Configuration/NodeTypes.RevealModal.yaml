@@ -15,7 +15,7 @@
   properties:
     classRevealSize:
       type: string
-      defaultValue: 'small'
+      defaultValue: 'medium'
       ui:
         label: 'Size'
         reloadIfChanged: TRUE

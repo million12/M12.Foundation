@@ -12,9 +12,6 @@
         dropdownOptions:
           label: 'Dropdown options'
           position: 9
-  constraints:
-    nodeTypes:
-      '*': FALSE # No children items allowed
   properties:
     dropdownSize:
       type: string
@@ -60,6 +57,9 @@
     label: 'Dropdown: Links'
     icon: 'icon-sort-down'
     group: 'interactive'
+  constraints:
+    nodeTypes:
+      '*': FALSE # No children items allowed
   properties:
     text:
       type: string
@@ -103,7 +103,7 @@
     'TYPO3.Neos:ContentCollection': TRUE
     'M12.Foundation:DropdownAbstract': TRUE
   ui:
-    label: 'Dropdown: Content'
+    label: 'Dropdown: Any Content'
     icon: 'icon-collapse'
     group: 'interactive'
     inlineEditable: TRUE
@@ -116,3 +116,10 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'dropdownOptions'
+    # Override default size for content dropdown (tiny is too... tiny)
+    dropdownSize:
+      defaultValue: 'medium'
+      ui:
+        inspector:
+          editorOptions:
+            placeholder: 'Default (Medium)'
