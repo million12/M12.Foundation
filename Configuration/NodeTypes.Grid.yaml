@@ -3,7 +3,7 @@
 # Note: This NodeType should be only created as a child nodes
 # of M12.Foundation:GridColumnsX. Therefore it is attached to not available UI group.
 #
-'M12.Foundation:Column':
+'M12.Foundation:GridColumn':
   superTypes:
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
@@ -22,23 +22,15 @@
   postprocessors:
     GridColumnNodeTypePostprocessor:
       postprocessor: 'M12\Foundation\NodeTypePostprocessor\GridColumnNodeTypePostprocessor'
-
-
-# The last child node for M12.Foundation:GridColumnsX with extra classEndColumn property
-'M12.Foundation:ColumnEnd':
-  superTypes:
-    'M12.Foundation:Column': TRUE
-  ui:
-    label: 'Grid Column (end)'
   properties:
     classEndColumn:
       type: boolean
       ui:
-        label: 'End column (for incomplete row)'
+        label: 'Last column in incomplete row'
         reloadIfChanged: TRUE
         inspector:
           group: 'grid'
-          position: 11
+          position: 99
 
 
 # Abstract NodeType for all M12.Foundation:GridColumnsX
@@ -63,7 +55,7 @@
       postprocessor: 'M12\Foundation\NodeTypePostprocessor\GridRowNodeTypePostprocessor'
   constraints:
     nodeTypes:
-      'M12.Foundation:Column': TRUE
+      'M12.Foundation:GridColumn': TRUE
       '*': FALSE
   properties:
     gridExtraWrapper:
@@ -86,7 +78,7 @@
     icon: 'icon-laptop'
   childNodes:
     col1:
-      type: 'M12.Foundation:Column'
+      type: 'M12.Foundation:GridColumn'
 
 'M12.Foundation:GridRow2Col':
   superTypes:
@@ -95,9 +87,9 @@
     label: 'Grid row: 2 columns'
   childNodes:
     col1:
-      type: 'M12.Foundation:Column'
+      type: 'M12.Foundation:GridColumn'
     col2:
-      type: 'M12.Foundation:ColumnEnd'
+      type: 'M12.Foundation:GridColumn'
 
 'M12.Foundation:GridRow3Col':
   superTypes:
@@ -106,8 +98,8 @@
     label: 'Grid row: 3 columns'
   childNodes:
     col1:
-      type: 'M12.Foundation:Column'
+      type: 'M12.Foundation:GridColumn'
     col2:
-      type: 'M12.Foundation:Column'
+      type: 'M12.Foundation:GridColumn'
     col3:
-      type: 'M12.Foundation:ColumnEnd'
+      type: 'M12.Foundation:GridColumn'

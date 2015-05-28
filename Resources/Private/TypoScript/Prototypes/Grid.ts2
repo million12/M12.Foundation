@@ -1,5 +1,5 @@
 # Abstract render definition for a grid column
-prototype(M12.Foundation:Column) < prototype(M12.Foundation:Content) {
+prototype(M12.Foundation:GridColumn) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Grid.html'
 	sectionName = 'gridColumn'
 	node = ${node}
@@ -27,8 +27,8 @@ prototype(M12.Foundation:GridRowAbstract) < prototype(M12.Foundation:Content) {
 	attributes.class.collapse = ${q(node).property('classCollapse') ? Array.join(q(node).property('classCollapse'), ' ') : null}
 
 	columns = TYPO3.TypoScript:Collection {
-		collection = ${q(node).children('[instanceof M12.Foundation:Column]')}
-		itemRenderer = M12.Foundation:Column
+		collection = ${q(node).children('[instanceof M12.Foundation:GridColumn]')}
+		itemRenderer = M12.Foundation:GridColumn
 		itemName = 'node'
 	}
 }
@@ -42,6 +42,10 @@ prototype(M12.Foundation:GridRow2Col) < prototype(M12.Foundation:GridRowAbstract
 	sectionName = 'grid'
 }
 prototype(M12.Foundation:GridRow3Col) < prototype(M12.Foundation:GridRowAbstract) {
+	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Grid.html'
+	sectionName = 'grid'
+}
+prototype(M12.Foundation:GridRow4Col) < prototype(M12.Foundation:GridRowAbstract) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Grid.html'
 	sectionName = 'grid'
 }

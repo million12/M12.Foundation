@@ -45,7 +45,7 @@ M12:
           end: [ ]
 
     # @see AbstractGridNodeTypePostprocessor which utilizes these settings
-    # to generate required properties for M12.Foundation:Column node type
+    # to generate required properties for M12.Foundation:GridColumn node type
     gridColumnSettings:
       size:
         label: 'Grid column width'

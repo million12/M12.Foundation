@@ -1,0 +1,40 @@
+up:
+  comments: 'This is the migration to move M12.Foundation:Column to M12.Foundation:GridColumn'
+  migration:
+    -
+      filters:
+        -
+          type: 'NodeType'
+          settings:
+            nodeType: 'M12.Foundation:Column'
+      transformations:
+        -
+          type: 'ChangeNodeType'
+          settings:
+            newType: 'M12.Foundation:GridColumn'
+    -
+      filters:
+        -
+          type: 'NodeType'
+          settings:
+            nodeType: 'M12.Foundation:ColumnEnd'
+      transformations:
+        -
+          type: 'ChangeNodeType'
+          settings:
+            newType: 'M12.Foundation:GridColumn'
+
+down:
+  comments: 'This is the migration to revert move M12.Foundation:Column to M12.Foundation:GridColumn'
+  migration:
+    -
+      filters:
+        -
+          type: 'NodeType'
+          settings:
+            nodeType: 'M12.Foundation:GridColumn'
+      transformations:
+        -
+          type: 'ChangeNodeType'
+          settings:
+            newType: 'M12.Foundation:Column'
