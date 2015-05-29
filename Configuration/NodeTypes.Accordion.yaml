@@ -35,9 +35,10 @@
         label: 'Accordion group name'
         reloadIfChanged: TRUE
         inspector:
-          group: 'accordionSettings'
+          group: 'dev'
+          position: 1
           editorOptions:
-            placeholder: '...for distributed accordion groups only'
+            placeholder: '...for distributed accordion groups'
       validation:
         regularExpression:
           regularExpression: '/^[a-z0-9\-]+$/i'
@@ -59,7 +60,7 @@
   properties:
     accordionItemLabel:
       type: string
-      defaultValue: 'Accordion item label'
+      defaultValue: 'Accordion Item'
       ui:
         inspector:
           group: 'accordionSettings'
@@ -89,7 +90,7 @@
             autoparagraph: FALSE
     isAccordionItemActive:
       type: boolean
-      defaultValue: TRUE
+      defaultValue: FALSE
       ui:
         label: 'Make this accordion item active'
         reloadIfChanged: TRUE

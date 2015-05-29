@@ -180,7 +180,7 @@
   properties:
     label:
       type: string
-      defaultValue: 'nav item'
+      defaultValue: 'Nav item'
       ui:
         label: 'Label'
         reloadIfChanged: TRUE

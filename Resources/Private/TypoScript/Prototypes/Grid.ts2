@@ -26,11 +26,7 @@ prototype(M12.Foundation:GridRowAbstract) < prototype(M12.Foundation:Content) {
 	attributes.class.row = ${q(node).property('gridExtraWrapper') ? 'grid-outer-wrapper' : 'row'}
 	attributes.class.collapse = ${q(node).property('classCollapse') ? Array.join(q(node).property('classCollapse'), ' ') : null}
 
-	columns = TYPO3.TypoScript:Collection {
-		collection = ${q(node).children('[instanceof M12.Foundation:GridColumn]')}
-		itemRenderer = M12.Foundation:GridColumn
-		itemName = 'node'
-	}
+	columns = TYPO3.Neos:ContentCollectionRenderer
 }
 
 prototype(M12.Foundation:GridRow1Col) < prototype(M12.Foundation:GridRowAbstract) {

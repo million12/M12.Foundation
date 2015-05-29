@@ -111,6 +111,7 @@
     # faCustomCss is only used in AbstractFontIcon, which is used to render icon
     # inside another node type. Only then there's an extra field needed for
     # font icon styles only (as customCssCode is then applied for the actual element).
+    # For FontIcon (regular content) we use 'customCssCode' property (standard for inline css).
     faCustomCss:
       ui:
         inspector:
