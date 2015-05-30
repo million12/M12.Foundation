@@ -52,11 +52,6 @@
     nodeTypes:
       'M12.Foundation:TabItem': TRUE
       '*': FALSE
-  childNodes:
-    tab1:
-      type: 'M12.Foundation:TabItem'
-    tab2:
-      type: 'M12.Foundation:TabItem'
   properties:
     vertical:
       type: boolean

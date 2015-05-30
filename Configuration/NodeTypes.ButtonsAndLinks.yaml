@@ -284,9 +284,6 @@
     nodeTypes:
       'M12.Foundation:Button': TRUE
       '*': FALSE
-  childNodes:
-    btn1:
-      type: 'M12.Foundation:Button'
 
 # Button Bar (group of button groups)
 'M12.Foundation:ButtonBar':
@@ -301,8 +298,3 @@
     nodeTypes:
       'M12.Foundation:ButtonGroup': TRUE
       '*': FALSE
-  childNodes:
-    group1:
-      type: 'M12.Foundation:ButtonGroup'
-    group2:
-      type: 'M12.Foundation:ButtonGroup'

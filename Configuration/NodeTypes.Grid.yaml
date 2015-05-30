@@ -71,36 +71,32 @@
 #
 # Actual GridColumns elements
 #
+# Note: because childNodes defined in NodeTypes cannot be moved/deleted
+# from the UI and because we really need that flexibility, we create
+# them manually, when node is created.
+# See \M12\Foundation\Node\NodeConfigurator
+#
 'M12.Foundation:GridRow1Col':
   superTypes:
     'M12.Foundation:GridRowAbstract': TRUE
   ui:
     label: 'Grid row: 1 column'
     icon: 'icon-laptop'
-  childNodes:
-    col1:
-      type: 'M12.Foundation:GridColumn'
 
 'M12.Foundation:GridRow2Col':
   superTypes:
     'M12.Foundation:GridRowAbstract': TRUE
   ui:
     label: 'Grid row: 2 columns'
-  childNodes:
-    col1:
-      type: 'M12.Foundation:GridColumn'
-    col2:
-      type: 'M12.Foundation:GridColumn'
 
 'M12.Foundation:GridRow3Col':
   superTypes:
     'M12.Foundation:GridRowAbstract': TRUE
   ui:
     label: 'Grid row: 3 columns'
-  childNodes:
-    col1:
-      type: 'M12.Foundation:GridColumn'
-    col2:
-      type: 'M12.Foundation:GridColumn'
-    col3:
-      type: 'M12.Foundation:GridColumn'
+
+'M12.Foundation:GridRow4Col':
+  superTypes:
+    'M12.Foundation:GridRowAbstract': TRUE
+  ui:
+    label: 'Grid row: 4 columns'

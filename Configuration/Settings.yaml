@@ -108,3 +108,343 @@ M12:
               label: 'all devices: justify'
               group: All devices
           end: [ ]
+    
+    #
+    # Configuration for auto-created child/peer nodes for different node types.
+    # This is to ease adding/editing new nodes. E.g. for new grid row with X columns,
+    # it will set default column width, so the grid is responsive out of the box. 
+    # When adding new Obrit carousel, three image placeholder will be inserted there,
+    # so user doesn't have to do too much.
+    # @see \M12\Foundation\Node\NodeConfigurator class for implementation.
+    #
+    assistanceChildNodes:
+      # Alert: add Text node inside
+      'M12.Foundation:Alert':
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+            properties:
+              text: 'This is a sample alert text.'
+      # GridColumn: add Text node inside with sample content
+      'M12.Foundation:GridColumn':
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+            properties:
+              text: 'Column %s content'
+      # Panel: add sample Text node inside
+      'M12.Foundation:Panel':
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+            properties:
+              text: '<h4>This is a panel title</h4><p>This is a sample panel content.</p>'
+      # Orbit slider: add images inside
+      'M12.Foundation:Orbit':
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+          - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+          - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+      # Reveal Modal: add sample content inside + insert Button before and link it with modal element (linking done in the code)
+      'M12.Foundation:RevealModal':
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Headline'
+            properties:
+              title: '<h1>Modal window</h1>'
+          - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+            properties:
+              text: 'Sample modal content.'
+        beforeNodes:
+          - nodeType: 'M12.Foundation:Button'
+            properties:
+              label: 'Show modal window'
+      # Button Group: add buttons inside
+      'M12.Foundation:ButtonGroup':
+        childNodes:
+          - nodeType: 'M12.Foundation:Button'
+            properties:
+              label: 'Button A'
+          - nodeType: 'M12.Foundation:Button'
+            properties:
+              label: 'Button B'
+      # Button Bar: add button groups inside (and they will add Button element itself)
+      'M12.Foundation:ButtonBar':
+        childNodes:
+          - nodeType: 'M12.Foundation:ButtonGroup'
+          - nodeType: 'M12.Foundation:ButtonGroup'
+      # Dropdown: add button linking with it, so it works out of the box (linking done in the code)
+      'M12.Foundation:Dropdown':
+        beforeNodes:
+          - nodeType: 'M12.Foundation:Button'
+            properties:
+              label: 'Show dropdown'
+      # Dropdown with any content: add sample content, add button linking with it
+      'M12.Foundation:DropdownContent':
+        beforeNodes:
+          - nodeType: 'M12.Foundation:Button'
+            properties:
+              label: 'Show dropdown'
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Headline'
+            properties:
+              title: '<h1>Dropdown content</h1>'
+          - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+            properties:
+              text: 'Sample dropdown content.'
+      # Block grid: add sample content inside, so it's obvious how it works out of the box
+      'M12.Foundation:BlockGrid':
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+          - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+          - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+      # Form: demonstrate sample form.
+      'M12.Foundation:Form':
+        childNodes:
+          - nodeType: 'M12.Foundation:FormFieldset'
+            properties:
+              legendTxt: 'Sample (and responsive!) form'
+            childNodes:
+              # Form 1st row
+              - nodeType: 'M12.Foundation:GridRow2Col'
+                enableAutoCreateNodes: FALSE
+                childNodes:
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:FormInput'
+                        properties:
+                          inputLabel: 'First Name'
+                          inputPlaceholder: 'Your first name...' 
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:FormInput'
+                        properties:
+                          inputLabel: 'Last Name'
+                          inputPlaceholder: 'Your last name...'
+                          errorState: TRUE
+                          errorTxt: 'Did you forgot your last name?'
+              # Form 2nd row
+              - nodeType: 'M12.Foundation:GridRow4Col'
+                enableAutoCreateNodes: FALSE
+                childNodes:
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6', 'large-3' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:FormInput'
+                        properties:
+                          inputLabel: 'Input 1'
+                          classRadiusAndRounded: 'radius'
+                          inputDisabled: TRUE
+                          inputPlaceholder: 'disabled status'
+                  # 2nd column with form suffix (needs another grid 2col)
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6', 'large-3' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:GridRow2Col'
+                        enableAutoCreateNodes: FALSE
+                        properties:
+                          classCollapse: [ 'collapse' ]
+                        childNodes:
+                          - nodeType: 'M12.Foundation:FormLabel'
+                            properties:
+                              inputLabel: 'Input 2'
+                          - nodeType: 'M12.Foundation:GridColumn'
+                            properties:
+                              classGridSize: [ 'small-8' ]
+                            childNodes:
+                              - nodeType: 'M12.Foundation:FormInput'
+                                properties:
+                                  inputLabelEnable: FALSE
+                                  inputPlaceholder: 'your-domain'
+                                  classRadiusAndRounded: 'radius'
+                          - nodeType: 'M12.Foundation:GridColumn'
+                            properties:
+                              classGridSize: [ 'small-4' ]
+                            childNodes:
+                              - nodeType: 'M12.Foundation:FormInputPrePostfix'
+                                properties:
+                                  text: '.com'
+                                  classRadiusAndRounded: 'radius'
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6', 'large-3' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:FormInput'
+                        properties:
+                          inputLabel: 'Input 3'
+                          classRadiusAndRounded: 'radius'
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6', 'large-3' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:FormInputSelect'
+                        properties:
+                          inputLabel: 'Input 4'
+                          selectOptions: |
+                            = -
+                            Option 1
+                            Option 2
+                            Option 3
+                          classRadiusAndRounded: 'radius'
+              # Form 3rd row
+              - nodeType: 'M12.Foundation:GridRow4Col'
+                enableAutoCreateNodes: FALSE
+                childNodes:
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6', 'large-3' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:FormLabel'
+                        properties:
+                          inputLabel: 'Choose colour'
+                      - nodeType: 'M12.Foundation:FormInputCheckbox'
+                        properties:
+                          inputLabel: 'Red'
+                          inputChecked: TRUE
+                      - nodeType: 'M12.Foundation:FormInputCheckbox'
+                        properties:
+                          inputLabel: 'Black'
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'medium-6', 'large-3' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:FormLabel'
+                        properties:
+                          inputLabel: 'Choose option'
+                      - nodeType: 'M12.Foundation:FormInputRadio'
+                        properties:
+                          inputName: 'option'
+                          inputLabel: 'Option 1'                        
+                      - nodeType: 'M12.Foundation:FormInputRadio'
+                        properties:
+                          inputName: 'option'
+                          inputLabel: 'Option 2'
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-12', 'large-6' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:GridRow4Col'
+                        enableAutoCreateNodes: FALSE
+                        childNodes:
+                          - nodeType: 'M12.Foundation:GridColumn'
+                            properties:
+                              classGridSize: [ 'small-4', 'medium-2', 'large-3' ]
+                            childNodes:
+                              - nodeType: 'M12.Foundation:FormLabel'
+                                properties:
+                                  inputLabel: 'Inline label:'
+                                  labelInlined: TRUE
+                                  classTextAlign: [ 'text-right' ]
+                          - nodeType: 'M12.Foundation:GridColumn'
+                            properties:
+                              classGridSize: [ 'small-8', 'medium-10', 'large-9' ]
+                            childNodes:
+                              - nodeType: 'M12.Foundation:FormInputTextarea'
+                                properties:
+                                  inputLabelEnable: FALSE
+                                  inputValue: 'Write something...'
+              # Form last for (with centered column with submit)
+              - nodeType: 'M12.Foundation:GridRow1Col'
+                enableAutoCreateNodes: FALSE
+                childNodes:
+                  - nodeType: 'M12.Foundation:GridColumn'
+                    properties:
+                      classGridSize: [ 'small-8', 'medium-4' ]
+                      classGridAlign: [ 'small-centered' ]
+                      classTextAlign: [ 'text-center' ]
+                    childNodes:
+                      - nodeType: 'M12.Foundation:Button'
+                        properties:
+                          label: 'Submit'
+                          classOptions: [ 'success', 'radius' ]
+                          htmlTitle: 'You can submit me...'
+                          tooltip: TRUE
+                          classTooltipPosition: 'tip-left'
+                      - nodeType: 'M12.Foundation:FontIcon'
+                        properties:
+                          faName: 'fa-spinner'
+                          faOptions: [ 'fa-2x', 'fa-spin' ]
+                          customCssCode: 'position:absolute;margin:0.6rem 1rem'
+                          htmlTitle: 'Loading...'
+                          tooltip: TRUE
+                          classTooltipPosition: 'tip-right'
+      # Side navigation: add navigation items inside
+      'M12.Foundation:SideNav':
+        childNodes:
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              label: 'Side Nav Item 1'
+              classActive: TRUE
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              label: 'Side Nav Item 2'
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              label: 'Side Nav Item 3'
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              classDivider: TRUE
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              label: 'Side Nav Item 4'
+      # Sub navigation: add navigation items inside
+      'M12.Foundation:SubNav':
+        properties:
+          title: 'Navigation:'
+        childNodes:
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              label: 'Item 1'
+              classActive: TRUE
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              label: 'Item 2'
+          - nodeType: 'M12.Foundation:NavItem'
+            properties:
+              label: 'Item 3'
+      # Accordion item: add sample text inside
+      'M12.Foundation:AccordionItem':
+        childNodes:
+          - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+            properties:
+              text: 'Sample accordion item content.'
+      # Accordion: add accordion items, configure the 1st one as active
+      'M12.Foundation:Accordion':
+        childNodes:
+          - nodeType: 'M12.Foundation:AccordionItem'
+            properties:
+              isAccordionItemActive: TRUE
+              accordionItemLabel: 'Accordion Item 1'
+          - nodeType: 'M12.Foundation:AccordionItem'
+            properties:
+              accordionItemLabel: 'Accordion Item 2'
+          - nodeType: 'M12.Foundation:AccordionItem'
+            properties:
+              accordionItemLabel: 'Accordion Item 3'
+      # Tabs: add tab items and sample content inside them, configure 1st item as active
+      'M12.Foundation:Tabs':
+        childNodes:
+          - nodeType: 'M12.Foundation:TabItem'
+            properties:
+              title: 'Tab 1'
+              activeTab: TRUE
+            childNodes:
+              - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+                properties:
+                  text: '<h4>Tab panel 1</h4><p>This is a sample tab 1 content.</p>'
+          - nodeType: 'M12.Foundation:TabItem'
+            properties:
+              title: 'Tab 2'
+            childNodes:
+              - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+                properties:
+                  text: '<h4>Tab panel 2</h4><p>This is a sample tab 2 content.</p>'
+          - nodeType: 'M12.Foundation:TabItem'
+            properties:
+              title: 'Tab 3'
+            childNodes:
+              - nodeType: 'TYPO3.Neos.NodeTypes:Text'
+                properties:
+                  text: '<h4>Tab panel 3</h4><p>This is a sample tab 3 content.</p>'

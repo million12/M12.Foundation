@@ -25,9 +25,6 @@
     nodeTypes:
       'M12.Foundation:AccordionItem': TRUE
       '*': FALSE # No children items allowed
-  childNodes:
-    content:
-      type: 'M12.Foundation:AccordionItem'
   properties:
     accordionGroupName:
       type: string
