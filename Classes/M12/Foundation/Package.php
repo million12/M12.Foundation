@@ -27,6 +27,6 @@ class Package extends BasePackage {
 	 */
 	public function boot(Bootstrap $bootstrap) {
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
-		$dispatcher->connect('TYPO3\TYPO3CR\Domain\Model\Node', 'afterNodeCreate', 'M12\Foundation\Node\NodeConfigurator', 'afterNodeCreate');
+		$dispatcher->connect('TYPO3\Neos\Service\NodeOperations', 'afterNodeCreate', 'M12\Foundation\Node\NodeConfigurator', 'afterNodeCreate');
 	}
 }
