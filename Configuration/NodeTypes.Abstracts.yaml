@@ -9,7 +9,12 @@
     title:
       type: string
       ui:
-        label: 'Node title/label (for reference)'
+        label: 'Node title/label'
+        help:
+          message: |
+            Rename current content element, so it is easier to find it in the _Structure Tree_ panel.
+            
+            Setting this field can be also useful if you reference to it (e.g. from _Insert content references_ element) or search for it.
         inspector:
           group: 'type'
           position: 10
@@ -34,7 +39,12 @@
     customCssClass:
       type: string
       ui:
-        label: 'Element custom CSS class(es)'
+        label: 'Element custom CSS class name(s)'
+        help:
+          message: |
+            When set, this value will be added to the element's `class` attribute in the HTML code.
+            
+            Note: multiple classes must be **space-separated**.
         reloadIfChanged: TRUE
         inspector:
           group: 'dev'
@@ -49,6 +59,8 @@
       type: string
       ui:
         label: 'Element custom HTML ID'
+        help:
+          message: "If provided, this value will be set as the element's `id` attribute in the HTML code."
         reloadIfChanged: TRUE
         inspector:
           group: 'dev'
@@ -63,6 +75,8 @@
       type: string
       ui:
         label: 'Element inline CSS'
+        help:
+          message: "Add any necessary CSS styling for the element. The value will be set for the element's `style` attribute in the HTML code."
         reloadIfChanged: TRUE
         inspector:
           group: 'devCode'
@@ -73,7 +87,18 @@
     customUserAttributes:
       type: string
       ui:
-        label: 'Element extra attributes (one per line)'
+        label: 'Element extra HTML attributes'
+        help:
+          message: |
+            Add any custom HTML attributes to the element.  
+            One per line.
+            
+            ##### Example
+            ```
+            data-something=value
+            data-options={"foo":"bar"}
+            tabindex=0
+            ```
         reloadIfChanged: TRUE
         inspector:
           group: 'devCode'
@@ -112,6 +137,8 @@
       type: string
       ui:
         label: 'Radius style'
+        help:
+          message: "Select to have slightly rounded corners for this element."            
         reloadIfChanged: TRUE
         inspector:
           group: 'utilityClasses'
@@ -138,6 +165,11 @@
       type: string
       ui:
         label: 'Predefined style / look'
+        help:
+          message: |
+            Can be useful when working with external stylesheet when you have pre-defined set of styles for particular content element. Instead of typing the class name in _Element custom CSS class name_ field, you can select if from here.
+            
+            This setting will add `style-1`, `style-2`, `style-3` to the element's `class` attribute in the HTML code.
         reloadIfChanged: TRUE
         inspector:
           group: 'devView'
@@ -172,6 +204,8 @@
       type: string
       ui:
         label: 'Element semantic tag type'
+        help:
+          message: "If you peculiar about HTML markup and its semanticity, you can set here the wrapping tag for the element. Otherwise the default will be `div`."
         reloadIfChanged: TRUE
         inspector:
           group: 'devSemantic'
@@ -261,14 +295,24 @@
     classNavFixed:
       type: boolean
       ui:
-        label: 'Fixed'
+        label: 'Fixed position'
+        help:
+          message: |
+            Set this option to make the menu stay fixed as you scroll.
+            
+            Note: **do NOT use** with _Sticky_ option. 
         reloadIfChanged: TRUE
         inspector:
           group: 'menuPosition'
     classNavSticky:
       type: boolean
       ui:
-        label: 'Sticky'
+        label: 'Sticky menu'
+        help:
+          message: |
+            Works similar to _Fixed_ option, with that difference that you can put the menu anywhere on the site. When the menu hits the top of the browser, it will act like the fixed menu and stick to the top as users continue to scroll.
+            
+            Note: **do NOT use** with _Fixed_ option.
         reloadIfChanged: TRUE
         inspector:
           group: 'menuPosition'
@@ -290,6 +334,13 @@
       type: string
       ui:
         label: 'Tooltip text'
+        help:
+          message: |
+            Set the tooltip for this content element.
+            
+            If used together with _Render as an enhanced tooltip_ option, the tooltip will be displayed as a nicer and enhanced tooltip. Otherwise default browser tooltip will be used.
+            
+            **Developer info**: this option sets `title="<value>"` attribute of the element.
         reloadIfChanged: FALSE
         inspector:
           group: 'tooltip'
@@ -299,7 +350,9 @@
     tooltip:
       type: boolean
       ui:
-        label: "Render as an enhanced tooltip"
+        label: "Show as an enhanced tooltip"
+        help:
+          message: "When set, the tooltip will be displayed as a nicer, enhanced tooltip. Otherwise default browser tooltip will be used."
         inspector:
           group: 'tooltip'
           position: 20
@@ -307,6 +360,8 @@
       type: string
       ui:
         label: 'Tooltip position'
+        help:
+          message: "Specify position of displayed tooltip (only when used with _Render as an enhanced tooltip_ setting)." 
         inspector:
           group: 'tooltip'
           position: 30

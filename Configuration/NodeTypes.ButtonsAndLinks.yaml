@@ -65,6 +65,15 @@
       type: string
       ui:
         label: 'Link / URL'
+        help:
+          message: |
+            You can specify link in two ways:
+            
+            ##### Link to internal page
+            Simply start typing the page title and it should appear on the list. Click to select and you're done.
+            
+            ##### Link to external page
+            Paste a full URL address starting with `http://` or `https://` to link to _external_ page.
         reloadIfChanged: TRUE
         inspector:
           group: 'linkOptions'
@@ -100,6 +109,11 @@
       type: string
       ui:
         label: 'Reveal Modal ID'
+        help:
+          message: |
+            Only applicable when using with _Reveal Modal_ elements.
+            
+            You need to specify `Reveal Modal ID` value for _Reveal Modal_ element. Then put the same value here to open that Reveal Modal window.
         reloadIfChanged: TRUE
         inspector:
           group: 'revDropOptions'
@@ -114,6 +128,11 @@
       type: string
       ui:
         label: 'Dropdown ID'
+        help:
+          message: |
+            Only applicable when using with _Dropdown_ elements.
+            
+            You need to specify `Dropdown ID` value for _Dropdown_ element. Then put the same value here to open that dropdown. 
         reloadIfChanged: TRUE
         inspector:
           group: 'revDropOptions'
@@ -127,6 +146,11 @@
       type: boolean
       ui:
         label: 'Dropdown hoverable'
+        help:
+          message: |
+            Only applicable when using with _Dropdown_ elements.
+            
+            When you select this checkbox, the dropdown will be shown once you hover over the element. Otherwise, by default, you need to click to show the dropdown.
         reloadIfChanged: TRUE
         inspector:
           group: 'revDropOptions'
@@ -245,6 +269,11 @@
       type: string
       ui:
         label: 'Button type'
+        help:
+          message: |
+            Only applicable when inside FORM element.
+            
+            Developer info: it will render `type="<type>"` in the HTML output.
         reloadIfChanged: TRUE
         inspector:
           group: 'buttonOptions'
@@ -262,7 +291,9 @@
     renderAnchor:
       type: boolean
       ui:
-        label: 'Render button as an anchor (link)'
+        label: 'Render button as a link'
+        help:
+          message: "Force the button to be anchor/link `<a>` instead of `<button>`."
         reloadIfChanged: TRUE
         inspector:
           group: 'dev'
@@ -275,6 +306,13 @@
     'TYPO3.Neos:ContentCollection': TRUE
   ui:
     label: 'Button Group'
+    help:
+      message: |
+        _Button Group_ is a container for related action items (i.e. buttons). They're great when you need to display a group of actions in a bar. These build off the button styles and work perfectly with the grid.
+        
+        Once added to the page, you can add any number of _Buttons_ inside.
+        
+        See button groups in action [here](http://foundation.zurb.com/docs/components/button_groups.html).
     icon: 'icon-minus'
     group: 'interactive'
     inlineEditable: TRUE
@@ -289,6 +327,13 @@
     'TYPO3.Neos:Content': TRUE
   ui:
     label: 'Button Bar'
+    help:
+      message: |
+        _Button Bar_ is a container for _Button Group_. They're great when you need to display a group of actions in bars. These build off the button styles and work perfectly with the grid.
+        
+        Once added to the page, you can add any number of _Button Groups_ inside.
+        
+        See it in action [here](http://foundation.zurb.com/docs/components/button_groups.html).
     icon: 'icon-minus'
     group: 'interactive'
     inlineEditable: TRUE

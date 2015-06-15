@@ -15,6 +15,8 @@
       type: string
       ui:
         label: 'Icon name'
+        help:
+          message: "Select an icon name. You can also visit [fontawesome.io](http://fontawesome.io/) to see all icons on one page."
         reloadIfChanged: TRUE
         inspector:
           group: 'fontIconOptions'
@@ -82,6 +84,8 @@
       type: string
       ui:
         label: 'Icon inline CSS'
+        help:
+          message: "Add any custom inline CSS code to the icon element."
         reloadIfChanged: TRUE
         inspector:
           group: 'fontIconOptions'
@@ -96,7 +100,9 @@
     'M12.Foundation:AbstractFontIcon': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
-    label: 'Font Awesome icon'
+    label: 'Font Icon'
+    help:
+      message: "Add a graphical, high-quality icon to your website. Visit [fontawesome.io](http://fontawesome.io/) to see available icon list."
     icon: 'icon-flag'
     inspector:
       groups:

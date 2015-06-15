@@ -5,6 +5,17 @@
     'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Block Grid'
+    help:
+      message: |
+        _Block Grid_ gives you a way to **evenly split contents within the grid**. For example, if you wanted to create a row of three images or paragraphs that need to stay **evenly spaced** no matter the screen size, the block grid is for you.
+        
+        ### How to use?
+        Add any content element **inside** Block Grid to have it evenly spaced. If you need a group of elements to behave like a single one, use _Container_ element first and then put other content inside it.
+        
+        _Block grid_ is configurable so you can specify how many elements per row you get for each screen size.
+        
+        ### Example
+        See _Block Grid_ in action [here](http://foundation.zurb.com/docs/components/block_grid.html).
     icon: 'icon-th-large'
     group: 'structure'
     inlineEditable: TRUE

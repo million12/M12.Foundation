@@ -43,7 +43,7 @@
           group: 'dropdownOptions'
     customHtmlId:
       ui:
-        label: 'Dropdown element ID'
+        label: 'Dropdown ID'
         inspector:
           group: 'dropdownOptions'
 

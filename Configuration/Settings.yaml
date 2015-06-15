@@ -77,7 +77,7 @@ M12:
     # to generate required properties for M12.Foundation:BlockGrid node type
     blockGridSettings:
       itemsPerRow:
-        label: 'Number of items per row'
+        label: 'Number of contents per row'
         cssClassSuffixes: [ '-block-grid-' ]    # DEVICE-block-grid-X, eg: small-block-grid-X, medium-block-grid-Y, large-block-grid-Z
         appliedPerColumn: true
         uiInspectorGroup: grid

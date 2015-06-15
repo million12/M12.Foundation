@@ -21,6 +21,11 @@
     icon: 'icon-reorder'
     group: 'structure'
     inlineEditable: TRUE
+    help:
+      message: |
+        Accordions are elements used to expand and collapse content that is broken into logical sections, much like tabs.
+        
+        See the example [here](http://foundation.zurb.com/docs/components/accordion.html).
   constraints:
     nodeTypes:
       'M12.Foundation:AccordionItem': TRUE
@@ -30,6 +35,11 @@
       type: string
       ui:
         label: 'Accordion group name'
+        help:
+          message: |
+            This is advanced setting. Here you can name the accordion so that it can be spread across different parent containers (i.e. Accordions).
+            
+            See the example [here](http://foundation.zurb.com/docs/components/accordion.html), section *Distributed accordion groups*.
         reloadIfChanged: TRUE
         inspector:
           group: 'dev'
@@ -89,7 +99,9 @@
       type: boolean
       defaultValue: FALSE
       ui:
-        label: 'Make this accordion item active'
+        label: 'Make this accordion item open'
+        help:
+          message: "Set it to have this accordion item open by default. Only one _Accordion Item_ in _Accordion_ can have this value set."
         reloadIfChanged: TRUE
         inspector:
           group: 'accordionSettings'

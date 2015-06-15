@@ -8,12 +8,19 @@
     'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
     label: 'Panel'
+    help:
+      message: |
+        A panel is a simple, helpful component that enables you to outline sections of your page easily. This allows you to add emphasis to a section. The width is controlled by the grid columns you put them inside.
+        
+        Try also _Alert_ element, which can play similar role, but also has `[x]` close button functionality.
+        
+        See panels in action [here](http://foundation.zurb.com/docs/components/panels.html).
     icon: 'icon-check-empty'
     inlineEditable: TRUE
     inspector:
       groups:
         options:
-          label: 'Panel options'
+          label: 'Panel box options'
           position: 9
   properties:
     classAppearance:

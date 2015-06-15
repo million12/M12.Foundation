@@ -11,7 +11,7 @@
     'TYPO3.Neos:ContentCollection': TRUE
     'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
-    label: 'Form container'
+    label: 'Form Container'
     icon: 'icon-th-list'
     group: 'forms'
     inlineEditable: TRUE
@@ -25,6 +25,8 @@
       type: string
       ui:
         label: 'Action URL'
+        help:
+          message: "URL to which the form should be submitted. Used only for real forms submitting data."
         reloadIfChanged: FALSE
         inspector:
           group: 'formSettings'
@@ -65,7 +67,10 @@
     inputName:
       type: string
       ui:
-        label: 'Element name attribute'
+        label: 'Form element name attribute'
+        help:
+          message: |
+            Specify the form input name attribute (rendered as `name="<value>"`).
         reloadIfChanged: TRUE
         inspector:
           group: 'dev'
@@ -75,7 +80,10 @@
     inputValue:
       type: string
       ui:
-        label: 'Field value'
+        label: 'Form element value'
+        help:
+          message: |
+            Specify the form input value attribute (rendered as `value="<value>"`).
         reloadIfChanged: TRUE
         inspector:
           group: 'formInputSettings'
@@ -91,7 +99,7 @@
     inputReadOnly:
       type: boolean
       ui:
-        label: 'Read only'
+        label: 'Mark as a read-only field'
         reloadIfChanged: TRUE
         inspector:
           group: 'formInputSettings'
@@ -99,7 +107,7 @@
     inputDisabled:
       type: boolean
       ui:
-        label: 'Disabled'
+        label: 'Mark as a disabled field'
         reloadIfChanged: TRUE
         inspector:
           group: 'formInputSettings'
@@ -168,6 +176,8 @@
       defaultValue: TRUE
       ui:
         label: 'Enable input label'
+        help:
+          message: "Check this field to have input label rendered. Uncheck to completely hide it."
         reloadIfChanged: TRUE
         inspector:
           group: 'formLabelSettings'
@@ -176,6 +186,8 @@
       type: string
       ui:
         label: 'Label custom class(es)'
+        help:
+          message: "Extra CSS classes applied to `label` element."
         reloadIfChanged: TRUE
         inspector:
           group: 'formLabelSettings'
@@ -189,6 +201,12 @@
       type: string
       ui:
         label: 'Label inline CSS'
+        help:
+          message: |
+            Custom inline CSS applied to `label` element.
+            
+            ##### Example
+            `color: red; font-style: italic;`
         reloadIfChanged: TRUE
         inspector:
           group: 'formLabelSettings'
@@ -204,13 +222,13 @@
     inputPlaceholder:
       type: string
       ui:
-        label: 'Placeholder'
+        label: 'Placeholder text'
         reloadIfChanged: TRUE
         inspector:
           group: 'formInputSettings'
           position: 25
           editorOptions:
-            placeholder: 'Input placeholder'
+            placeholder: 'Placeholder text here...'
 
 
 # Abstract for form elements that need "checked" property.
@@ -232,7 +250,9 @@
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
   ui:
-    label: 'Form fieldset'
+    label: 'Form Fieldset'
+    help:
+      message: "Fieldset element is used to group several fields as well as labels within a web form. Not required, but sometimes useful."
     icon: 'icon-check-empty'
     group: 'forms'
     inspector:
@@ -265,7 +285,7 @@
     'M12.Foundation:FormInputLabelAbstract': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
-    label: 'Form label'
+    label: 'Form Label'
     icon: 'icon-paperclip'
     group: 'forms'
     inspector:
@@ -277,16 +297,27 @@
     htmlFor:
       type: string
       ui:
-        label: 'For attribute'
+        label: 'Label for a field'
+        help:
+          message: "Provide element's ID to which this `label` refers to."
         reloadIfChanged: TRUE
         inspector:
           group: 'formLabelSettings'
           editorOptions:
-            placeholder: 'Type in an ID of relevant input field.'
+            placeholder: "Type in a related field's ID."
     labelInlined:
       type: boolean
       ui:
-        label: 'Inline (vertical centering)'
+        label: 'Render as inline label'
+        help:
+          message: |
+            Select to render label to the left of the input field.
+            
+            ### How to use it?
+            * Add _Grid row: 2 columns_ element to the page. Set columns width as desired.
+            * In the 1st column add `Form Label` element.
+            * In the 2nd column add any input field.
+            * Optionally: link label and input field together to provide best User eXperience. Use `Label for which field` option for that.
         reloadIfChanged: TRUE
         inspector:
           group: 'formLabelSettings'
@@ -379,7 +410,21 @@
     'TYPO3.Neos:Content': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
   ui:
-    label: 'Input Pre/Postfix'
+    label: 'Pre/Postfix Label'
+    help:
+      message: |
+        Prefix and postfix label elements are to support labels tied to fields, as a pre- or post-fix label.
+        
+        Note: use _Button_ element instead, if the pre/postfix label is actually an action to be triggered (e.g. form submit, going to the specified URL etc).
+        
+        ##### How to use it?
+        * Add _Grid row: 2 columns_ element to the page.
+        * Select the `Collapse: remove column gutters (pading)` checkbox on _Grid row: 2 columns_ element.
+        * Set columns width as desired.
+        * Add any input field to the 1st or the 2nd column, depending if you want to use postfix or prefix label.
+        * Add _Pre/Postfix Label_ (or _Button_) element to the other column.
+        
+        See examples and documentation [here](http://foundation.zurb.com/docs/components/forms.html).
     icon: 'icon-check-empty'
     group: 'forms'
     inspector:
@@ -390,14 +435,14 @@
   properties:
     text:
       type: string
-      defaultValue: 'XYZ'
+      defaultValue: 'Go!'
       ui:
         inlineEditable: TRUE
     fixType:
       type: string
       defaultValue: 'postfix'
       ui:
-        label: 'Choose fix type'
+        label: 'Choose prefix or postfix type'
         reloadIfChanged: TRUE
         inspector:
           group: 'formInputSettings'
@@ -429,7 +474,7 @@
     'M12.Foundation:FormInputLabelAbstract': TRUE
     'M12.Foundation:FormInputCheckedAbstract': TRUE
   ui:
-    label: 'Checkbox field'
+    label: 'Checkbox Field'
     icon: 'icon-check'
 
 
@@ -440,7 +485,7 @@
     'M12.Foundation:FormInputLabelAbstract': TRUE
     'M12.Foundation:FormInputCheckedAbstract': TRUE
   ui:
-    label: 'Radio field'
+    label: 'Radio Field'
     icon: 'icon-circle-blank'
 
 
@@ -451,13 +496,28 @@
     'M12.Foundation:FormInputLabelAbstract': TRUE
     'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
-    label: 'Select field'
+    label: 'Select Field'
     icon: 'icon-chevron-down'
   properties:
     selectOptions:
       type: string
       ui:
         label: 'Select options (one per line)'
+        help:
+          message: |
+            Provide a list of available options for the _Select Field_ dropdown list, one per line.
+            
+            ### Example
+            ```
+            Label A
+            Label B
+            valueC = Label C
+            valueD=Label D
+            ```
+            * Specify **one option per line**.
+            * Use an equals sign (`=`) to **create a empty option/label**. In that case `=` sign would be the only character in the line.
+            * If needed, you can specify option's value, i.e. `valueX = Displayed Label for X`
+            * Make a particular option selected initially by putting its value to _Form element value_ field above.
         reloadIfChanged: TRUE
         inspector:
           group: 'formInputSettings'
@@ -484,15 +544,19 @@
     label: 'Textarea'
     icon: 'icon-align-left'
   properties:
+    inputValue:
+      ui:
+        label: 'Textarea value' # Override inputValue label
     rows:
       type: integer
       defaultValue: 2
       ui:
         label: 'Rows'
+        help:
+          message: "Number of rows in a textarea field."
         inspector:
-          group: 'formLabelSettings'
-          editorOptions:
-            placeholder: 'Number of rows in textarea'
+          group: 'formInputSettings'
+          position: 30 # after inputValue (20)
     classRadiusAndRounded:
       ui:
         inspector:
