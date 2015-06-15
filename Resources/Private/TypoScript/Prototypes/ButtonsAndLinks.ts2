@@ -1,11 +1,16 @@
 prototype(M12.Foundation:ButtonLinkAbstract) < prototype(M12.Foundation:Content) {
 	url = ${q(node).property('url')}
-	url.@process.1 = TYPO3.Neos:ConvertUris
+	url.@process.01 = TYPO3.Neos:ConvertUris
+	# Prevents links being clickable while in Neos back-end. 
+	# Note: when user provided an url, we need to keep sth in `url`, because it affects the rendering
+	# (<a> instead of <button>). Therefore we use @process and replace it with '#' instead of
+	# using @if and just skipping processing completely.
+	url.@process.99 = ${node.context.currentRenderingMode.edit && value ? '#' : value }
 	@override.url = ${this.url}
 
 	# Only render target (e.g. _blank) in front-end, otherwise, with _blank you cannot anymore edit the button (click on it goes to the href location)
 	attributes.target = ${url && q(node).property('htmlTargetBlank') ? q(node).property('htmlTargetBlank') : null}
-	attributes.target.@if.isLive = ${node.context.workspace.name == 'live'}
+	attributes.target.@if.isLive = ${node.context.currentRenderingMode.edit == false}
 
 	attributes.href = ${url ? url : null}
 
