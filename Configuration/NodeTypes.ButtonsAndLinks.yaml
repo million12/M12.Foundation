@@ -98,7 +98,6 @@
     # Reveal Modal related properties.
     htmlDataRevealId:
       type: string
-      defaultValue: ''
       ui:
         label: 'Reveal Modal ID'
         reloadIfChanged: TRUE
@@ -113,7 +112,6 @@
     # Dropdown related properties.
     htmlDataDropdownId:
       type: string
-      defaultValue: ''
       ui:
         label: 'Dropdown ID'
         reloadIfChanged: TRUE
@@ -267,7 +265,7 @@
         label: 'Render button as an anchor (link)'
         reloadIfChanged: TRUE
         inspector:
-          group: 'linkOptions'
+          group: 'dev'
           position: 10
 
 # Button Group (list of buttons)

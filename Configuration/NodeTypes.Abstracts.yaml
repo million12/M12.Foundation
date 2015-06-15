@@ -33,7 +33,6 @@
   properties:
     customCssClass:
       type: string
-      defaultValue: ''
       ui:
         label: 'Element custom CSS class(es)'
         reloadIfChanged: TRUE
@@ -48,7 +47,6 @@
           regularExpression: '/^[-a-z0-9_ ]+$/i'
     customHtmlId:
       type: string
-      defaultValue: ''
       ui:
         label: 'Element custom HTML ID'
         reloadIfChanged: TRUE
@@ -63,7 +61,6 @@
           regularExpression: '/^[-a-z0-9_]+$/i'
     customCssCode:
       type: string
-      defaultValue: ''
       ui:
         label: 'Element inline CSS'
         reloadIfChanged: TRUE
@@ -200,8 +197,7 @@
                 label: 'FOOTER'
 
 #
-# Mixin:
-# Navigation: #fragment, magellan support
+# Mixin: Navigation: sticky navigation support
 #
 'M12.Foundation:AbstractNavSailingType':
   superTypes:
@@ -234,7 +230,6 @@
   properties:
     fragmentId:
       type: string
-      defaultValue: ''
       ui:
         label: 'Fragment / section #name'
         reloadIfChanged: TRUE
@@ -283,8 +278,6 @@
 #
 'M12.Foundation:AbstractTitleTooltip':
   abstract: TRUE
-  superTypes:
-    'TYPO3.Neos:Content': TRUE
   ui:
     inspector:
       groups:
@@ -295,7 +288,6 @@
   properties:
     htmlTitle:
       type: string
-      defaultValue: ''
       ui:
         label: 'Tooltip text'
         reloadIfChanged: FALSE

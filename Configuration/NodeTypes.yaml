@@ -58,7 +58,6 @@
           position: 20
     classFloat:
       type: string
-      defaultValue: ''
       ui:
         label: 'Float'
         reloadIfChanged: TRUE
@@ -68,16 +67,14 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               left:
                 label: 'left'
               right:
                 label: 'right'
     classShowByScreenSize:
       type: string
-      defaultValue: ''
       ui:
         label: 'Show by screen size'
         reloadIfChanged: TRUE
@@ -87,9 +84,8 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               show-for-small-only:
                 label: 'Show for small only'
               show-for-medium-up:
@@ -108,7 +104,6 @@
                 label: 'Show for xxlarge and up'
     classHideByScreenSize:
       type: string
-      defaultValue: ''
       ui:
         label: 'Hide by screen size'
         reloadIfChanged: TRUE
@@ -118,9 +113,8 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               hide-for-small-only:
                 label: 'Hide for small only'
               hide-for-medium-up:
@@ -139,7 +133,6 @@
                 label: 'Hide for xxlarge and up'
     classOrientationDetection:
       type: string
-      defaultValue: ''
       ui:
         label: 'Orientation detection'
         reloadIfChanged: TRUE
@@ -149,16 +142,14 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               show-for-landscape:
                 label: 'Show for landscape'
               show-for-portrait:
                 label: 'Show for portrait'
     classTouchDetection:
       type: string
-      defaultValue: ''
       ui:
         label: 'Touch detection'
         reloadIfChanged: TRUE
@@ -168,9 +159,8 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               show-for-touch:
                 label: 'Show for touch'
               hide-for-touch:

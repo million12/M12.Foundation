@@ -283,7 +283,7 @@ M12:
                         properties:
                           inputLabel: 'Input 4'
                           selectOptions: |
-                            = -
+                            =
                             Option 1
                             Option 2
                             Option 3

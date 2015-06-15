@@ -31,7 +31,6 @@
                 label: 'Fade'
     animationSpeed:
       type: string
-      defaultValue: ''
       ui:
         label: 'Animation speed (ms)'
         reloadIfChanged: FALSE
@@ -45,7 +44,6 @@
           regularExpression: '/^[0-9]{1,5}$/'
     timerSpeed:
       type: string
-      defaultValue: ''
       ui:
         label: 'Timer speed (ms)'
         reloadIfChanged: FALSE

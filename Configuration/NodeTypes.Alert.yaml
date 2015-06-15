@@ -17,17 +17,17 @@
   properties:
     classAppearance:
       type: string
-      defaultValue: ''
       ui:
         label: 'Appearance'
         reloadIfChanged: TRUE
         inspector:
           group: 'options'
+          position: 10
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
+            placeholder: 'Default'
+            allowEmpty: TRUE
             values:
-              '':
-                label: ''
               success:
                 label: 'Success'
               warning:

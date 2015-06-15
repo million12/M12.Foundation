@@ -44,6 +44,7 @@
               get:
                 label: 'GET'
 
+
 # Abstract NodeType for all form inputs (including buttons).
 'M12.Foundation:FormElementAbstract':
   abstract: TRUE
@@ -172,7 +173,6 @@
           position: 10
     labelCssClass:
       type: string
-      defaultValue: ''
       ui:
         label: 'Label custom class(es)'
         reloadIfChanged: TRUE
@@ -186,7 +186,6 @@
           regularExpression: '/^[a-z0-9\- ]+$/i'
     labelCssCode:
       type: string
-      defaultValue: ''
       ui:
         label: 'Label inline CSS'
         reloadIfChanged: TRUE
@@ -203,7 +202,6 @@
   properties:
     inputPlaceholder:
       type: string
-      defaultValue: ''
       ui:
         label: 'Placeholder'
         reloadIfChanged: TRUE
@@ -276,7 +274,6 @@
   properties:
     htmlFor:
       type: string
-      defaultValue: ''
       ui:
         label: 'For attribute'
         reloadIfChanged: TRUE
