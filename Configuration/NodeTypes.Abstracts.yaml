@@ -85,6 +85,47 @@
           editorOptions:
             placeholder: 'e.g. custom-data-attribute=value'
 
+'M12.Foundation:AbstractRadiusRoundedStyle':
+  abstract: TRUE
+  properties:
+    classRadiusAndRounded:
+      type: string
+      ui:
+        label: 'Radius or rounded style'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'utilityClasses'
+          position: 50
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'No'
+            allowEmpty: TRUE
+            values:
+              radius:
+                label: 'Radius'
+              round:
+                label: 'Rounded'
+
+# Similar to 'M12.Foundation:AbstractRadiusRoundedStyle', but with Radius only
+# Appliable to element where 'rounded' style is not applicable.
+'M12.Foundation:AbstractRadiusStyle':
+  abstract: TRUE
+  properties:
+    classRadiusAndRounded:
+      type: string
+      ui:
+        label: 'Radius style'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'utilityClasses'
+          position: 50
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'No'
+            allowEmpty: TRUE
+            values:
+              radius:
+                label: 'Radius'
 
 'M12.Foundation:AbstractDevCustomLook':
   abstract: TRUE

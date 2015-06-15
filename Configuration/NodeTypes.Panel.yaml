@@ -5,6 +5,7 @@
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractNavSailingType': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
+    'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
     label: 'Panel'
     icon: 'icon-check-empty'
@@ -20,5 +21,10 @@
       ui:
         label: 'Style: callout'
         reloadIfChanged: TRUE
+        inspector:
+          group: 'options'
+    # Move M12.Foundation:AbstractRadiusStyle property to 'options' group 
+    classRadiusAndRounded:
+      ui:
         inspector:
           group: 'options'

@@ -4,6 +4,7 @@
     'TYPO3.Neos:ContentCollection': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
+    'M12.Foundation:AbstractRadiusRoundedStyle': TRUE
   ui:
     label: 'Alert'
     icon: 'icon-warning-sign'
@@ -33,3 +34,8 @@
                 label: 'Warning'
               info:
                 label: 'Info'
+    # Move M12.Foundation:AbstractRadiusRoundedStyle property to 'options' group 
+    classRadiusAndRounded:
+      ui:
+        inspector:
+          group: 'options'

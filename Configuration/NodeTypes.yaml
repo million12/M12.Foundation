@@ -75,25 +75,6 @@
                 label: 'left'
               right:
                 label: 'right'
-    classRadiusAndRounded:
-      type: string
-      defaultValue: ''
-      ui:
-        label: 'Radius and Rounded'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'utilityClasses'
-          position: 50
-          editor: Content/Inspector/Editors/SelectBoxEditor
-          editorOptions:
-            placeholder: 'None'
-            values:
-              '':
-                label: ''
-              radius:
-                label: 'Radius'
-              round:
-                label: 'Round'
     classShowByScreenSize:
       type: string
       defaultValue: ''
