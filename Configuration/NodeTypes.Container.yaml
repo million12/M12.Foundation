@@ -10,7 +10,7 @@
     label: 'Container'
     help:
       message: |
-        Container can contain content elements of any type inside it.
+        Container can contain content elements of any type inside itself.
         
         Use it when you need to group content elements together, apply same styling to them (e.g. text align, specify shared behaviour on different screens etc.
     icon: 'icon-hdd'

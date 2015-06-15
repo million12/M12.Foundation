@@ -27,6 +27,9 @@
       type: boolean
       ui:
         label: 'Last column in incomplete row'
+        help:
+          message: |
+            By default, the grid will align the last column in a row to the right so the edge aligns (in order to work around browsers' different rounding behaviors). If your row doesn't have a count that adds up to 12 columns, you can use this option to keep the column left-aligned.
         reloadIfChanged: TRUE
         inspector:
           group: 'grid'
@@ -45,6 +48,19 @@
     icon: 'icon-columns'
     inlineEditable: TRUE
     group: 'structure'
+    help:
+      message: |
+        Create powerful multi-device layouts quickly and easily with this nestable grid system.
+        
+        ### Grid info
+        * 12-column
+        * 1000px width
+        
+        ### Device sizes
+        * small: 640px width
+        * medium: 1024px width
+        * large: 1440px width
+        * xlarge: 1920px width
     inspector:
       groups:
         gridOptions:
@@ -62,7 +78,13 @@
     gridExtraWrapper:
       type: boolean
       ui:
-        label: 'Add extra wrapper'
+        label: 'Add extra wrapper to Grid Row'
+        help:
+          message: |
+            Add a full-width wrapper (`<div>...</div`) to this _Grid Row_. Only applicable when used on a page with layout set to _Page full width_ (see Page settings).
+            
+            ### How to use?
+            You're working on a page with full-width layout selected. You need a _Grid Row_ here, but you also need a full-width outer wrapper for it. You might need to to e.g. apply some inline styles for that wrapper and set `background-image` spanning to full page width.
         inspector:
           group: 'gridOptions'
 

@@ -33,10 +33,14 @@ M12:
 
     gridRowSettings:
       classCollapse:
-        label: 'Collapse: remove column gutters (pading)'
+        label: 'Collapse: remove columns pading'
         cssClassSuffixes: [ '-collapse', '-uncollapse' ] # e.g. small-text-left
         appliedPerColumn: false
         uiInspectorGroup: gridOptions
+        helpMessage: |
+          Select to have grid columns without gutter space between them.
+          
+          You can set this option for selected-only screens or for all of them. 
         extraValues:
           start:
             'collapse':
@@ -49,27 +53,58 @@ M12:
     gridColumnSettings:
       size:
         label: 'Grid column width'
+        helpMessage: |
+          This 12-column grid is mobile-first. Set options for **small screens first**, and **larger devices will inherit those styles**. Customize for larger screens as necessary.
+          
+          With this option you can set the column width (`x` columns, out of 12) in a grid row.
+          
+          ### Examples
+          * `small: 6/12`: this container will span across 6 of 12 columns (i.e. 50% width), on small and larger devices.  
+          * `medium: 4/12`: this container will span across 4 of 12 columns (i.e. ~33% width), on medium and larger devices.
         cssClassSuffixes: [ '-' ]         # DEVICE-X, eg: small-X, medium-Y, large-Z
         appliedPerColumn: true
         uiInspectorGroup: grid
       offset:
         label: 'Grid column offset'
+        helpMessage: |
+          This 12-column grid is mobile-first. Set options for **small screens first**, and **larger devices will inherit those styles**. Customize for larger screens as necessary.
+          
+          With this option you move blocks up to 11 columns to the right.
+          
+          ### Examples
+          *  `small: 8/12` offset together with `small: 4/12` column width: sets an empty space to 8 of 12 (75%) and then positions the column there (remaining 25%).          
         cssClassSuffixes: [ '-offset-' ]  # DEVICE-offset-X, eg: small-offset-X, medium-offset-Y, large-offset-Z
         appliedPerColumn: true
         uiInspectorGroup: grid
       pushPull:
-        label: 'Grid column push / pull'
+        label: 'Grid column order'
+        helpMessage: |
+          This 12-column grid is mobile-first. Set options for **small screens first**, and **larger devices will inherit those styles**. Customize for larger screens as necessary.
+          
+          Using these source ordering classes, you can shift columns around between the breakpoints. You can even completely change column order by pushing one by 6/12, pulling another by 6/12.
+          
+          Use _Grid column order reset_ option below to reset pushed or pulled columns to their original position on particular screens.
         cssClassSuffixes: [ '-push-', '-pull-' ]    # DEVICE-push-X, eg: small-push-X, medium-push-Y, large-push-Z
         appliedPerColumn: true
         uiInspectorGroup: grid
-      align:
-        label: 'Grid column align'
-        cssClassSuffixes: [ '-centered', '-uncentered' ] # e.g. small-centered, large-centered
+      resetOrder:
+        label: 'Grid column order reset'
+        helpMessage: |
+          This 12-column grid is mobile-first. Set options for **small screens first**, and **larger devices will inherit those styles**. Customize for larger screens as necessary.
+          
+          Use this option below to reset pushed or pulled columns (using _Grid column order_ settings above) to their original position on particular screens.
+        cssClassSuffixes: [ '-reset-order' ]  # e.g. small-reset-order
         appliedPerColumn: false
         uiInspectorGroup: grid
-      resetOrder:
-        label: 'Grid column reset order'
-        cssClassSuffixes: [ '-reset-order' ]  # e.g. small-reset-order
+      align:
+        label: 'Grid column align'
+        helpMessage: |
+          This 12-column grid is mobile-first. Set options for **small screens first**, and **larger devices will inherit those styles**. Customize for larger screens as necessary.
+          
+          Center your columns by using this option. For example if you set the column size to `small: 6/12`, it means it will use only 50%. By default, the column would be left-aligned, but with this option you can center it.
+          
+          Large device will inherit small centering by default, but you can also center solely on large by applying a _large: centered_ option. To un-center on large screens use _large: uncentered_.
+        cssClassSuffixes: [ '-centered', '-uncentered' ] # e.g. small-centered, large-centered
         appliedPerColumn: false
         uiInspectorGroup: grid
 
@@ -78,6 +113,11 @@ M12:
     blockGridSettings:
       itemsPerRow:
         label: 'Number of contents per row'
+        helpMessage: |
+          This 12-column grid is mobile-first. Set options for **small screens first**, and **larger devices will inherit those styles**. Customize for larger screens as necessary.
+          
+          Use this setting to specify a different number of items in a row for each screen size.
+          
         cssClassSuffixes: [ '-block-grid-' ]    # DEVICE-block-grid-X, eg: small-block-grid-X, medium-block-grid-Y, large-block-grid-Z
         appliedPerColumn: true
         uiInspectorGroup: grid

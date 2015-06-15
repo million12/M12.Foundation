@@ -107,6 +107,9 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 					],
 				],
 			];
+			if (isset($setData['helpMessage'])) {
+				$configuration['properties'][$propertyName]['ui']['help']['message'] = $setData['helpMessage'];
+			}
 			if (isset($setData['defaults'])) {
 				$configuration['properties'][$propertyName]['defaultValue'] = $setData['defaults'];
 			}
@@ -141,7 +144,12 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 				$col = 1;
 				do {
 					$valueName = $cssClass.$col;
-					$labelName = "$device: $col / {$this->settings['gridSize']}";
+					// TODO: More elegant and readable label generation
+					$labelPrefix = "$device: ";
+					if (count($cssSuffixes) > 1) {
+						$labelPrefix .= ($s = implode(' ', explode('-', trim($cssSuffix,' -')))) ? $s . ' ' : '';
+					}
+					$labelName = "$labelPrefix $col / {$this->settings['gridSize']}";
 					$editorValues[$valueName] = array(
 						'label' => $labelName,
 						'group' => $groupLabel,
