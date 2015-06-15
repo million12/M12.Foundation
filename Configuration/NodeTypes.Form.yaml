@@ -327,6 +327,7 @@
     'M12.Foundation:FormElementAbstract': TRUE
     'M12.Foundation:FormInputLabelAbstract': TRUE
     'M12.Foundation:FormInputPlaceholderAbstract': TRUE
+    'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
     label: 'Text field'
     icon: 'icon-pencil'
@@ -365,6 +366,11 @@
                 label: 'Time'
               color:
                 label: 'Color'
+    classRadiusAndRounded:
+      ui:
+        inspector:
+          group: 'formInputSettings'
+          position: 99
 
 
 # Pre/postfix element.
@@ -443,6 +449,7 @@
   superTypes:
     'M12.Foundation:FormElementAbstract': TRUE
     'M12.Foundation:FormInputLabelAbstract': TRUE
+    'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
     label: 'Select field'
     icon: 'icon-chevron-down'
@@ -460,6 +467,11 @@
               e.g.: value = Label
               or: Just Label
             rows: 10
+    classRadiusAndRounded:
+      ui:
+        inspector:
+          group: 'formInputSettings'
+          position: 99
 
 
 # NodeType for textarea.
@@ -467,6 +479,7 @@
   superTypes:
     'M12.Foundation:FormElementAbstract': TRUE
     'M12.Foundation:FormInputLabelAbstract': TRUE
+    'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
     label: 'Textarea'
     icon: 'icon-align-left'
@@ -480,3 +493,8 @@
           group: 'formLabelSettings'
           editorOptions:
             placeholder: 'Number of rows in textarea'
+    classRadiusAndRounded:
+      ui:
+        inspector:
+          group: 'formInputSettings'
+          position: 99
