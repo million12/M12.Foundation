@@ -50,6 +50,7 @@
   abstract: TRUE
   superTypes:
     'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
     group: 'forms'
     inspector:
@@ -262,6 +263,7 @@
   superTypes:
     'TYPO3.Neos:Content': TRUE
     'M12.Foundation:FormInputLabelAbstract': TRUE
+    'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
     label: 'Form label'
     icon: 'icon-paperclip'
