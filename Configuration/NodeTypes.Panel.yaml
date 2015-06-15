@@ -16,13 +16,21 @@
           label: 'Panel options'
           position: 9
   properties:
-    classCallout:
-      type: boolean
+    classAppearance:
+      type: string
       ui:
-        label: 'Style: callout'
+        label: 'Panel box appearance'
         reloadIfChanged: TRUE
         inspector:
           group: 'options'
+          position: 10
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Default'
+            allowEmpty: TRUE
+            values:
+              callout:
+                label: 'Callout'
     # Move M12.Foundation:AbstractRadiusStyle property to 'options' group 
     classRadiusAndRounded:
       ui:

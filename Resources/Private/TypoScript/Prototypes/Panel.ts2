@@ -3,7 +3,7 @@ prototype(M12.Foundation:Panel) < prototype(M12.Foundation:Content) {
 		contentcollection = 'neos-contentcollection'
 		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}
 		base = 'panel'
-		callout = ${q(node).property('classCallout') ? 'callout' : null}
+		appearance = ${q(node).property('classAppearance') ? q(node).property('classAppearance') : null}
 	}
 
 	panelContent = TYPO3.Neos:ContentCollectionRenderer
