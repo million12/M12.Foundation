@@ -241,7 +241,10 @@
     magellanSupport:
       type: boolean
       ui:
-        label: 'Magellan Sticky Nav support'
+        label: 'Magellan Sticky Navigation support'
+        help:
+          message: |
+            This option lets you give your site sticky navigation. This fixed-position navigation helps users **keep track of where they are on a page without scrolling**. See demo and technical details [here](http://foundation.zurb.com/docs/components/magellan.html).
         reloadIfChanged: TRUE
         inspector:
           group: 'sailingOptions'
@@ -265,7 +268,13 @@
     fragmentId:
       type: string
       ui:
-        label: 'Fragment / section #name'
+        label: 'Section #name'
+        help:
+          message: |
+            Provided value will be rendered as anchor before the element, so you can reference to it (e.g. from links or from _Magellan Sticky Navigation_).
+            
+            Developer info: the HTML output will be  
+            `<a name="<value>"></a>`
         reloadIfChanged: TRUE
         inspector:
           group: 'sailingOptions'
