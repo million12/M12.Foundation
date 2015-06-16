@@ -8,6 +8,8 @@
 # Move some Neos NodeTypes to non-existing group
 # so they're not visible by default.
 'TYPO3.Neos.NodeTypes:Menu':
+  superTypes:
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     group: 'na'
     inspector:
@@ -48,6 +50,7 @@
   superTypes:
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
   properties:
     text:
@@ -62,8 +65,10 @@
   superTypes:
     'M12.Foundation:AbstractNavSailingType': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
-
+    'M12.Foundation:AbstractNodeTitle': TRUE
 'TYPO3.Neos.NodeTypes:ContentReferences':
+  superTypes:
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     # Experimental! Make all referenced nodes inline editable.
     # This might be confusing as user might unintentionally edit

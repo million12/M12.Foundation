@@ -10,6 +10,7 @@
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
     'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     label: 'Form Container'
     icon: 'icon-th-list'
@@ -52,6 +53,7 @@
   abstract: TRUE
   superTypes:
     'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
     group: 'forms'
@@ -132,6 +134,8 @@
 # Abstract for all form elements that need <label> element.
 'M12.Foundation:FormInputLabelAbstract':
   abstract: TRUE
+  superTypes:
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     inspector:
       groups:
@@ -249,6 +253,7 @@
   superTypes:
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     label: 'Form Fieldset'
     help:

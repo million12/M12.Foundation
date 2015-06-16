@@ -5,6 +5,7 @@
   abstract: TRUE
   superTypes:
     'M12.Foundation:AbstractDevBase': TRUE
+    'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     inspector:
       groups:
