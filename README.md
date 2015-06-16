@@ -25,14 +25,24 @@ M12.Foundation aims to implement majority of [Zurb Foundation](http://foundation
 
 ### Other features
 
+* Automatically pre-configured complex components (so called `Assistance Nodes`). Thanks to that feature, you get complex components working out-of-the-box. Examples:
+  * `Reveal Modal`: when you add this component to the page, it will also create a `Button` and wire it together with `Reveal Modal`, so you can just click it, see the modal and edit its content.
+  * `Dropdown`: when you add this component to the page, it will also create a `Button` and wire it together with Dropdown, so you can just click it, see the dropdown and edit its content.
+  * `Grid Row`: for example adding a grid row with 4 columns will set sensible defaults for columns width for each device (i.e. small 12/12, medium 6/12, large 4/12).
+  * `Orbit Slider`: adding this component will also add 3 child nodes with dummy images.
+  * `Form Container`: adding this component will create sample responsive form for you, incl. all grid row components, labels inside etc.
+  
+  See [Settings.yaml](Configuration/Settings.yaml) for full `Assistance Nodes` configuration (`M12.Foundation:assistanceChildNodes` section).
+  
 * Semantic tags: ability to define custom, semantic tag (e.g. `section` instead of `div`) for most components
 * Ability to define several Foundation common-use classes like `rounded`, `radius`, floats, text-align to almost all components (or where applicable)
 * Tooltips: ability to use them with many components, incl. default Neos compnents (e.g. Headline)
-* Font Icon: ability to add it to components where it make sense (i.e. Button)
+* Font Icons: ability to add it to components where it make sense (i.e. Button)
 
 ... and many more.
 
-Check the [issue tracker](issues) to see what current work in progress or future plans.
+Check the [issue tracker](issues) to see current work in progress and/or future plans.  
+Check the [releases](releases) page to see stable releases for your Neos version.
 
 ## Usage
 
