@@ -365,7 +365,7 @@
     'M12.Foundation:FormInputPlaceholderAbstract': TRUE
     'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
-    label: 'Text field'
+    label: 'Text Field'
     icon: 'icon-pencil'
   properties:
     inputType:

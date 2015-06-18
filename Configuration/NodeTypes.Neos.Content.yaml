@@ -2,7 +2,8 @@
   properties:
     _hidden:
       ui:
-        label: 'Hide (don''t render at all)'
+        help:
+          message: 'Do not render this element at all. It will be only available in the Neos back-end.'
 
 
 # Move some Neos NodeTypes to non-existing group
@@ -66,6 +67,14 @@
     'M12.Foundation:AbstractNavSailingType': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
+  ui:
+    help:
+      message: |
+        Insert any HTML to the page. It might be pure HTML code, links to JavaScript and CSS files.
+        
+        **Hint:** you can also include HTML/CSS/JS using page settings, in the <a class="icon-code"></a> tab.
+
+
 'TYPO3.Neos.NodeTypes:ContentReferences':
   superTypes:
     'M12.Foundation:AbstractNodeTitle': TRUE
@@ -74,6 +83,17 @@
     # This might be confusing as user might unintentionally edit
     # referenced content (which might reside on another pages etc).
     inlineEditable: TRUE
+    label: 'Content References'
+    help:
+      message: |
+        **Avoid content duplication** by referencing to content elements you already have somewhere (e.g. on another page).
+        
+        With _Content References_ you can add (reference to) any number of content elements and they will be rendered for you.
+        
+        **Note:** beware that when editing the content inserted by _Content References_, you are editing the _original_ element.
+        
+        **Hint:** to easier find a particular content, you can set its name to something you recognise. You can do that by setting _Node name_ in the <a class="icon-cog"></a> tab for selected content elements.
+
 
 'TYPO3.Neos:ContentCollection':
   constraints:

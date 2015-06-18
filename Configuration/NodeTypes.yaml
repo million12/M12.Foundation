@@ -44,6 +44,11 @@
       type: boolean
       ui:
         label: 'Hide'
+        help:
+          message: |
+            Element will be rendered in HTML output, but will be visually hidden.
+            
+            Developer info: it's achieved by adding `hide` CSS class to the element. Use it if you want programatically hide/show some element(s).
         reloadIfChanged: TRUE
         inspector:
           group: 'utilityClasses'

@@ -27,6 +27,8 @@
       type: boolean
       ui:
         label: 'Make an active tab'
+        help:
+          message: "Make this tab an active/open tab by default. Note that **only one tab** can be active/open by default."
         reloadIfChanged: TRUE
         inspector:
           group: 'tabSettings'
@@ -40,6 +42,11 @@
     'M12.Foundation:AbstractNavSailingType': TRUE
   ui:
     label: 'Tabs'
+    help:
+      message: |
+        _Tabs_ container is a design patter allowing you easily organising content into tabs. Only one tab is visible at the same time.
+        
+        By default, _Tabs_ element comes with 3 tabs, but you can add/configure any number of tabs by adding _Tab Item_ **inside** the _Tab_ container. You can also delete the existing ones.
     icon: 'icon-double-angle-right'
     group: 'structure'
     inlineEditable: TRUE
@@ -57,6 +64,8 @@
       type: boolean
       ui:
         label: 'Vertical tabs'
+        help:
+          message: "Select to have tabs stacked vertically."
         reloadIfChanged: TRUE
         inspector:
           group: 'tabSettings'

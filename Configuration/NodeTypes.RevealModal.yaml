@@ -5,6 +5,17 @@
     'M12.Foundation:AbstractDevCustomTag': TRUE
   ui:
     label: 'Reveal Modal'
+    help:
+      message: |
+        _Reveal Modal_ are modal dialogs, or pop-up windows.
+        
+        You can add any type of content inside _Reveal Modal_: text, images, tabs, content references etc.
+        
+        For your convenience, when you add _Reveal Modal_ to the page, extra _Button_ triggering this modal window will be inserted as well. Click on it to show the modal and start editing the content there.
+        
+        **Hint:** editing content in modal window might be tricky. We recommend editing it in a _Raw Content_ mode. To enable it go to _Edit/Preview_ settings (top left corner of the screen) and click on _Raw Content_ button.
+        
+        **Hint:** use _Structure Tree_ panel (bottom left side of the screen) to select and edit settings for _Reveal Modal_ and related _Button_.
     icon: 'icon-fullscreen'
     inlineEditable: TRUE
     inspector:
@@ -17,7 +28,9 @@
       type: string
       defaultValue: 'medium'
       ui:
-        label: 'Size'
+        label: 'Modal window size'
+        help:
+          message: "Set desired pop-up window size. If you need to display just a tiny amount of content, you'll probably go with _Small_ size. To have more space for larger group of content, use the _Large_ size."
         reloadIfChanged: TRUE
         inspector:
           group: 'options'
@@ -36,6 +49,9 @@
     customHtmlId:
       ui:
         label: 'Reveal Modal ID'
+        help:
+          message:
+            _Reveal Modal ID_ is used to wire it with _Button_ element, which triggers/show the modal window. Once set, go to _Button_ element and put the same ID there in the _Reveal Modal ID_ field in _Modal & Dropdown options_ section.    
         inspector:
           group: 'options'
       validation:

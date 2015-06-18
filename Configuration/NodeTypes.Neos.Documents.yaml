@@ -27,42 +27,74 @@
     'M12.Foundation:AbstractDevBase': TRUE
     'M12.Foundation:AbstractDevCustomLook': TRUE
   properties:
+    _hidden:
+      ui:
+        help:
+          message: 'Disable this page, do not render it at all. It will be only available in the Neos back-end.'
     # Custom JS code at the end of BODY
     customJsCode:
       type: string
       ui:
+        label: 'Custom page JS code'
+        help:
+          message: |
+            Add any JavaScript code to the end of the `<body>` tag. It will be added _after_ jQuery and Foundation libraries.
+            
+            To have **JavaScript added to all pages** across the site, include it on the root page (the 1st one in the page tree). JavaScript added to a sub-page will be only available on that particular page.
+            
+            Note: do not wrap it into `<script>` tag. The system does it for you.
         reloadIfChanged: TRUE
         inspector:
           group: 'devCode'
           position: 30 # before 'customCssCode'
           editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
           editorOptions:
-            label: 'Custom JS code'
+            label: 'Add/edit JS code'
             highlightingMode: 'text/javascript'
     # Inherited from M12.Foundation:AbstractDevBase
     # Replace it with CssEditor
     customCssCode:
       ui:
-        label: ''
+        label: 'Custom page CSS code'
+        help:
+          message: |
+            Add any custom CSS code to the end of the `<body>` tag.
+            
+            To have **CSS code added to all pages** across the site, include it on the root page (the 1st one in the page tree). CSS code added to a sub-page will be only available on that particular page.
+            
+            Note: do not wrap it into  
+            `<style type="text/css">` tag. The system does it for you.
         inspector:
           editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
           editorOptions:
-            label: 'Custom CSS styles'
+            label: 'Add/edit CSS code'
             highlightingMode: 'text/css'
     # Inherited from M12.Foundation:AbstractDevBase
     customHtmlId:
       ui:
         label: 'Custom body ID'
+        help:
+          message: "If provided, this value will be set as the `id` attribute for the BODY tag in the HTML code."
     # Inherited from M12.Foundation:AbstractDevBase
     customCssClass:
       ui:
-        label: 'Custom body class(es)'
+        label: 'Custom body CSS class(es)'
+        help:
+          message: |
+            Set `<body>` `class` attribute in HTML code.
+            
+            Note: multiple classes must be **space-separated**.
     # Inherited from M12.Foundation:AbstractDevBase
     customLook:
       ui:
-        label: 'Predefined body style'
+        label: 'Predefined page style / look'
+        help:
+          message: |
+            Can be useful when working with external stylesheets where you could have pre-defined set of styles for particular page. It can be used as some sort of theme switcher.
+            
+            This setting will add accordingly `style-1`, `style-2`, `style-3` to the BODY `class` attribute in the HTML code.
     # Inherited from M12.Foundation:AbstractDevBase
     customUserAttributes:
       type: string
       ui:
-        label: 'Custom body attributes (one per line)'
+        label: 'Custom BODY attributes'

@@ -23,7 +23,7 @@
           label: 'Link options'
           position: 7
         revDropOptions:
-          label: 'Reveal & Dropdown options'
+          label: 'Modal & dropdown options'
           position: 8
   constraints:
     nodeTypes:

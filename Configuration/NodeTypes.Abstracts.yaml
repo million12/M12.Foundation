@@ -9,7 +9,7 @@
     title:
       type: string
       ui:
-        label: 'Node title/label'
+        label: 'Node name'
         help:
           message: |
             Rename current content element, so it is easier to find it in the _Structure Tree_ panel.

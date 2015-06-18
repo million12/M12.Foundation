@@ -52,11 +52,10 @@
       message: |
         Create powerful multi-device layouts quickly and easily with this nestable grid system.
         
-        ### Grid info
-        * 12-column
-        * 1000px width
+        This is a _12-column grid_ and by default its size is `1000px` width.
         
         ### Device sizes
+        Inside _Grid Row_ you'll find _Grid Column_ elements. You can configre the column to behave in particular way on a different devices. For your information, here are the device sizes:
         * small: 640px width
         * medium: 1024px width
         * large: 1440px width
@@ -102,23 +101,23 @@
   superTypes:
     'M12.Foundation:GridRowAbstract': TRUE
   ui:
-    label: 'Grid row: 1 column'
+    label: 'Grid Row: 1 column'
     icon: 'icon-laptop'
 
 'M12.Foundation:GridRow2Col':
   superTypes:
     'M12.Foundation:GridRowAbstract': TRUE
   ui:
-    label: 'Grid row: 2 columns'
+    label: 'Grid Row: 2 columns'
 
 'M12.Foundation:GridRow3Col':
   superTypes:
     'M12.Foundation:GridRowAbstract': TRUE
   ui:
-    label: 'Grid row: 3 columns'
+    label: 'Grid Row: 3 columns'
 
 'M12.Foundation:GridRow4Col':
   superTypes:
     'M12.Foundation:GridRowAbstract': TRUE
   ui:
-    label: 'Grid row: 4 columns'
+    label: 'Grid Row: 4 columns'

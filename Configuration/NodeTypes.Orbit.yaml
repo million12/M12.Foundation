@@ -5,6 +5,8 @@
     'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     label: 'Carousel (Orbit Slider)'
+    help:
+      message: "_Orbit Slider_ is an easy, powerful, responsive image slider that allows users to swipe on touch-enabled devices."
     icon: 'icon-picture'
     inlineEditable: TRUE
     inspector:
@@ -18,6 +20,8 @@
       defaultValue: ''
       ui:
         label: 'Animation effect'
+        help:
+          message: "The type of animation used for transitioning between slides."
         reloadIfChanged: TRUE
         inspector:
           group: 'orbitSettings'
@@ -33,6 +37,8 @@
       type: string
       ui:
         label: 'Animation speed (ms)'
+        help:
+          message: "How quickly one slide transitions to another."
         reloadIfChanged: FALSE
         inspector:
           group: 'orbitSettings'
@@ -46,6 +52,8 @@
       type: string
       ui:
         label: 'Timer speed (ms)'
+        help:
+          message: "How long the slide stays visible before transitioning to the next one."
         reloadIfChanged: FALSE
         inspector:
           group: 'orbitSettings'
@@ -59,7 +67,9 @@
       type: boolean
       defaultValue: TRUE
       ui:
-        label: 'Activate timer'
+        label: 'Auto play'
+        help:
+          message: "When set, slides will transition automatically after the time set in _Timer speed (ms)_."
         reloadIfChanged: TRUE
         inspector:
           group: 'orbitSettings'
@@ -101,6 +111,8 @@
       defaultValue: TRUE
       ui:
         label: 'Allow viarable height content'
+        help:
+          message: "When selected, slider container will adjust dynamically to different slide heights. Without that option set, slider container height will match the 1st slide height."
         reloadIfChanged: TRUE
         inspector:
           group: 'orbitSettings'
@@ -109,6 +121,8 @@
       defaultValue: TRUE
       ui:
         label: 'Swiping active'
+        help:
+          message: "Enable swiping on touch devices."
         reloadIfChanged: TRUE
         inspector:
           group: 'orbitSettings'
@@ -117,6 +131,8 @@
       defaultValue: TRUE
       ui:
         label: 'Pause on mouse hover'
+        help:
+          message: "Pause the timer when mouse hovers over the slide. Applicable when used with _Auto play_ option."
         reloadIfChanged: TRUE
         inspector:
           group: 'orbitSettings'
@@ -126,6 +142,8 @@
       defaultValue: TRUE
       ui:
         label: 'Resume on mouse out'
+        help:
+          message: "Used with _Pause on mouse hover_ option. When set, timer will be re-activated as soon as mouse leaves the slider area."
         reloadIfChanged: TRUE
         inspector:
           group: 'orbitSettings'
