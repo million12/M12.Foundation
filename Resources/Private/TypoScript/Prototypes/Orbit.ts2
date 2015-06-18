@@ -4,23 +4,29 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 
 	attributes.data-orbit = ''
 	attributes.data-options {
-		animation = ${q(node).property('animation')                 ? 'animation:' + q(node).property('setAnimation') + ';' : null}
+		animation = ${q(node).property('animation')                 ? 'animation:' + q(node).property('animation') + ';' : null}
 		animationSpeed = ${q(node).property('animationSpeed')       ? 'animation_speed:' + String.toInteger(q(node).property('animationSpeed')) + ';' : null}
 		timerSpeed = ${q(node).property('timerSpeed')               ? 'timer_speed:' + String.toInteger(q(node).property('timerSpeed')) + ';' : null}
 		bullets = ${q(node).property('bullets')                     ? 'bullets:true;' : 'bullets:false;'}
 		navigationArrows = ${q(node).property('navigationArrows')   ? 'navigation_arrows:true;' : 'navigation_arrows:false;'}
 		nextOnClick = ${q(node).property('nextOnClick')             ? 'next_on_click:true;' : 'next_on_click:false;'}
+		nextOnClick.@if.isFrontend = ${node.context.workspace.name == 'live'}
+		
 		slideNumber = ${q(node).property('slideNumber')             ? 'slide_number:true;' : 'slide_number:false;'}
 		timer = ${q(node).property('timer')                         ? 'timer:true;' : 'timer:false;'}
 		timer.@if.isFrontend = ${node.context.workspace.name == 'live'}
-		# Auto-sliding in a backend seems to cause issues, e.g. you're editing something, it slides out etc...
-		# Therefore we force it to be off when in backend.
-		timerOffForBackend = 'timer:false;'
-		timerOffForBackend.@if.isBackend = ${node.context.workspace.name != 'live'}
 		variableHeight = ${q(node).property('variableHeight')       ? 'variable_height:true;' : 'variable_height:false;'}
 		swipe = ${q(node).property('swipe')                         ? 'swipe:true;' : 'swipe:false;'}
 		pauseOnHover = ${q(node).property('pauseOnHover')           ? 'pause_on_hover:true;' : 'pause_on_hover:false;'}
 		resumeOnMouseout = ${q(node).property('resumeOnMouseout')   ? 'resume_on_mouseout:true;' : 'resume_on_mouseout:false;'}
+
+		# Auto-sliding in a backend seems to cause issues, e.g. you're editing something, it slides out etc...
+		# Therefore we force it to be off when in backend.
+		timerOffForBackend = 'timer:false;'
+		timerOffForBackend.@if.isBackend = ${node.context.workspace.name != 'live'}
+		# Next on click shouldn't be active in back-end
+		nextOnClickOffForBackend = 'next_on_click:false;'
+		timerOffForBackend.@if.isBackend = ${node.context.workspace.name != 'live'}
 	}
 	@override.attributes = ${this.attributes}
 
@@ -32,6 +38,7 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 			collection = ${q(node).children()}
 			itemRenderer = M12.Foundation:OrbitItem
 			itemName = 'node'
+			iterationName = 'iterator'
 		}
 		# Add additional wrapping to orbit-content, because otherwise createjs won't work (it requires elements of contentcollection to be direct children of contentcollection).
 		# Can be removed when createjs is dropped.
@@ -44,6 +51,8 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 
 prototype(M12.Foundation:OrbitItem) < prototype(TYPO3.TypoScript:Tag) {
 	tagName = 'li'
+	attributes.data-orbit-slide = ${iterator.cycle}
+
 	content = TYPO3.Neos:ContentCase
 
 	prototype(TYPO3.Neos:Content) {

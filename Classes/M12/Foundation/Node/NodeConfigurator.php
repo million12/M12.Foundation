@@ -77,6 +77,10 @@ class NodeConfigurator {
 		$config = $this->getAssistanceConfigForNodeType($nodeType->getName());
 		
 		switch ($nodeType->getName()) {
+			case 'TYPO3.Neos.NodeTypes:Image':
+				$this->configureImage($node, $nodeType, $config);
+				break;
+			
 			case 'M12.Foundation:GridRow1Col':
 			case 'M12.Foundation:GridRow2Col':
 			case 'M12.Foundation:GridRow3Col':
@@ -245,6 +249,28 @@ class NodeConfigurator {
 		}
 	}
 
+	/**
+	 * Configure Image node
+	 * E.g. when Image is inserted inside Orbit slider, it will have caption ON by default.
+	 * 
+	 * @param NodeInterface $node
+	 * @param NodeType      $nodeType
+	 * @param array         $config
+	 */
+	protected function configureImage(NodeInterface $node, NodeType $nodeType, array $config = []) {
+		$this->configureCreateAssistanceChildNodes($node, $nodeType, $config);
+		
+		switch ($node->getParent()->getNodeType()->getName()) {
+			// Image slider: enable caption by default
+			case 'M12.Foundation:Orbit':
+				if (!$node->getProperty('hasCaption')) {
+					$node->setProperty('hasCaption', TRUE);
+					$node->setProperty('caption', 'Image caption');
+				}
+				break;
+		}
+	}
+	
 	/**
 	 * Configure given node according to `assistanceChildNodes` settings
 	 * + links the node with the button/link (e.g. reveal modal needs a trigger button,

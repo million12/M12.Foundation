@@ -180,8 +180,17 @@ M12:
       'M12.Foundation:Orbit':
         childNodes:
           - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+            properties:
+              hasCaption: TRUE
+              caption: "Slide 1 caption"
           - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+            properties:
+              hasCaption: TRUE
+              caption: "Slide 2 caption"
           - nodeType: 'TYPO3.Neos.NodeTypes:Image'
+            properties:
+              hasCaption: TRUE
+              caption: "Slide 3 caption"
       # Reveal Modal: add sample content inside + insert Button before and link it with modal element (linking done in the code)
       'M12.Foundation:RevealModal':
         childNodes:
