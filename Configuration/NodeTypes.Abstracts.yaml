@@ -107,6 +107,7 @@
           editorOptions:
             placeholder: 'e.g. custom-data-attribute=value'
 
+
 'M12.Foundation:AbstractRadiusRoundedStyle':
   abstract: TRUE
   properties:
@@ -127,6 +128,7 @@
                 label: 'Radius'
               round:
                 label: 'Rounded'
+
 
 # Similar to 'M12.Foundation:AbstractRadiusRoundedStyle', but with Radius only
 # Appliable to element where 'rounded' style is not applicable.
@@ -231,100 +233,89 @@
                 label: 'FOOTER'
 
 #
-# Mixin: Navigation: sticky navigation support
+# Mixin to be added to content nodes to render anchors 
+# <a id"sectionId"></a> before a content node
 #
-'M12.Foundation:AbstractNavSailingType':
-  superTypes:
-    'M12.Foundation:AbstractNavFragmentId': TRUE
+'M12.Foundation:AbstractSectionId':
   abstract: TRUE
   properties:
-    magellanSupport:
-      type: boolean
-      ui:
-        label: 'Magellan Sticky Navigation support'
-        help:
-          message: |
-            This option lets you give your site sticky navigation. This fixed-position navigation helps users **keep track of where they are on a page without scrolling**. See demo and technical details [here](http://foundation.zurb.com/docs/components/magellan.html).
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'sailingOptions'
-          position: 9
-
-#
-# Mixin for document/content nodes with 'fragmentId' property
-# which can be rendered as #fragmentId (document links)
-# or anchor <a name"fragmentId"></a>
-#
-'M12.Foundation:AbstractNavFragmentId':
-  abstract: TRUE
-  ui:
-    inspector:
-      groups:
-        sailingOptions:
-          label: 'Sailing options'
-          position: 96
-          tab: meta
-  properties:
-    fragmentId:
+    sectionId:
       type: string
       ui:
-        label: 'Section #name'
-        help:
-          message: |
-            Provided value will be rendered as anchor before the element, so you can reference to it (e.g. from links or from _Magellan Sticky Navigation_).
-            
-            Developer info: the HTML output will be  
-            `<a name="<value>"></a>`
+        label: 'Section ID'
         reloadIfChanged: TRUE
         inspector:
-          group: 'sailingOptions'
-          position: 10
+          group: 'devCode'
+          position: 5
           editor: Content/Inspector/Editors/TextFieldEditor
           editorOptions:
             placeholder: 'None'
       validation:
         'TYPO3.Neos/Validation/StringLengthValidator':
           minimum: 1
-          maximum: 32
+          maximum: 64
         regularExpression:
           regularExpression: '/^[a-z0-9\-]+$/i'
 
+
 #
-# Mixin for nav content elements, to add support for fixed/sticky
+# Mixin for content elements which can support section id and magellan menu
+# Apply for **non-navigation** node types.
+# For navigation elements apply just AbstractSectionId (+ AbstractNavBehavior if applicable) 
 #
-'M12.Foundation:AbstractNavFixedSticky':
+'M12.Foundation:AbstractSectionIdMagellan':
   abstract: TRUE
+  superTypes:
+    'M12.Foundation:AbstractSectionId': TRUE
   ui:
     inspector:
       groups:
-        menuPosition:
-          label: 'Menu positioning'
-          position: 31 # After Neos menu 'options' group
+        navOptions:
+          label: 'Navigational options'
+          position: 96
+          tab: meta
   properties:
-    classNavFixed:
+    sectionId:
+      ui:
+        inspector:
+          group: 'navOptions'
+          position: 10
+    magellanSupport:
       type: boolean
       ui:
-        label: 'Fixed position'
-        help:
-          message: |
-            Set this option to make the menu stay fixed as you scroll.
-            
-            Note: **do NOT use** with _Sticky_ option. 
+        label: 'Section in Magellan Sticky Menu'
         reloadIfChanged: TRUE
         inspector:
-          group: 'menuPosition'
-    classNavSticky:
-      type: boolean
+          group: 'navOptions'
+          position: 20
+
+
+#
+# Mixin for nav content elements, to add support for fixed/sticky/magellan
+#
+'M12.Foundation:AbstractNavBehavior':
+  abstract: TRUE
+  properties:
+    navBehavior:
+      type: 'string'
       ui:
-        label: 'Sticky menu'
-        help:
-          message: |
-            Works similar to _Fixed_ option, with that difference that you can put the menu anywhere on the site. When the menu hits the top of the browser, it will act like the fixed menu and stick to the top as users continue to scroll.
-            
-            Note: **do NOT use** with _Fixed_ option.
+        label: 'Menu behavior (e.g. sticky)'
         reloadIfChanged: TRUE
         inspector:
-          group: 'menuPosition'
+          group: 'options'
+          position: 10
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'None'
+            allowEmpty: TRUE
+            values:
+              fixed:
+                label: 'Fixed position menu'
+              sticky:
+                label: 'Sticky menu'
+              magellan:
+                label: 'Magellan Sticky Menu'
+
 
 #
 # Mixin: tooltip

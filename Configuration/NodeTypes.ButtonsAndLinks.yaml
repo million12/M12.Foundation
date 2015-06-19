@@ -7,7 +7,7 @@
   abstract: TRUE
   superTypes:
     'TYPO3.Neos:Content': TRUE
-    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE

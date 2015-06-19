@@ -2,7 +2,7 @@
   superTypes:
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
-    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
     label: 'Block Grid'

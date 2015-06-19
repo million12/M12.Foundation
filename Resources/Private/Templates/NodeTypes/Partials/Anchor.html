@@ -1,7 +1,7 @@
 <f:comment><!--
-	It renders <a name="{fragmentId}"></a> based on properties
-	defined in M12.Foundation:AbstractNavSailingType.
+	It renders <a name="{sectionId}"></a> based on properties
+	defined in M12.Foundation:AbstractSectionIdMagellan.
 --></f:comment>
-<f:if condition="{fragmentId}">
-	<a <f:if condition="{magellanSupport}">data-magellan-destination="{fragmentId}" </f:if>name="{fragmentId}"></a>
+<f:if condition="{sectionId}">
+	<a <f:if condition="{magellanSupport}">data-magellan-destination="{sectionId}" </f:if>name="{sectionId}"></a>
 </f:if>

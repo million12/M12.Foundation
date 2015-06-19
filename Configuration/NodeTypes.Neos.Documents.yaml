@@ -1,6 +1,4 @@
 'TYPO3.Neos:Document':
-  superTypes:
-    'M12.Foundation:AbstractNavFragmentId': TRUE
   properties:
     title:
       ui:
@@ -15,11 +13,22 @@
         inspector:
           position: 30
     fragmentId:
+      type: string
       ui:
-        label: 'URL #fragment id'
+        label: 'URL #fragment ID'
+        reloadIfChanged: TRUE
         inspector:
           group: 'document'
           position: 40
+          editor: Content/Inspector/Editors/TextFieldEditor
+          editorOptions:
+            placeholder: 'None'
+      validation:
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 64
+        regularExpression:
+          regularExpression: '/^[a-z0-9\-]+$/i'
 
 
 'TYPO3.Neos.NodeTypes:Page':

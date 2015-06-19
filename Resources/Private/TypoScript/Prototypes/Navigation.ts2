@@ -2,14 +2,24 @@
 prototype(M12.Foundation:Menu) < prototype(TYPO3.Neos.NodeTypes:Menu) {
 	@override.isDocumentContext = ${q(node).is('[instanceof TYPO3.Neos:Document]')}
 
-	# magellanSupport is set via @override in the parent scope.
+	# magellanSupport can be set via @override in the parent scope.
 	# When in document context, use that variable - otherwise read node property.
-	magellanSupport = ${isDocumentContext ? magellanSupport : q(node).property('magellanSupport')}
+	magellanSupport = ${isDocumentContext ? magellanSupport : q(node).property('navBehavior') == 'magellan'}
 	@override.magellanSupport = ${this.magellanSupport}
 
-	extraAttributes.class.fixed  = ${q(node).property('classNavFixed')  ? 'fixed' : null}
-	extraAttributes.class.sticky = ${q(node).property('classNavSticky') ? 'sticky' : null}
+	# Fixed position. Note: don't set this class while in back-end as the menu is then under Neos UI
+	extraAttributes.class.fixed  = 'fixed'
+	extraAttributes.class.fixed.@if.isFixed = ${q(node).property('navBehavior') == 'fixed'}
+	extraAttributes.class.fixed.@if.isFrontend = ${node.context.workspace.name == 'live'}
+	# Sticky position
+	extraAttributes.class.sticky  = 'sticky'
+	extraAttributes.class.sticky.@if.isSticky = ${q(node).property('navBehavior') == 'sticky'}
+	# Magellan sticky menu
+	extraAttributes.class.magellanContainer = 'magellan-container'
+	extraAttributes.class.magellanContainer.@if.magellan = ${magellanSupport}
 	extraAttributes.data-magellan-expedition = ${magellanSupport ? 'fixed' : null}
+	extraAttributes.data-magellan-expedition.@if.magellan = ${magellanSupport}
+	
 }
 
 prototype(M12.Foundation:TopBar) < prototype(M12.Foundation:Menu) {
@@ -17,11 +27,15 @@ prototype(M12.Foundation:TopBar) < prototype(M12.Foundation:Menu) {
 	sectionName = 'TopBar'
 	node = ${node}
 
-	# Set nodeType class manually - othwerise it inherits page class when inserted from TS
+	# Set nodeType class manually - otherwise it inherits page class when inserted from TS
 	attributes.class.nodeType = 'm12-foundation-topbar'
 	attributes.class.base = 'top-bar'
 
 	extraAttributes.class.gridContained = ${q(node).property('topBarGridContained') ? 'contain-to-grid' : null}
+	# TopBar does not support magellan out-of-the-box. 
+	# Add our custom class, so we can apply our custom styles to it.
+	extraAttributes.class.magellanTopBar = 'magellan-container--top-bar'
+	extraAttributes.class.magellanTopBar.@if.magellan = ${magellanSupport}
 
 	topBarTitle = ${isDocumentContext ? q(site).property('title') : q(node).property('topBarTitle')}
 	sectionAlign = ${q(node).property('classSectionAlign') ? q(node).property('classSectionAlign') : 'left'}
@@ -65,6 +79,7 @@ prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
 	}
 	attributesHref = ${q(node).property('htmlHref') ? String.trim(q(node).property('htmlHref')) : null}
 	attributesHref.@process.1 = TYPO3.Neos:ConvertUris
+	attributesHref.@if.isFrontend = ${node.context.workspace.name == 'live'}
 
 	navItemContent = TYPO3.Neos:ContentCollectionRenderer
 

@@ -33,7 +33,7 @@
 
 'TYPO3.Neos.NodeTypes:Headline':
   superTypes:
-    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
@@ -52,6 +52,7 @@
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
+    'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
   properties:
     text:
@@ -64,7 +65,7 @@
 
 'TYPO3.Neos.NodeTypes:Html':
   superTypes:
-    'M12.Foundation:AbstractNavSailingType': TRUE
+    'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
