@@ -29,11 +29,11 @@
     inspector:
       groups:
         utilityClasses:
-          label: 'Utility classes'
+          label: 'Functional options'
           position: 93
           tab: meta
         visibilityClasses:
-          label: 'Show/hide content'
+          label: 'Responsive options'
           position: 94
           tab: device
   postprocessors:
@@ -43,7 +43,7 @@
     classHide:
       type: boolean
       ui:
-        label: 'Hide'
+        label: 'Visually hide'
         help:
           message: |
             Element will be rendered in HTML output, but will be visually hidden.
@@ -51,16 +51,7 @@
             Developer info: it's achieved by adding `hide` CSS class to the element. Use it if you want programatically hide/show some element(s).
         reloadIfChanged: TRUE
         inspector:
-          group: 'utilityClasses'
-          position: 10
-    classClearfix:
-      type: boolean
-      ui:
-        label: 'Clearfix'
-        reloadIfChanged: TRUE
-        inspector:
-          group: 'utilityClasses'
-          position: 20
+          group: 'visibility'
     classFloat:
       type: string
       ui:
@@ -78,6 +69,14 @@
                 label: 'left'
               right:
                 label: 'right'
+    classClearfix:
+      type: boolean
+      ui:
+        label: 'Clear Float'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'utilityClasses'
+          position: 33 # after `classFloat`
     classShowByScreenSize:
       type: string
       ui:

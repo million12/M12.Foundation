@@ -12,10 +12,10 @@ TYPO3:
       groups:
         interactive:
           label: 'Interactive'
-        forms:
-          label: 'Form elements'
         navigation:
           label: 'Navigation'
+        forms:
+          label: 'Form elements'
 
 M12:
   Foundation:
@@ -132,7 +132,7 @@ M12:
         cssClassSuffixes: [ '-text-left', '-text-center', '-text-right', '-text-justify' ] # e.g. small-text-left
         appliedPerColumn: false
         uiInspectorGroup: utilityClasses
-        uiInspectorPosition: 25
+        uiInspectorPosition: 20
         extraValues:
           start:
             'text-left':

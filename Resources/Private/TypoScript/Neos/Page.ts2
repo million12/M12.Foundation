@@ -21,7 +21,7 @@ prototype(TYPO3.Neos:Page) {
 		# Note: it's rendered in reversed order... so 1st global site code, then local from this page.
 		@override.customCssCode = TYPO3.TypoScript:Array {
 			1 = ${q(site).property('customCssCode')}
-			2 = ${q(site).property('_nodeData.path')!=q(node).property('_nodeData.path') ? q(node).property('customCssCode') : null}
+			2 = ${q(site).property('_nodeData.path') != q(node).property('_nodeData.path') ? q(node).property('customCssCode') : null}
 			@process.wrap = ${value ? '<style type="text/css">' + value + '</style>' : null}
 		}
 		javascripts.@process.appendCustomCssCode = ${value + customCssCode}
@@ -30,7 +30,7 @@ prototype(TYPO3.Neos:Page) {
 		# Note: it's rendered in reversed order... so 1st global site code, then local from this page.
 		@override.customJsCode = TYPO3.TypoScript:Array {
 			1 = ${q(site).property('customJsCode')}
-			2 = ${q(site).property('_nodeData.path')!=q(node).property('_nodeData.path') ? q(node).property('customJsCode') : null}
+			2 = ${q(site).property('_nodeData.path') != q(node).property('_nodeData.path') ? q(node).property('customJsCode') : null}
 			@process.wrap = ${value ? '<script type="text/javascript">' + value + '</script>' : null}
 		}
 		javascripts.@process.appendCustomJsCode = ${value + customJsCode}
