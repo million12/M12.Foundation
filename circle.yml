@@ -11,8 +11,9 @@ dependencies:
 
   override:
     - docker pull million12/mariadb
-    - docker pull million12/behat-selenium
     - docker pull million12/neos-typostrap-distribution
+    - docker pull million12/php-testing:
+        background: true
 
   post:
     # Launch DB backend
@@ -59,7 +60,7 @@ test:
     
     # Run unit tests:
     - |
-      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/behat-selenium "
+      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/php-testing "
         env && \
         echo \$WEB_PORT_80_TCP_ADDR \$WEB_ENV_T3APP_VHOST_NAMES >> /etc/hosts && cat /etc/hosts && \
         su www -c \"
@@ -68,9 +69,9 @@ test:
           bin/phpunit -c Build/BuildEssentials/PhpUnit/UnitTests.xml --colors
         \"
       "
-    # Run functional tests:
+    # Run ALL functional tests (but regardless of results do NOT fail, because some vendor tests might fail)
     - |
-      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/behat-selenium "
+      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/php-testing "
         env && \
         echo \$WEB_PORT_80_TCP_ADDR \$WEB_ENV_T3APP_VHOST_NAMES >> /etc/hosts && cat /etc/hosts && \
         su www -c \"
@@ -79,3 +80,14 @@ test:
           bin/phpunit -c Build/BuildEssentials/PhpUnit/FunctionalTests.xml --colors
         \"
       " || true
+    # Run M12 functional tests only (and fail on error)
+    - |
+      docker run -ti --volumes-from=neos --link=neos:web --link=db:db million12/php-testing "
+        env && \
+        echo \$WEB_PORT_80_TCP_ADDR \$WEB_ENV_T3APP_VHOST_NAMES >> /etc/hosts && cat /etc/hosts && \
+        su www -c \"
+          cd ~/neos && \
+          echo -e '\n\n======== RUNNING FUNCTIONAL TESTS =======\n\n' && \
+          bin/phpunit -c Build/BuildEssentials/PhpUnit/FunctionalTests.xml --colors --filter M12
+        \"
+      "
