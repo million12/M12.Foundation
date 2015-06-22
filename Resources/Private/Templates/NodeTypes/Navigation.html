@@ -17,8 +17,9 @@
 <f:section name="NavItem">
 	<{tag}{attributes -> f:format.raw()}>
 		<f:if condition="{isDivider}">
+			<f:then></f:then>
 			<f:else>
-				<a href="{attributesHref -> f:format.raw()}">
+				<a<f:if condition="{attributesHref}"> href="{attributesHref -> f:format.raw()}"</f:if>>
 					{neos:contentElement.editable(property: 'label')}
 				</a>
 			</f:else>
