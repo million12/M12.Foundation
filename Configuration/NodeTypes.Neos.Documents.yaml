@@ -16,6 +16,19 @@
       type: string
       ui:
         label: 'URL #fragment ID'
+        help:
+          message: |
+            **Optional.** URL #fragment identifier. When provided, link to this page in the menu will be rendered with provided #fragment identifier at the end, i.e. `link/to/the/page#fragmentId`.
+            
+            ### Use cases
+            
+            ##### 1. Scroll to page section
+            You want the page to be scrolled directly to a particular section when user visits a link with #fragmentId in it.  
+            To mark the section on the page, use the _Section #name_ field on any content element. The _URL #fragment ID_ for the page and the _Section #name_ on the content element have to match.  
+            **Hint:** you can use _Shortcut_ page if you need to create many links to the same page. The only difference then would be the 'URL #fragment ID' part.
+            
+            ##### 2. Work with [Magellan Sticky Menu](http://foundation.zurb.com/docs/components/magellan.html)
+            See help message for _Section in Magellan Sticky Menu_ field on any content element to learn more.
         reloadIfChanged: TRUE
         inspector:
           group: 'document'

@@ -9,15 +9,15 @@
     title:
       type: string
       ui:
-        label: 'Node name'
+        label: 'Change name'
         help:
           message: |
-            Rename current content element, so it is easier to find it in the _Structure Tree_ panel.
+            Override content element's name, so it is easier to find it in the _Structure Tree_ panel.
             
             Setting this field can be also useful if you reference to it (e.g. from _Insert content references_ element) or search for it.
         inspector:
           group: 'type'
-          position: 10
+          position: 200
 
 #
 # Mixin with custom id / css class / inline css
@@ -243,6 +243,19 @@
       type: string
       ui:
         label: 'Section ID'
+        help:
+          message: |
+            _Section ID_ is a marker printed in the HTML code. It does **not** have any visual effect on the page, it's just an empty tag rendered as:  
+            `<a name="section-id-here"></a>`
+            
+            When to use? Couple of cases, most common are listed below.
+            
+            1. **Reference to it from URL address**  
+            Let's say you have set _Section ID_ with value `mySectionX` for some element on a very long page. Now you want the visitor to visit directly that part of the page. To do that, add `#mySectionX` to URL address. The visitor will be scrolled to that element with _Section ID_ set.  
+            Hint: you can set it using _URL #fragment ID_ page setting.
+            
+            2. **Use with Magellan Sticky Menu**  
+            See help message for _Section in Magellan Sticky Menu_ checkbox below (available only for some content elements).
         reloadIfChanged: TRUE
         inspector:
           group: 'devCode'
@@ -284,6 +297,24 @@
       type: boolean
       ui:
         label: 'Section in Magellan Sticky Menu'
+        help:
+          message: |
+            _Magellan Sticky Menu_ is especially useful on a long pages with lots of content. It's a fixed-position navigation which helps users **keep track of where they are on a page without scrolling** (see demo [here](http://foundation.zurb.com/docs/components/magellan.html)). The menu will stay fixed at the top of the page as users scroll and the current sections of the page will be highlighted in the menu.
+            
+            ##### How to set up Magellan Sticky Menu
+            
+            1. Add a menu element to your page:
+                * We recommend to use one of _Top Bar_, _Sub Nav_ or _Side Nav_ menu.
+                * Set _Menu behavior_ set to _Magellan Sticky Menu_.
+            2. Fill a single page with lots of content.
+            3. Identify elements on the page which are your sections and fill _Section ID_ for them. Tick the _Section in Magellan Sticky Menu_ checkox as well.
+            4. Add needed menu items for these sections. The menu is built automatically from the page structure so you need to build that structure:
+                * Add a new page, choose _Shortcut_ type on the dialog screen.
+                * Set _Target mode_ to _Selected target_
+                * Set the _Target_ to the prepared page.
+                * Set _URL #fragment ID_ to match the _Section ID_ on the related content element.
+            
+            Done! Now when you scroll to the section on the page, a corresponsing menu item should be highlighted.
         reloadIfChanged: TRUE
         inspector:
           group: 'navOptions'
@@ -300,6 +331,18 @@
       type: 'string'
       ui:
         label: 'Menu behavior (e.g. sticky)'
+        help:
+          message: |
+            Choose menu behavior.
+            
+            ##### Fixed position menu
+            Set this option to make the menu stay fixed at the top of the page as you scroll.
+            
+            ##### Sticky menu
+            Works similar to _Fixed position menu_ option, with the difference that you can put it anywhere on the site. When the menu reach the top visible area of the browser, it will act like the fixed menu and stick to the top area as users continue to scroll.
+            
+            ##### Magellan Sticky Menu
+            This fixed-position navigation helps users **keep track of where they are on a page without scrolling**. See demo and technical details [here](http://foundation.zurb.com/docs/components/magellan.html).
         reloadIfChanged: TRUE
         inspector:
           group: 'options'

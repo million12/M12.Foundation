@@ -21,6 +21,14 @@
     # Start level: default 1st level of the site
     startLevel:
       defaultValue: 1
+      ui:
+        help:
+          message: "Menu start level from which the menu will be rendered, based on pages structure."
+    selection:
+      ui:
+        label: 'Override / manually select pages'
+        help:
+          message: "When set, only these pages will be included in the menu."
 
 
 'TYPO3.Neos.NodeTypes:TwoColumn':

@@ -129,6 +129,7 @@ M12:
     genericHelpers:
       classTextAlign:
         label: 'Text align'
+        helpMessage: "Sets text aligning for this content element. You can set different aligning for a particular device, for example you can set text justify for large devices, but centered for a medium and small ones."
         cssClassSuffixes: [ '-text-left', '-text-center', '-text-right', '-text-justify' ] # e.g. small-text-left
         appliedPerColumn: false
         uiInspectorGroup: utilityClasses

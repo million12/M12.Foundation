@@ -46,7 +46,7 @@
         label: 'Visually hide'
         help:
           message: |
-            Element will be rendered in HTML output, but will be visually hidden.
+            When set, element will be rendered in HTML output, but will be visually hidden.
             
             Developer info: it's achieved by adding `hide` CSS class to the element. Use it if you want programatically hide/show some element(s).
         reloadIfChanged: TRUE
@@ -56,6 +56,9 @@
       type: string
       ui:
         label: 'Float'
+        help:
+          message: |
+            The float option specifies that an element should be taken from the normal flow and placed along the `left` or `right` side of its container. It's called _float layouts_ where elements are floated to be stack horizontally. Text and other elements will then wrap around the floated one.
         reloadIfChanged: TRUE
         inspector:
           group: 'utilityClasses'
@@ -73,6 +76,12 @@
       type: boolean
       ui:
         label: 'Clear Float'
+        help:
+          message: |
+            There are two cases you might want to use this option:
+            
+            1. Set it together with _Float_ option to combat [the zero-height container problem](http://complexspiral.com/publications/containing-floats/). Read on the information there to learn more about the problem.
+            2. Set it on a content elements following that one with _Float_ option set. You do that to stop the wrapping behaviour around a floated element.
         reloadIfChanged: TRUE
         inspector:
           group: 'utilityClasses'
@@ -81,6 +90,8 @@
       type: string
       ui:
         label: 'Show by screen size'
+        help:
+          message: "Set the visibility of the content element for a particular device."
         reloadIfChanged: TRUE
         inspector:
           group: 'visibilityClasses'
@@ -110,6 +121,8 @@
       type: string
       ui:
         label: 'Hide by screen size'
+        help:
+          message: "Set the visibility of the content element for a particular device."
         reloadIfChanged: TRUE
         inspector:
           group: 'visibilityClasses'

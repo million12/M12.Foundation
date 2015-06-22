@@ -18,6 +18,18 @@
     icon: 'icon-rocket'
     group: 'navigation'
     position: 10
+    help:
+      message: |
+        _Top Bar_ is a great way to display a complex navigation bar on small, medium or large screens.
+        
+        It's a pretty complex piece of magical UI goodness:
+        * auto-switch to off-canvas menu on a small devices
+        * positioning options: fixed, sticky
+        * sub-menu rendered as a dropdown menu
+        * [Magellan Menu](http://foundation.zurb.com/docs/components/magellan.html) support
+        * ... and more
+        
+        **Note:** Top Bar navigation is built automatically based on information from pages structure in your project. Therefore you manage Top Bar links by managing the pages structure.
     inspector:
       groups:
         navOptions:
@@ -30,6 +42,16 @@
       defaultValue: 'Home'
       ui:
         label: 'Top Bar title'
+        help:
+          message: |
+            Set the title for the menu. It will be rendered as a link to your home page.
+            
+            **Hint:** this field supports raw HTML markup, so you can put here e.g. image with the site logo. For example:  
+            ```
+            <img src="https://domain.com/my-image.png" alt="" />
+            ```
+            
+            **Hint:** Make this field empty to skip rendering of this section at all.
         reloadIfChanged: TRUE
         inspector:
           group: 'navOptions'
@@ -39,6 +61,8 @@
       defaultValue: 'right'
       ui:
         label: 'Top Bar links align'
+        help:
+          message: "Align menu link to the right or left (default)."
         reloadIfChanged: TRUE
         inspector:
           group: 'navOptions'
@@ -56,15 +80,17 @@
       defaultValue: TRUE
       ui:
         label: 'Contain to grid'
+        help:
+          message: "Useful when you want Top Bar to be stretched to the full page width, but with its content contained to the grid."
         reloadIfChanged: TRUE
         inspector:
           group: 'navOptions'
     # Override default values from parent TYPO3.Neos.NodeTypes:Menu
     maximumLevels:
       defaultValue: 3
-    selection:
       ui:
-        label: 'Override / manually select pages'
+        help:
+          message: "How many menu levels should be included in the Top Bar. 2nd-level navigation (and deeper) will be rendered as drop-downs."
 
 
 #
@@ -78,6 +104,11 @@
     'M12.Foundation:AbstractSectionId': TRUE
   ui:
     label: 'Side Menu'
+    help:
+      message: |
+        Simple navigation in the form of **vertical links**. Ideal way to provide navigation for your entire site or for sections of an individual page.
+        
+        **Note:** _Side Menu_ is built automatically from pages structure in your project. Use _Side Menu (custom)_ to build your menu the "manual way".
     icon: 'icon-reorder'
     group: 'navigation'
     position: 20
@@ -94,6 +125,11 @@
     'M12.Foundation:AbstractSectionId': TRUE
   ui:
     label: 'Side Menu (custom)'
+    help:
+      message: |
+        Simple navigation in the form of **vertical links**. Ideal way to provide navigation for your entire site or for sections of an individual page.
+        
+        **Note:** _Side Menu (custom)_ is managed manually, i.e. you add links by inserting _Menu Item_ elements into it. If you prefer the menu being built automatically from your page structure, use _Side Menu_ element.
     icon: 'icon-reorder'
     group: 'navigation'
     position: 21
@@ -115,6 +151,11 @@
     'M12.Foundation:AbstractSectionId': TRUE
   ui:
     label: 'Sub Menu'
+    help:
+      message: |
+        Simple navigation in the form of **horizontal links**. Ideal way to provide navigation for your entire site or for sections of an individual page.
+        
+        **Note:** _Sub Menu_ is built automatically from page structure in your project. Use _Sub Menu (custom)_ to build your menu the "manual way".
     icon: 'icon-ellipsis-horizontal'
     group: 'navigation'
     position: 30
@@ -123,6 +164,8 @@
       type: string
       ui:
         label: 'Sub Menu title'
+        help:
+          message: "Menu title, rendered before all menu items."
         reloadIfChanged: TRUE
         inspector:
           group: 'options'
@@ -140,6 +183,11 @@
     'M12.Foundation:AbstractSectionId': TRUE
   ui:
     label: 'Sub Menu (custom)'
+    help:
+      message: |
+        Simple navigation in the form of **horizonal links**. Ideal way to provide navigation for your entire site or for sections of an individual page.
+        
+        **Note:** _Sub Menu (custom)_ is managed manually, i.e. you add links by inserting _Menu Item_ elements into it. If you prefer the menu being built automatically from your page structure, use _Sub Menu_ element.
     icon: 'icon-ellipsis-horizontal'
     group: 'navigation'
     position: 31
@@ -153,6 +201,8 @@
       type: string
       ui:
         label: 'Sub Menu title'
+        help:
+          message: "Menu title, rendered before all menu items."
         reloadIfChanged: TRUE
         inspector:
           group: 'options'
@@ -190,11 +240,20 @@
       type: string
       ui:
         label: 'Link / URL'
+        help:
+          message: |
+            You can specify link in two ways:
+            
+            ##### Link to internal page
+            Simply start typing the page title and it should appear on the list. Click to select and you're done.
+            
+            ##### Link to external page
+            Paste a full URL address starting with `http://` or `https://` to link to _external_ page.
         inspector:
           group: 'options'
           editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
           editorOptions:
-            placeholder: 'Page name or URL...'
+            placeholder: 'Page name or external URL...'
     classActive:
       type: boolean
       ui:
@@ -206,6 +265,8 @@
       type: boolean
       ui:
         label: 'This is a divider'
+        help:
+          message: "Item will be rendered as a visual menu separator. Fields _Menu Item label_ and _Link / URL_ will be ignored."
         reloadIfChanged: TRUE
         inspector:
           group: 'options'
