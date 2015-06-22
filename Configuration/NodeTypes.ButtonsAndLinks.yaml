@@ -12,7 +12,6 @@
     'M12.Foundation:AbstractTitleTooltip': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
-    icon: 'icon-sign-blank'
     group: 'interactive'
     inspector:
       groups:
@@ -202,6 +201,7 @@
     'M12.Foundation:ButtonLinkAbstract': TRUE
   ui:
     label: 'Button'
+    icon: 'icon-minus'
   properties:
     label: # Override parent 'label'
       defaultValue: 'Button'
@@ -314,7 +314,7 @@
         Once added to the page, you can add any number of _Buttons_ inside.
         
         See button groups in action [here](http://foundation.zurb.com/docs/components/button_groups.html).
-    icon: 'icon-minus'
+    icon: 'icon-ellipsis-horizontal'
     group: 'interactive'
     inlineEditable: TRUE
   constraints:
@@ -335,7 +335,7 @@
         Once added to the page, you can add any number of _Button Groups_ inside.
         
         See it in action [here](http://foundation.zurb.com/docs/components/button_groups.html).
-    icon: 'icon-minus'
+    icon: 'icon-reorder'
     group: 'interactive'
     inlineEditable: TRUE
   constraints:
