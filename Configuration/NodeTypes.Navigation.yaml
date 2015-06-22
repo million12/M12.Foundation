@@ -34,7 +34,6 @@
         inspector:
           group: 'navOptions'
           position: 10
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
     classSectionAlign:
       type: string
       defaultValue: 'right'
@@ -128,7 +127,6 @@
         inspector:
           group: 'options'
           position: 5
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
 
 
 #
@@ -159,7 +157,6 @@
         inspector:
           group: 'options'
           position: 5
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
 
 
 #
@@ -189,7 +186,6 @@
         inlineEditable: TRUE
         inspector:
           group: 'options'
-          editor: 'TYPO3.Neos/Inspector/Editors/TextFieldEditor'
     htmlHref:
       type: string
       ui:

@@ -45,7 +45,7 @@ prototype(M12.Foundation:SubNavLive) < prototype(M12.Foundation:Menu) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/Neos/Menu.html'
 	node = ${node}
 
-	# Set nodeType class manually - othwerise it inherits page class when inserted from TS
+	# Set nodeType class manually - otherwise it inherits page class when inserted from TS
 	attributes.class.nodeType = 'm12-foundation-subnav'
 	attributes.class.base = 'sub-nav'
 	tag = 'dl'
