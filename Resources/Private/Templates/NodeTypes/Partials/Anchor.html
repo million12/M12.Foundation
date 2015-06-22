@@ -3,5 +3,12 @@
 	defined in M12.Foundation:AbstractSectionIdMagellan.
 --></f:comment>
 <f:if condition="{sectionId}">
-	<a <f:if condition="{magellanSupport}">data-magellan-destination="{sectionId}" </f:if>name="{sectionId}"></a>
+	<f:if condition="{magellanSupport}">
+		<f:then>
+			<a data-magellan-destination="{sectionId}" id="{sectionId}"></a>
+		</f:then>
+		<f:else>
+			<a id="{sectionId}"></a>
+		</f:else>
+	</f:if>
 </f:if>
