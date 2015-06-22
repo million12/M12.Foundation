@@ -26,7 +26,15 @@ class Package extends BasePackage {
 	 * @return void
 	 */
 	public function boot(Bootstrap $bootstrap) {
+		$signalDispatcher = 'TYPO3\Neos\Service\NodeOperations';
+		$signalName = 'afterNodeCreate';
+		
+		// We don't use `NodeOperations` during tests, so listen to original signal from TYPO3CR
+		if ($bootstrap->getContext()->isTesting()) {
+			$signalDispatcher = 'TYPO3\TYPO3CR\Domain\Model\Node';
+		}
+		
 		$dispatcher = $bootstrap->getSignalSlotDispatcher();
-		$dispatcher->connect('TYPO3\Neos\Service\NodeOperations', 'afterNodeCreate', 'M12\Foundation\Node\NodeConfigurator', 'afterNodeCreate');
+		$dispatcher->connect($signalDispatcher, $signalName, 'M12\Foundation\Node\NodeConfigurator', 'afterNodeCreate');
 	}
 }
