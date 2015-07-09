@@ -3,7 +3,7 @@
 
 <f:render partial="Anchor" arguments="{_all}" />
 
-<f:if condition="{extraAttributes}"><div{extraAttributes -> f:format.raw()}></f:if>
+<f:if condition="{extraAttributes.count}"><div{extraAttributes -> f:format.raw()}></f:if>
 
 <{tag}{attributes -> f:format.raw()}>
 	<f:comment><!--
@@ -19,7 +19,7 @@
 	<f:render section="itemsList" arguments="{items: items, itemTag: itemTag, magellanSupport: magellanSupport}" />
 </{tag}>
 
-<f:if condition="{extraAttributes}"></div></f:if>
+<f:if condition="{extraAttributes.count}"></div></f:if>
 
 <f:section name="itemsList">
 	<f:for each="{items}" as="item">

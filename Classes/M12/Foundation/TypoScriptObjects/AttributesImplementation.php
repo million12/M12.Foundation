@@ -118,6 +118,10 @@ class AttributesImplementation extends TypoScriptAttributesImplementation {
 	public function getAsArray() {
 		return $this->attributes;
 	}
+	
+	public function getCount() {
+		return count($this->attributes);
+	}
 
 	public function __toString() {
 		return $this->renderedAttributes;

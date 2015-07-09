@@ -19,7 +19,6 @@ prototype(M12.Foundation:Menu) < prototype(TYPO3.Neos.NodeTypes:Menu) {
 	extraAttributes.class.magellanContainer.@if.magellan = ${magellanSupport}
 	extraAttributes.data-magellan-expedition = ${magellanSupport ? 'fixed' : null}
 	extraAttributes.data-magellan-expedition.@if.magellan = ${magellanSupport}
-	
 }
 
 prototype(M12.Foundation:TopBar) < prototype(M12.Foundation:Menu) {
@@ -32,7 +31,7 @@ prototype(M12.Foundation:TopBar) < prototype(M12.Foundation:Menu) {
 	attributes.class.base = 'top-bar'
 
 	extraAttributes.class.gridContained = ${q(node).property('topBarGridContained') ? 'contain-to-grid' : null}
-	# TopBar does not support magellan out-of-the-box. 
+	# TopBar does not support magellan out-of-the-box.
 	# Add our custom class, so we can apply our custom styles to it.
 	extraAttributes.class.magellanTopBar = 'magellan-container--top-bar'
 	extraAttributes.class.magellanTopBar.@if.magellan = ${magellanSupport}
@@ -67,7 +66,7 @@ prototype(M12.Foundation:SideNavLive) < prototype(M12.Foundation:Menu) {
 prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Navigation.html'
 	sectionName = 'NavItem'
-	
+
 	isSubNav  = ${String.endsWith(q(node).parent().property('_nodeType.name'), 'SubNav')}
 	isDivider = ${q(node).property('classDivider') ? true : false}
 
@@ -89,7 +88,7 @@ prototype(M12.Foundation:NavItem) < prototype(M12.Foundation:Content) {
 prototype(M12.Foundation:SideNav) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Navigation.html'
 	sectionName = 'SideNav'
-	
+
 	attributes.class {
 		contentcollection = 'neos-contentcollection'
 		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}
@@ -102,7 +101,7 @@ prototype(M12.Foundation:SideNav) < prototype(M12.Foundation:Content) {
 prototype(M12.Foundation:SubNav) < prototype(M12.Foundation:Content) {
 	templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Navigation.html'
 	sectionName = 'SubNav'
-	
+
 	attributes.class {
 		contentcollection = 'neos-contentcollection'
 		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}

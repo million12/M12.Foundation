@@ -29,11 +29,11 @@ class MenuImplementation extends NeosMenuImplementation {
 
 		$currentStateAlreadySet = false;
 		foreach ($items as &$item) {
-			// Initialize new variable with css classes
-			$item['cssClasses'] = '';
-
 			/** @var NodeInterface $node */
 			$node = $item['node'];
+
+			// Initialize new variable with css classes
+			$item['cssClasses'] = 'menu-item--' . preg_replace('/[^-a-z0-9]/i', '-', $node->getProperty('uriPathSegment'));
 
 			//
 			// [FEATURE]

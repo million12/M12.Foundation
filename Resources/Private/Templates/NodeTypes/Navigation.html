@@ -30,7 +30,7 @@
 <f:section name="TopBar">
 	<f:render partial="Anchor" arguments="{_all}" />
 
-	<f:if condition="{extraAttributes}"><div{extraAttributes -> f:format.raw()}></f:if>
+	<f:if condition="{extraAttributes.count}"><div{extraAttributes -> f:format.raw()}></f:if>
 
 	<nav{attributes -> f:format.raw()} data-topbar>
 		<ul class="title-area">
@@ -50,7 +50,7 @@
 		</div>
 	</nav>
 	
-	<f:if condition="{extraAttributes}"></div></f:if>
+	<f:if condition="{extraAttributes.count}"></div></f:if>
 </f:section>
 
 <f:section name="TopBarItems">
