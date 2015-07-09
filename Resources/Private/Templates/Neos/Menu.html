@@ -6,16 +6,14 @@
 <f:if condition="{extraAttributes}"><div{extraAttributes -> f:format.raw()}></f:if>
 
 <{tag}{attributes -> f:format.raw()}>
-	<f:if condition="{title}">
-		<f:comment><!--
-			Note: Officially title is only supported in SubNav component (DL).
-			Experiment: make unofficial support for UL as well and render
-			title inside extra LI.title.
-		--></f:comment>
-		<f:if condition="{tag == 'dt'}">
-			<f:then><dt>{title}</dt></f:then>
-			<f:else><li class="title">{title}</li></f:else>
-		</f:if>
+	<f:comment><!--
+		Note: Officially title is only supported in SubNav component (DL).
+		Experiment: make unofficial support for UL as well and render
+		title inside extra LI.title element.
+	--></f:comment>
+	<f:if condition="{tag == 'dt'}">
+		<f:then><dt>{title}</dt></f:then>
+		<f:else><f:if condition="{title}"><li class="title">{title}</li></f:if></f:else>
 	</f:if>
 
 	<f:render section="itemsList" arguments="{items: items, itemTag: itemTag, magellanSupport: magellanSupport}" />
