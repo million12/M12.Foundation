@@ -1,3 +1,6 @@
+# Add `pageLayout` property to context, so we don't need to determine over and over again
+root.layout.@override.pageLayout = ${this.layout}
+
 prototype(TYPO3.Neos:Page) {
 	# Define short nodeType name (without package prefix)
 	@override.nodeTypeShort = ${String.toLowerCase(String.substr(q(node).property('_nodeType.name'), 1+String.lastIndexOf(q(node).property('_nodeType.name'), ':')))}
@@ -7,7 +10,7 @@ prototype(TYPO3.Neos:Page) {
 		attributes = TYPO3.TypoScript:Attributes {
 			class = TYPO3.TypoScript:RawArray {
 				nodeTypeShort = ${nodeTypeShort}
-				layout = ${q(node).property('layout') ? 'layout-'+q(node).property('layout') : 'layout-default'}
+				layout = ${pageLayout ? 'layout-'+pageLayout : 'layout-default'}
 				customLook = ${q(node).property('customLook') ? q(node).property('customLook')+' '+nodeTypeShort+'-'+q(node).property('customLook') : null}
 				customClass = ${q(node).property('customCssClass') ? q(node).property('customCssClass') : null}
 			}
