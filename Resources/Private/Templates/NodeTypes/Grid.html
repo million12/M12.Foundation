@@ -7,9 +7,9 @@
 	<f:if condition="{gridExtraWrapper}">
 		<f:then>
 			<{tagName}{attributes -> f:format.raw()}>
-			<div class="row">
-				<ts:render path="columns" />
-			</div>
+				<div class="row">
+					<ts:render path="columns" />
+				</div>
 			</{tagName}>
 		</f:then>
 		<f:else>
