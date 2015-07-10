@@ -12,10 +12,13 @@ TYPO3:
       groups:
         interactive:
           label: 'Interactive'
+          position: 50 # after `general`, before `structure`
         navigation:
           label: 'Navigation'
+          position: 150 # after `structure`, before `plugins`
         forms:
           label: 'Form elements'
+          position: 500
 
 M12:
   Foundation:
