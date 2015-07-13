@@ -88,10 +88,6 @@
   superTypes:
     'M12.Foundation:AbstractNodeTitle': TRUE
   ui:
-    # Experimental! Make all referenced nodes inline editable.
-    # This might be confusing as user might unintentionally edit
-    # referenced content (which might reside on another pages etc).
-    inlineEditable: TRUE
     label: 'Content References'
     help:
       message: |
