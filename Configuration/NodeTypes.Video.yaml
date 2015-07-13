@@ -19,6 +19,12 @@
           group: 'video'
           editorOptions:
             placeholder: 'Video ID from the video URL address...'
+      validation:
+        'TYPO3.Neos/Validation/StringLengthValidator':
+          minimum: 1
+          maximum: 32
+        regularExpression:
+          regularExpression: '/^[-_a-z0-9]+$/i'
     videoSource:
       type: string
       ui:

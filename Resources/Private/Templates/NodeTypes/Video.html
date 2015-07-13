@@ -4,15 +4,15 @@
 	<f:then>
 		<f:if condition="{videoSource} == 'vimeo'">
 			<f:then>
-				<iframe src="//player.vimeo.com/video/{videoId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<iframe src="https://player.vimeo.com/video/{videoId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</f:then>
 			<f:else>
-				<iframe src="//www.youtube.com/embed/{videoId}?wmode=transparent" width="{width}" height="{height}" allowfullscreen></iframe>
+				<iframe src="https://www.youtube.com/embed/{videoId}?wmode=transparent" width="{width}" height="{height}" allowfullscreen></iframe>
 			</f:else>
 		</f:if>
 	</f:then>
 	<f:else>
-		<p class="text-center">Please specify video ID</p>
+		<p class="text-center">Please specify video ID.</p>
 	</f:else>
 	</f:if>
 </figure>
