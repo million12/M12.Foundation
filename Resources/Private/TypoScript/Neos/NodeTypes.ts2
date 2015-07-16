@@ -13,12 +13,14 @@ prototype(TYPO3.Neos.NodeTypes:Text) {
 
 
 prototype(TYPO3.Neos.NodeTypes:Image) {
+	templatePath = 'resource://M12.Foundation/Private/Templates/Neos/Image.html'
 	@process.wrapRemover = M12.Utils:WrapRemover
 	@process.wrapRemover.wrapperClass = 'typo3-neos-nodetypes-image'
 }
 
 
 prototype(TYPO3.Neos.NodeTypes:TextWithImage) {
+	templatePath = 'resource://M12.Foundation/Private/Templates/Neos/TextWithImage.html'
 	@process.wrapRemover = M12.Utils:WrapRemover
 	@process.wrapRemover.wrapperClass = 'typo3-neos-nodetypes-textwithimage'
 }

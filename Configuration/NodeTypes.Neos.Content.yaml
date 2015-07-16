@@ -1,3 +1,7 @@
+'TYPO3.Neos.NodeTypes:ImageMixin':
+  superTypes:
+    'M12.Foundation:AbstractFontIcon': TRUE
+
 'TYPO3.Neos:Hidable':
   properties:
     _hidden:
