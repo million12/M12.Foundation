@@ -164,7 +164,7 @@
           label: 'Custom look'
   properties:
     customLook:
-      type: string
+      type: array
       ui:
         label: 'Predefined style / look'
         help:
@@ -179,7 +179,6 @@
           editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
           editorOptions:
             placeholder: 'None'
-            allowEmpty: TRUE
             values:
               style-1:
                 label: 'Style 1'

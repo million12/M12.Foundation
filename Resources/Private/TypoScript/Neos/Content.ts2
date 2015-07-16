@@ -40,7 +40,7 @@ prototype(TYPO3.Neos:Content) {
 		classTooltipPosition = ${q(node).property('classTooltipPosition')}
 
 		# Add extra class 'style-x [nodeTypeShort]-style-x
-		customLook = ${q(node).property('customLook') ? q(node).property('customLook')+' '+nodeTypeShort+'-'+q(node).property('customLook') : null}
+		customLook = ${q(node).property('customLook') ? String.trim(Array.join(q(node).property('customLook'),' ')) : null}
 		customLook.@position = 'end 10'
 
 		customClass = ${q(node).property('customCssClass')}
