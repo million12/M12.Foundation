@@ -7,7 +7,7 @@
     inspector:
       groups:
         fontIconOptions:
-          label: 'FontAwesome.io icon'
+          label: 'Icon'
           position: 90
           tab: view
   properties:
@@ -101,7 +101,7 @@
     'M12.Foundation:AbstractNodeTitle': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
-    label: 'Font Icon'
+    label: 'Icon'
     help:
       message: "Add a graphical, high-quality icon to your website. Visit [fontawesome.io](http://fontawesome.io/) to see available icon list."
     icon: 'icon-flag'
