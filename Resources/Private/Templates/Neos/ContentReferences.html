@@ -1,0 +1,17 @@
+<f:if condition="{referenceNodes}">
+	<f:then>
+		<div{attributes -> f:format.raw()}>
+			{referenceNodes -> f:format.raw()}
+		</div>
+	</f:then>
+	<f:else>
+		<f:if condition="{node.context.workspace.name} != 'live'">
+			<f:security.ifAccess privilegeTarget="TYPO3.Neos:Backend.GeneralAccess">
+				<div{attributes -> f:format.raw()}>
+					<p>Please select content elements you want to render here.<br />
+					To do so, fill up the <i>Select Content References</i> field. </p>
+				</div>
+			</f:security.ifAccess>
+		</f:if>
+	</f:else>
+</f:if>

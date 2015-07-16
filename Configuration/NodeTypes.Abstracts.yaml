@@ -14,7 +14,7 @@
           message: |
             Override content element's name, so it is easier to find it in the _Structure Tree_ panel.
             
-            Setting this field can be also useful if you reference to it (e.g. from _Insert content references_ element) or search for it.
+            Setting this field can be also useful if you reference to it (e.g. from _Content references_ element) or search for it.
         inspector:
           group: 'type'
           position: 200

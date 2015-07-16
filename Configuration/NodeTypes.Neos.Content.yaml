@@ -93,11 +93,24 @@
       message: |
         **Avoid content duplication** by referencing to content elements you already have somewhere (e.g. on another page).
         
-        With _Content References_ you can add (reference to) any number of content elements and they will be rendered for you.
+        With _Content References_ you can add content elements you already have somewhere (e.g. on another page).
         
-        **Note:** beware that when editing the content inserted by _Content References_, you are editing the _original_ element.
-        
-        **Hint:** to easier find a particular content, you can set its name to something you recognise. You can do that by setting _Node name_ in the <a class="icon-cog"></a> tab for selected content elements.
+        **Hint:** to find a particular content easier, you can set its name to something meaningful. You can do that by setting _Change name_ field in the <a class="icon-cog"></a> tab.
+    inspector:
+      groups:
+        references:
+          label: 'Content References'
+  properties:
+    references:
+      ui:
+        label: 'Select Content References'
+        help:
+          message: |
+            With _Content References_ you can add content elements you already have somewhere (e.g. on another page).
+            
+            Specify them here to have them rendered.
+            
+            **Hint:** to find a particular content easier, you can set its name to something meaningful. You can do that by setting _Change name_ field in the <a class="icon-cog"></a> tab.
 
 
 'TYPO3.Neos:ContentCollection':
