@@ -2,6 +2,11 @@
   superTypes:
     'M12.Foundation:AbstractFontIcon': TRUE
 
+'TYPO3.Neos.NodeTypes:ContentImageMixin':
+  superTypes:
+    # We have Foundation align classes, so we don't need it here
+    'TYPO3.Neos.NodeTypes:ImageAlignmentMixin': FALSE
+
 'TYPO3.Neos:Hidable':
   properties:
     _hidden:
