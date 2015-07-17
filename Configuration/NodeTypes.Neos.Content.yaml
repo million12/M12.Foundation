@@ -1,11 +1,80 @@
+'TYPO3.Neos.NodeTypes:LinkMixin':
+  abstract: TRUE
+  properties:
+    linkTarget:
+      type: string
+      ui:
+        label: 'Link target'
+        reloadIfChanged: TRUE
+        inspector:
+          position: 301
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            placeholder: 'Default'
+            allowEmpty: TRUE
+            values:
+              _blank:
+                label: 'New window'
+
 'TYPO3.Neos.NodeTypes:ImageMixin':
   superTypes:
     'M12.Foundation:AbstractFontIcon': TRUE
+  properties:
+    image:
+      ui:
+        inspector:
+          editorOptions:
+            features:
+              resize: TRUE
 
 'TYPO3.Neos.NodeTypes:ContentImageMixin':
   superTypes:
     # We have Foundation align classes, so we don't need it here
     'TYPO3.Neos.NodeTypes:ImageAlignmentMixin': FALSE
+  ui:
+    inspector:
+      groups:
+        clickToZoom:
+          label: 'Click-to-Zoom settings'
+          position: 100
+  properties:
+    link:
+      ui:
+        inspector:
+          group: 'image'
+    linkTarget:
+      ui:
+        inspector:
+          group: 'image'
+    classThumbnail:
+      type: boolean
+      ui:
+        label: 'Style: thumbnail'
+        help:
+          message: 'When selected, light border will be present around image.'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'image'
+          position: 60
+    clickToZoom:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: 'Click-to-zoom in modal window'
+        inspector:
+          group: 'clickToZoom'
+          position: 10
+    clickToZoomImage:
+      type: TYPO3\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Override image for click-to-zoom'
+        inspector:
+          group: 'clickToZoom'
+          position: 20
+          editorOptions:
+            features:
+              resize: TRUE
+              crop: TRUE
 
 'TYPO3.Neos:Hidable':
   properties:

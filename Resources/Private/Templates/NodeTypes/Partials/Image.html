@@ -2,14 +2,15 @@
 {namespace media=TYPO3\Media\ViewHelpers}
 {namespace ts=TYPO3\TypoScript\ViewHelpers}
 
-<figure{f:if(condition: imageClassName, then: ' class="{imageClassName}"')}>
+<figure{figureAttributes -> f:format.raw()}>
 	<ts:render path="fontIcon" />
 
 	<f:if condition="{image}">
 		<f:then>
-			<f:if condition="{link}">
+			<f:if condition="{linkAttributes.count}">
 				<f:then>
-					<a href="{link}"><media:image asset="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" /></a>
+					<a{linkAttributes -> f:format.raw()}><media:image asset="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" /></a>
+					{modalContent -> f:format.raw()}
 				</f:then>
 				<f:else>
 					<media:image asset="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" />

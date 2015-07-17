@@ -1,3 +1,61 @@
 # Image TS Object
 prototype(TYPO3.Neos.NodeTypes:Image) {
+	allowCropping = TRUE
+	allowUpScaling = TRUE
+	
+	# Override/set link to image, so it can be shown in modal (reveal modal or lightbox)
+	link.@process.clickToZoomLink = TYPO3.Neos:ImageUri {
+		asset = ${q(node).property('clickToZoomImage') ? q(node).property('clickToZoomImage') : q(q(node).property('image')).property('originalAsset')}
+		maximumWidth = 2560
+		maximumHeight = 2560
+		@if.clickToZoom = ${q(node).property('clickToZoom') == true}
+	}
+	@override.url = ${this.link}
+	
+	# Modal if `click-to-zoom` option is set and we're not in a lightbox mode
+	isModal = ${q(node).property('clickToZoom') == true}
+	@override.isModal = ${this.isModal}
+	
+	# Modal content with `click-to-zoom` image.
+	modalContent = TYPO3.TypoScript:Tag {
+		attributes.id = ${'modal-image-' + q(node).property('_identifier')}
+		attributes.data-reveal = ''
+		attributes.class = 'reveal-modal large'
+		
+		content = TYPO3.TypoScript:Array
+		content.image = TYPO3.Neos:ImageTag {
+			asset = ${q(node).property('clickToZoomImage') ? q(node).property('clickToZoomImage') : q(q(node).property('image')).property('originalAsset')}
+			maximumWidth = 2560
+			maximumHeight = 2560
+			attributes.alt = ''
+		}
+		content.closeBtn = '<a class="close-reveal-modal">×</a>'
+		
+		@if.isModal = ${isModal}
+	}
+
+	# Attributes added to the <a> link wrapping the image
+	linkAttributes = TYPO3.TypoScript:Attributes
+	linkAttributes.target = ${q(node).property('linkTarget') ? q(node).property('linkTarget') : null}
+	linkAttributes.href = ${url && node.context.workspace.name == 'live' ? url : null}
+	linkAttributes.class = TYPO3.TypoScript:RawArray
+	linkAttributes.class.@process.nullify = ${Array.join(value,'') ? value : null}
+	# Add visual border around image if thumbnail is on
+	linkAttributes.class.th = ${q(node).property('classThumbnail') ? 'th' : null}
+	# Add extra class .th--no-href if URL is empty (just so we can remove cursor on mouse over for such a links)
+	linkAttributes.class.th-no-link = ${url == '' && q(node).property('classThumbnail') ? 'th--no-href' : null }
+	# Open link in modal window if isModal
+	linkAttributes.data-reveal-id = ${'modal-image-' + q(node).property('_identifier')}
+	linkAttributes.data-reveal-id.@if.modalAndLiveWorkspace = ${isModal && node.context.workspace.name == 'live'}
+
+	# Debugging only...
+#	attributes.data-is-modal = ${'isModal='+isModal}
+
+	# figureAttributes are rendered for <FIGURE> tag around <IMG>
+	figureAttributes = ${this.attributes}
+}
+
+prototype(TYPO3.Neos.NodeTypes:TextWithImage) {
+	figureAttributes >
+	figureAttributes = TYPO3.TypoScript:Attributes
 }
