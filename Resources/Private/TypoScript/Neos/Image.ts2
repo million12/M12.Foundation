@@ -3,6 +3,9 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 	allowCropping = TRUE
 	allowUpScaling = TRUE
 	
+	parentNode = ${q(node).parent().get()}
+	parentIsBlockGrid = ${q(this.parentNode).property('_nodeType.name') == 'M12.Foundation:BlockGrid'}
+
 	# Override/set link to image, so it can be shown in modal (reveal modal or lightbox)
 	link.@process.clickToZoomLink = TYPO3.Neos:ImageUri {
 		asset = ${q(node).property('clickToZoomImage') ? q(node).property('clickToZoomImage') : q(q(node).property('image')).property('originalAsset')}
@@ -12,8 +15,12 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 	}
 	@override.url = ${this.link}
 	
+	# Lightbox is only supported in Block Grid
+	isLightbox = ${this.parentIsBlockGrid && q(this.parentNode).property('lightboxEnabled')}
+	@override.isLightbox = ${this.isLightbox}
+	
 	# Modal if `click-to-zoom` option is set and we're not in a lightbox mode
-	isModal = ${q(node).property('clickToZoom') == true}
+	isModal = ${q(node).property('clickToZoom') == true && this.isLightbox == false}
 	@override.isModal = ${this.isModal}
 	
 	# Modal content with `click-to-zoom` image.
@@ -49,6 +56,8 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 	linkAttributes.data-reveal-id.@if.modalAndLiveWorkspace = ${isModal && node.context.workspace.name == 'live'}
 
 	# Debugging only...
+#	attributes.data-is-block-grid = ${'parentIsBlockGrid='+parentIsBlockGrid}
+#	attributes.data-is-lightbox = ${'isLightbox='+isLightbox}
 #	attributes.data-is-modal = ${'isModal='+isModal}
 
 	# figureAttributes are rendered for <FIGURE> tag around <IMG>

@@ -124,6 +124,7 @@ M12:
         cssClassSuffixes: [ '-block-grid-' ]    # DEVICE-block-grid-X, eg: small-block-grid-X, medium-block-grid-Y, large-block-grid-Z
         appliedPerColumn: true
         uiInspectorGroup: grid
+        uiInspectorPosition: 10
         defaults: # default values per-device
           - small-block-grid-1
           - medium-block-grid-2

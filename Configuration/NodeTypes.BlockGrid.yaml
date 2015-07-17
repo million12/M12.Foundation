@@ -28,3 +28,14 @@
   postprocessors:
     ColumnPostprocesor:
       postprocessor: 'M12\Foundation\NodeTypePostprocessor\BlockGridNodeTypePostprocessor'
+  properties:
+    lightboxEnabled:
+      type: boolean
+      defaultValue: true
+      ui:
+        label: 'Lightbox support for images'
+        help:
+          message: 'When selected, images inside _Block Grid_ will be opened in a lightbox modal window.'
+        inspector:
+          group: 'grid'
+          position: 20
