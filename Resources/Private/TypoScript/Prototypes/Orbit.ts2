@@ -59,11 +59,6 @@ prototype(M12.Foundation:OrbitItem) < prototype(TYPO3.TypoScript:Tag) {
 		# Remove contentElementWrapping, because wrapping is already added for OrbitItem (see below)
 		@process.contentElementWrapping >
 	}
-	# Re-define how Image is rendered inside slider
-	prototype(TYPO3.Neos.NodeTypes:Image) {
-		templatePath = 'resource://M12.Foundation/Private/Templates/NodeTypes/Orbit.html'
-		sectionName = 'sliderItemImage'
-	}
 
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

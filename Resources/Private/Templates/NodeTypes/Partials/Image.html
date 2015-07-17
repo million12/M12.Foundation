@@ -23,7 +23,14 @@
 		</f:else>
 	</f:if>
 	<f:if condition="{hasCaption}">
-		<figcaption>
+		<f:comment>
+			<!-- 
+			Orbit Slider requires .orbit-caption class here.
+			We leave it here by default (for now) as it doesn't affect 
+			caption rendered outside Orbit element.
+			-->
+		</f:comment>
+		<figcaption class="orbit-caption">
 			{neos:contentElement.editable(property: 'caption', node: node)}
 		</figcaption>
 	</f:if>

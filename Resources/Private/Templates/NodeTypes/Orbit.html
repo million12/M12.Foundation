@@ -8,33 +8,3 @@
 		{orbitContent -> f:format.raw()}
 	</div>
 </f:section>
-
-<!-- Image, when rendered inside slider -->
-<f:section name="sliderItemImage">
-	<figure{f:if(condition: imageClassName, then: ' class="{imageClassName}"')}>
-	<f:if condition="{image}">
-		<f:then>
-			<f:if condition="{link}">
-				<f:then>
-					<a href="{link}"><media:image asset="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" /></a>
-				</f:then>
-				<f:else>
-					<media:image asset="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" />
-				</f:else>
-			</f:if>
-		</f:then>
-		<f:else>
-			<f:security.ifAccess privilegeTarget="TYPO3.Neos:Backend.GeneralAccess">
-				<f:if condition="{node.context.workspace.name} != 'live'">
-					<img src="{f:uri.resource(package: 'TYPO3.Neos', path: 'Images/dummy-image.svg')}" title="Dummy image" alt="Dummy image" class="neos-handle" />
-				</f:if>
-			</f:security.ifAccess>
-		</f:else>
-	</f:if>
-	<f:if condition="{hasCaption}">
-		<figcaption class="orbit-caption">
-			{neos:contentElement.editable(property: 'caption', node: node)}
-		</figcaption>
-	</f:if>
-	</figure>
-</f:section>
