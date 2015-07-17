@@ -9,11 +9,11 @@
 		<f:then>
 			<f:if condition="{linkAttributes.count}">
 				<f:then>
-					<a{linkAttributes -> f:format.raw()}><media:image asset="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" /></a>
+					<a{linkAttributes -> f:format.raw()}><media:image asset="{image}" additionalAttributes="{imageAttributes.asArray}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" /></a>
 					{modalContent -> f:format.raw()}
 				</f:then>
 				<f:else>
-					<media:image asset="{image}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" />
+					<media:image asset="{image}" additionalAttributes="{imageAttributes.asArray}" alt="{alternativeText}" title="{title}" maximumWidth="{maximumWidth}" maximumHeight="{maximumHeight}" allowCropping="{allowCropping}" allowUpScaling="{allowUpScaling}" />
 				</f:else>
 			</f:if>
 		</f:then>

@@ -36,10 +36,19 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 			maximumHeight = 2560
 			attributes.alt = ''
 		}
+		# Render caption: first from `clickToZoomCaption`, then default image `caption`.
+		content.caption = TYPO3.TypoScript:Tag {
+			tagName = 'figcaption'
+			content = ${q(node).property('clickToZoomCaption') ? q(node).property('clickToZoomCaption') : q(node).property('caption')}
+			@if.hasCaption = ${q(node).property('clickToZoomCaption') || q(node).property('caption')}
+		}
 		content.closeBtn = '<a class="close-reveal-modal">×</a>'
 		
 		@if.isModal = ${isModal}
 	}
+
+	imageAttributes = TYPO3.TypoScript:Attributes
+	imageAttributes.data-caption = ${q(node).property('clickToZoomCaption') ? q(node).property('clickToZoomCaption') : null}
 
 	# Attributes added to the <a> link wrapping the image
 	linkAttributes = TYPO3.TypoScript:Attributes

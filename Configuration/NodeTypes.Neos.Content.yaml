@@ -76,6 +76,19 @@
             features:
               resize: TRUE
               crop: TRUE
+    clickToZoomCaption:
+      type: string
+      ui:
+        label: 'Click-to-zoom caption text'
+        help:
+          message: |
+            Add an image caption which is displayed only on modal/lightbox window (when user click on the image).
+        reloadIfChanged: FALSE
+        inspector:
+          group: 'clickToZoom'
+          position: 30
+          editorOptions:
+            placeholder: 'No caption'
 
 'TYPO3.Neos:Hidable':
   properties:
