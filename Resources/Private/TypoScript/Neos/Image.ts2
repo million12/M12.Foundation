@@ -27,7 +27,7 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 	modalContent = TYPO3.TypoScript:Tag {
 		attributes.id = ${'modal-image-' + q(node).property('_identifier')}
 		attributes.data-reveal = ''
-		attributes.class = 'reveal-modal large'
+		attributes.class = 'reveal-modal reveal-modal--image large text-center'
 		
 		content = TYPO3.TypoScript:Array
 		content.image = TYPO3.Neos:ImageTag {
@@ -51,14 +51,22 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 	linkAttributes.class.th = ${q(node).property('classThumbnail') ? 'th' : null}
 	# Add extra class .th--no-href if URL is empty (just so we can remove cursor on mouse over for such a links)
 	linkAttributes.class.th-no-link = ${url == '' && q(node).property('classThumbnail') ? 'th--no-href' : null }
+	linkAttributes.class.radiusAndRounded = ${q(node).property('classRadiusAndRounded')}
 	# Open link in modal window if isModal
 	linkAttributes.data-reveal-id = ${'modal-image-' + q(node).property('_identifier')}
 	linkAttributes.data-reveal-id.@if.modalAndLiveWorkspace = ${isModal && node.context.workspace.name == 'live'}
+	
+	# Unset `radiusAndRounded` as it's added to `linkAttributes`.
+	attributes.class.radiusAndRounded = ${null}
 
 	# Debugging only...
 #	attributes.data-is-block-grid = ${'parentIsBlockGrid='+parentIsBlockGrid}
 #	attributes.data-is-lightbox = ${'isLightbox='+isLightbox}
 #	attributes.data-is-modal = ${'isModal='+isModal}
+
+	# Bug/workaround: Make sure `alt` attribute is always set (so: empty string instead of null/false)
+	# Seems like it's not enough  to set `alt` to empty string, it's not rendered by <media:image> helper.
+	alternativeText = ${q(node).property('alternativeText') ? q(node).property('alternativeText') : ' '}
 
 	# figureAttributes are rendered for <FIGURE> tag around <IMG>
 	figureAttributes = ${this.attributes}

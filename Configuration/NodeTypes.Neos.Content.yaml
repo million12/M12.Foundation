@@ -19,6 +19,7 @@
 'TYPO3.Neos.NodeTypes:ImageMixin':
   superTypes:
     'M12.Foundation:AbstractFontIcon': TRUE
+    'M12.Foundation:AbstractRadiusStyle': TRUE
   properties:
     image:
       ui:
