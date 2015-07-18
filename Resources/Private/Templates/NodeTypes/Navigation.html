@@ -20,6 +20,7 @@
 			<f:then></f:then>
 			<f:else>
 				<a<f:if condition="{attributesHref}"> href="{attributesHref -> f:format.raw()}"</f:if>>
+					<ts:render path="fontIcon" />
 					{neos:contentElement.editable(property: 'label')}
 				</a>
 			</f:else>

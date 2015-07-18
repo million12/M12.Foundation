@@ -215,6 +215,7 @@
 'M12.Foundation:NavItem':
   superTypes:
     'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractFontIcon': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
   ui:
