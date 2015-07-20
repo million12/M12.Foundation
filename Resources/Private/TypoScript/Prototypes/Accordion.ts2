@@ -20,6 +20,8 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
 	# the parent element for div.content containing the accordion item content.
 	extraAttributes.class {
 		base = 'accordion-navigation'
+		active = 'active'
+		active.@if.isAccordionItemActive = ${q(node).property('isAccordionItemActive')}
 		hideCcOverlay = 'neos-hide-empty-contentcollection-overlay'
 		hideCcOverlay.@if.isBackend = ${node.context.workspace.name != 'live'}
 	}
