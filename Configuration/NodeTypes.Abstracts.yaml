@@ -49,7 +49,6 @@
         inspector:
           group: 'dev'
           position: 10
-          editor: Content/Inspector/Editors/TextFieldEditor
           editorOptions:
             placeholder: 'None'
       validation:
@@ -65,7 +64,6 @@
         inspector:
           group: 'dev'
           position: 11
-          editor: Content/Inspector/Editors/TextFieldEditor
           editorOptions:
             placeholder: 'None'
       validation:
@@ -81,7 +79,6 @@
         inspector:
           group: 'devCode'
           position: 30
-          editor: Content/Inspector/Editors/TextFieldEditor
           editorOptions:
             placeholder: 'e.g. margin-top: 3rem'
     customUserAttributes:
@@ -103,7 +100,7 @@
         inspector:
           group: 'devCode'
           position: 40
-          editor: 'Content/Inspector/Editors/TextAreaEditor'
+          editor: Content/Inspector/Editors/TextAreaEditor
           editorOptions:
             placeholder: 'e.g. custom-data-attribute=value'
 
@@ -176,7 +173,7 @@
         inspector:
           group: 'devView'
           position: 40
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             values:
@@ -211,7 +208,7 @@
         inspector:
           group: 'devSemantic'
           position: 50
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default / None'
             allowEmpty: TRUE
@@ -259,7 +256,6 @@
         inspector:
           group: 'devCode'
           position: 5
-          editor: Content/Inspector/Editors/TextFieldEditor
           editorOptions:
             placeholder: 'None'
       validation:
@@ -346,7 +342,7 @@
         inspector:
           group: 'options'
           position: 10
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             allowEmpty: TRUE
@@ -407,7 +403,7 @@
         inspector:
           group: 'tooltip'
           position: 30
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default (Bottom)'
             allowEmpty: TRUE
@@ -427,7 +423,7 @@
         inspector:
           group: 'tooltip'
           position: 40
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Tooltip options'
             values:

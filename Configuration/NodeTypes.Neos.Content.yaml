@@ -8,7 +8,7 @@
         reloadIfChanged: TRUE
         inspector:
           position: 301
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default'
             allowEmpty: TRUE

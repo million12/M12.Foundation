@@ -33,7 +33,6 @@
         inspector:
           group: 'document'
           position: 40
-          editor: Content/Inspector/Editors/TextFieldEditor
           editorOptions:
             placeholder: 'None'
       validation:
@@ -69,7 +68,7 @@
         inspector:
           group: 'devCode'
           position: 30 # before 'customCssCode'
-          editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
+          editor: Content/Inspector/Editors/CodeEditor
           editorOptions:
             label: 'Add/edit JS code'
             highlightingMode: 'text/javascript'
@@ -87,7 +86,7 @@
             Note: do not wrap it into  
             `<style type="text/css">` tag. The system does it for you.
         inspector:
-          editor: 'TYPO3.Neos/Inspector/Editors/CodeEditor'
+          editor: Content/Inspector/Editors/CodeEditor
           editorOptions:
             label: 'Add/edit CSS code'
             highlightingMode: 'text/css'

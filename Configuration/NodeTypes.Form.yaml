@@ -39,7 +39,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'formSettings'
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
               post:
@@ -377,7 +377,7 @@
         inspector:
           group: 'formInputSettings'
           position: 5
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
               text:
@@ -451,7 +451,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'formInputSettings'
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
               prefix:

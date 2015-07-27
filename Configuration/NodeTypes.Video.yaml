@@ -32,7 +32,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'video'
-          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
               '':
