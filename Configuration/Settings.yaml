@@ -144,7 +144,7 @@ M12:
               label: 'all devices: left'
               group: All devices
             'text-center':
-              label: 'all deviecs: center'
+              label: 'all devices: center'
               group: All devices
             'text-right':
               label: 'all devices: right'
