@@ -35,6 +35,7 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 			maximumWidth = 2560
 			maximumHeight = 2560
 			attributes.alt = ''
+			attributes.class = 'th'
 		}
 		# Render caption: first from `clickToZoomCaption`, then default image `caption`.
 		content.caption = TYPO3.TypoScript:Tag {
