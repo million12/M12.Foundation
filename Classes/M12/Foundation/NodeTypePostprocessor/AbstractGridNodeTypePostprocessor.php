@@ -102,6 +102,8 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
 						'position' => isset($setData['uiInspectorPosition']) ? (int)$setData['uiInspectorPosition'] : ($k+1)*10,
 						'editor' => 'Content/Inspector/Editors/SelectBoxEditor',
 						'editorOptions' => [
+							'placeholder' => 'None',
+							'multiple' => TRUE,
 							'values' => $editorValues,
 						],
 					],
