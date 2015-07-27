@@ -37,12 +37,18 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
+              tiny:
+                label: 'Tiny'
               small:
                 label: 'Small'
               medium:
                 label: 'Medium'
               large:
                 label: 'Large'
+              xlarge:
+                label: 'Extra Large'
+              full:
+                label: 'Full'
     # Override some properties of 'customHtmlId':
     # - make it required
     # - move it to 'options' group

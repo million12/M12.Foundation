@@ -27,7 +27,7 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 	modalContent = TYPO3.TypoScript:Tag {
 		attributes.id = ${'modal-image-' + q(node).property('_identifier')}
 		attributes.data-reveal = ''
-		attributes.class = 'reveal-modal reveal-modal--image large text-center'
+		attributes.class = 'reveal-modal reveal-modal--image xlarge text-center'
 		
 		content = TYPO3.TypoScript:Array
 		content.image = TYPO3.Neos:ImageTag {
