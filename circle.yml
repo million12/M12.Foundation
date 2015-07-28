@@ -56,7 +56,7 @@ test:
     # Test: do basic front-end tests 
     - curl -L --head http://neos:8080 && curl -s -L http://neos:8080
     - curl -s --head http://neos:8080 | grep "HTTP/1.1 200 OK" && curl -s --head http://neos:8080 | grep "X-Flow-Powered"
-    - curl -s -L http://neos:8080/neos | grep "TYPO3 Neos Login"
+    - curl -s -L http://neos:8080/neos | grep "Login to"
     
     # Run unit tests:
     - |
