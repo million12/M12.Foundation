@@ -31,11 +31,13 @@
   properties:
     lightboxEnabled:
       type: boolean
-      defaultValue: true
       ui:
         label: 'Lightbox support for images'
         help:
-          message: 'When selected, images inside _Block Grid_ will be opened in a lightbox modal window.'
+          message: |
+            When selected, images inside _Block Grid_ will be opened in a lightbox modal window.
+            
+            Caveat: select if you expect only images inside the _Block Grid_ element. If you want to mix the element with other types (e.g. Text), do NOT set this option as you might experience weird issues (your Text element being open in Lightbox as well).
         inspector:
           group: 'grid'
           position: 20
