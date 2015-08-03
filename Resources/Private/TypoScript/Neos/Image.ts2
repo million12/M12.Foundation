@@ -1,8 +1,5 @@
 # Image TS Object
 prototype(TYPO3.Neos.NodeTypes:Image) {
-	allowCropping = TRUE
-	allowUpScaling = TRUE
-	
 	parentNode = ${q(node).parent().get()}
 	parentIsBlockGrid = ${q(this.parentNode).property('_nodeType.name') == 'M12.Foundation:BlockGrid'}
 
