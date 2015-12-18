@@ -5,8 +5,4 @@ prototype(M12.Foundation:Container) < prototype(M12.Foundation:Content) {
 		contentcollection.@if.isBackend = ${node.context.workspace.name != 'live'}
 	}
 	content = TYPO3.Neos:ContentCollectionRenderer
-
-	# Remove default wrapper
-	@process.wrapRemover = M12.Utils:WrapRemover
-	@process.wrapRemover.wrapperClass = 'm12-foundation-container'
 }
