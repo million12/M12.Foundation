@@ -7,6 +7,7 @@
   superTypes:
     'M12.Foundation:AbstractDevBase': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     inspector:
       groups:

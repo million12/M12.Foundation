@@ -367,6 +367,7 @@
           label: 'Tooltip'
           position: 91 # after AbstractFontIcon
           tab: view
+          collapsed: true
   properties:
     htmlTitle:
       type: string
@@ -435,3 +436,114 @@
                 label: 'Show on: medium device only'
               'show_on:large':
                 label: 'Show on: large device only'
+
+
+
+#
+# Background image and properties
+#
+'M12.Foundation:AbstractBackgroundImage':
+  abstract: TRUE
+  ui:
+    inspector:
+      groups:
+        background:
+          label: 'Background image'
+          position: 80 # before FontIcon
+          tab: view
+          collapsed: true
+  properties:
+    backgroundImage:
+      type: TYPO3\Media\Domain\Model\ImageInterface
+      ui:
+        label: 'Background image'
+        reloadIfChanged: TRUE
+        help:
+          message: |
+            Add background image to the element. Use options below
+            (size, position, repeat) it tune your image.
+        inspector:
+          group: background
+          position: 10
+    backgroundSize:
+      type: string
+      ui:
+        label: 'Background size'
+        reloadIfChanged: TRUE
+        help:
+          message: |
+            Set size of the background. Some special options include:
+            * *contain*: scales the image as large as possible and maintains its aspect ratio
+              (image doesn't get squished). Image is **letterboxed** within the container.
+            * *cover*: inverse of *contain*. Scales the image as large as possible and maintains
+              its aspect ratio. The image "covers" the entire width or height of the container.
+        inspector:
+          group: 'background'
+          position: 20
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'cover'
+            allowEmpty: TRUE
+            values:
+              'cover':
+                label: 'cover'
+              'contain':
+                label: 'contain'
+              '50%':
+                label: '50%'
+              'initial':
+                label: 'initial'
+              'auto':
+                label: 'auto'
+    backgroundPosition:
+      type: string
+      ui:
+        label: 'Background position'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+          position: 30
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'center'
+            allowEmpty: TRUE
+            values:
+              'center':
+                label: 'center'
+              'top':
+                label: 'top'
+              'bottom':
+                label: 'bottom'
+              'left':
+                label: 'left'
+              'top left':
+                label: 'top left'
+              'bottom left':
+                label: 'bottom left'
+              'right':
+                label: 'right'
+              'top right':
+                label: 'top right'
+              'bottom right':
+                label: 'bottom right'
+    backgroundRepeat:
+      type: string
+      ui:
+        label: 'Background repeat'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+          position: 40
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'no-repeat'
+            allowEmpty: TRUE
+            values:
+              'no-repeat':
+                label: 'no-repeat'
+              'repeat':
+                label: 'repeat'
+              'repeat-x':
+                label: 'repeat on X axis'
+              'repeat-y':
+                label: 'repeat on Y axis'

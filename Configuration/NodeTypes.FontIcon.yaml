@@ -10,6 +10,7 @@
           label: 'Icon'
           position: 90
           tab: view
+          collapsed: true
   properties:
     faName:
       type: string
@@ -100,6 +101,7 @@
     'M12.Foundation:AbstractFontIcon': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     label: 'Icon'
     help:
@@ -112,6 +114,7 @@
           # Also move it to the very 1st, default tab
           position: 10
           tab: default
+          collapsed: false
         tooltip:
           tab: default
   properties:

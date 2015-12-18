@@ -3,7 +3,14 @@ prototype(TYPO3.Neos:Content) {
 	attributes.class.@process.nodeType >
 
 	# Define short nodeType name (without package prefix)
-	@override.nodeTypeShort = ${String.toLowerCase(String.substr(q(node).property('_nodeType.name'), 1+String.lastIndexOf(q(node).property('_nodeType.name'), ':')))}
+	@context.nodeTypeShort = ${String.toLowerCase(String.substr(q(node).property('_nodeType.name'), 1+String.lastIndexOf(q(node).property('_nodeType.name'), ':')))}
+
+	@context.backgroundImageUri = TYPO3.Neos:ImageUri {
+		@if.backgroundImagePresent = ${q(node).property('backgroundImage') ? true : false}
+		asset = ${q(node).property('backgroundImage')}
+		maximumWidth = 2560
+		maximumHeight = 2560
+	}
 
 	attributes.class = TYPO3.TypoScript:RawArray {
 		# Copied from original TYPO3.Neos:Content - adds class with Neos node-type
@@ -46,7 +53,7 @@ prototype(TYPO3.Neos:Content) {
 		customClass = ${q(node).property('customCssClass')}
 		customClass.@position = 'end 20'
 	}
-	
+
 	# Some Zurb Components use 'data-options' attribute. Define it here. Add common options.
 	attributes.data-options = TYPO3.TypoScript:Array {
 		tooltipOptions = ${q(node).property('tooltipOptions') ? Array.join(q(node).property('tooltipOptions'), '; ') : null}
@@ -59,9 +66,25 @@ prototype(TYPO3.Neos:Content) {
 	}
 
 	attributes.id = ${q(node).property('customHtmlId') ? String.trim(q(node).property('customHtmlId')) : null}
-	attributes.style = ${q(node).property('customCssCode') ? String.trim(q(node).property('customCssCode')) : null}
 	attributes.customUserAttributes = ${q(node).property('customUserAttributes') ? q(node).property('customUserAttributes') : null}
-	
+
+	# style="..." attribute
+	attributes.style = ${q(node).property('customCssCode') ? String.trim(q(node).property('customCssCode')) : null}
+	# style: backgroundImage
+	attributes.style.@process.backgroundImage = ${q(node).property('backgroundImage') ? 'background-image:url('+backgroundImageUri+'); '+value : value}
+	attributes.style.@process.backgroundSize {
+		@if.backgroundImagePresent = ${q(node).property('backgroundImage') ? true : false}
+		expression = ${'background-size:' + (q(node).property('backgroundSize') ? q(node).property('backgroundSize') : 'cover') + '; ' + value}
+	}
+	attributes.style.@process.backgroundPosition {
+		@if.backgroundImagePresent = ${q(node).property('backgroundImage') ? true : false}
+		expression = ${'background-position:' + (q(node).property('backgroundPosition') ? q(node).property('backgroundPosition') : 'center') + '; ' + value}
+	}
+	attributes.style.@process.backgroundRepeat {
+		@if.backgroundImagePresent = ${q(node).property('backgroundImage') ? true : false}
+		expression = ${'background-repeat:' + (q(node).property('backgroundRepeat') ? q(node).property('backgroundRepeat') : 'no-repeat') + '; ' + value}
+	}
+
 	# Title and/or tooltip
 	attributes.title = ${q(node).property('htmlTitle') ? q(node).property('htmlTitle') : null}
 	attributes.data-tooltip = ${q(node).property('tooltip') && q(node).property('htmlTitle') ? true : false}

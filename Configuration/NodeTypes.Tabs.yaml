@@ -5,6 +5,7 @@
   superTypes:
     'TYPO3.Neos:Content': TRUE
     'TYPO3.Neos:ContentCollection': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     label: 'Tab Item'
     icon: 'icon-angle-right'
@@ -40,6 +41,7 @@
     'TYPO3.Neos:Content': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractSectionIdMagellan': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     label: 'Tabs'
     help:

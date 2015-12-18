@@ -6,6 +6,7 @@
     'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
     'M12.Foundation:AbstractRadiusStyle': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     label: 'Panel'
     help:

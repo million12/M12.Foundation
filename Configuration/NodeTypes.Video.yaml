@@ -1,6 +1,7 @@
 'M12.Foundation:Video':
   superTypes:
     'TYPO3.Neos:Content': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     label: Flex Video
     icon: 'icon-facetime-video'

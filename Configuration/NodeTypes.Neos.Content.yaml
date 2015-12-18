@@ -32,6 +32,7 @@
   superTypes:
     # We have Foundation align classes, so we don't need it here
     'TYPO3.Neos.NodeTypes:ImageAlignmentMixin': FALSE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     inspector:
       groups:
@@ -137,6 +138,7 @@
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractFontIcon': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   properties:
     'title':
       ui:
@@ -154,6 +156,7 @@
     'M12.Foundation:AbstractNodeTitle': TRUE
     'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractTitleTooltip': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   properties:
     text:
       ui:
@@ -168,6 +171,7 @@
     'M12.Foundation:AbstractSectionIdMagellan': TRUE
     'M12.Foundation:AbstractDevCustomTag': TRUE
     'M12.Foundation:AbstractNodeTitle': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     help:
       message: |
@@ -179,6 +183,7 @@
 'TYPO3.Neos.NodeTypes:ContentReferences':
   superTypes:
     'M12.Foundation:AbstractNodeTitle': TRUE
+    'M12.Foundation:AbstractBackgroundImage': TRUE
   ui:
     label: 'Content References'
     help:
