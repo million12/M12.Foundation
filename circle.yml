@@ -11,7 +11,7 @@ dependencies:
 
   override:
     - docker pull million12/mariadb
-    - docker pull million12/neos-typostrap-distribution
+    - docker pull million12/neos-protobrew-distribution
     - docker pull million12/php-testing:
         background: true
 
@@ -25,7 +25,7 @@ dependencies:
 test:
   override:
     # ######################################################
-    # Run Typostrap Neos container, which includes
+    # Run Neos CMS container, which includes
     # M12.Foundation / M12.FoundationSite packages
     # and do some basics checks.
     # ######################################################
@@ -37,7 +37,7 @@ test:
         --env="T3APP_VHOST_NAMES=neos dev.neos behat.dev.neos" \
         --env="T3APP_DO_INIT_TESTS=true" \
         --env="T3APP_ALWAYS_DO_PULL=true" \
-        million12/neos-typostrap-distribution " \
+        million12/neos-protobrew-distribution " \
           su www -c \"
             cd ~/neos; \
             composer update m12/*; \

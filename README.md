@@ -60,9 +60,16 @@ Include in your main `composer.json` the `m12/neos-foundation` and `m12/neos-fou
 ```  
 and run `composer install`
 
-## Usage with `neos-typostrap-distribution`
+## Usage with `neos-protobrew-distribution`
 
-You can try this plugin with ready-to-use, working out-of-the-box [neos-typostrap-distribution](https://github.com/million12/neos-typostrap-distribution). This is an open-source Neos distribution created for Typostrap.io project and it has `M12.Foundation` and `M12.FoundationSite` plugins installed and configured. If you're familiar with Docker, there's also Docker image with the whole package, so it's very easy to try. See the instructions in the README there.
+You can try this plugin with ready-to-use, working out-of-the-box
+[neos-protobrew-distribution](https://github.com/million12/neos-protobrew-distribution).
+This is an open-source Neos distribution created for 
+[PrototypeBrewery.io](http://prototypebrewery.io/) project
+and it has `M12.Foundation` and `M12.FoundationSite` plugins installed 
+and configured. If you're familiar with Docker, there's also Docker image
+with the whole package, so it's very easy to try. See the instructions 
+in the README there.
 
 
 ## Author(s)
@@ -73,4 +80,6 @@ You can try this plugin with ready-to-use, working out-of-the-box [neos-typostra
 
 Licensed under: The MIT License (MIT)
 
-**Sponsored by** [Typostrap.io - the new prototyping tool](http://typostrap.io/) for building highly-interactive prototypes of your website or web app. Built on top of TYPO3 Neos CMS and Zurb Foundation framework.
+**Sponsored by** [PrototypeBrewery.io - the new prototyping tool](http://prototypebrewery.io/) 
+for building fully interactive prototypes of your website or web app. Built on top of 
+Neos CMS and Zurb Foundation framework.
