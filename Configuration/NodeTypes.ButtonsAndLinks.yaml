@@ -98,7 +98,6 @@
                 label: 'Yes'
     htmlTitle:
       type: string
-      defaultValue: 'Link title'
       ui:
         label: 'Link title'
         inspector:
