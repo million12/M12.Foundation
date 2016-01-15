@@ -39,6 +39,8 @@
                 label: 'YouTube (default)'
               vimeo:
                 label: 'Vimeo'
+              vimeo-api:
+                label: 'Vimeo with JavaScript API'
     width:
       type: integer
       defaultValue: 400
@@ -55,3 +57,15 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'video'
+    videoStyle:
+      type: array
+      ui:
+        label: 'Video options'
+        reloadIfChanged: FALSE
+        inspector:
+          group: 'video'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            values:
+              widescreen:
+                label: 'Widescreen (16:9)'

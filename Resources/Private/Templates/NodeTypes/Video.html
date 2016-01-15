@@ -2,14 +2,18 @@
 <figure{attributes -> f:format.raw()}>
 	<f:if condition="{videoId}">
 	<f:then>
-		<f:if condition="{videoSource} == 'vimeo'">
-			<f:then>
-				<iframe src="https://player.vimeo.com/video/{videoId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-			</f:then>
-			<f:else>
-				<iframe src="https://www.youtube.com/embed/{videoId}?wmode=transparent" width="{width}" height="{height}" allowfullscreen></iframe>
-			</f:else>
-		</f:if>
+		<f:switch expression="{videoSource}">
+			<f:case value="vimeo">
+				<iframe src="https://player.vimeo.com/video/{videoId}" id="iframe-{elementId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</f:case>
+			<f:case value="vimeo-api">
+				<iframe src="https://player.vimeo.com/video/{videoId}?api=1" id="iframe-{elementId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			</f:case>
+			<f:defaultCase>
+				<f:comment>By default we show YouTube video</f:comment>
+				<iframe src="https://www.youtube.com/embed/{videoId}?wmode=transparent" id="iframe-{elementId}" width="{width}" height="{height}" allowfullscreen></iframe>
+			</f:defaultCase>
+		</f:switch>
 	</f:then>
 	<f:else>
 		<p class="text-center">Please specify video ID.</p>
