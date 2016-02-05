@@ -191,7 +191,7 @@
         spacing:
           label: 'Spacing'
           position: 20
-          tab: dev
+          tab: view
           collapsed: true
   properties:
     marginTop:
