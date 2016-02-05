@@ -28,12 +28,13 @@
     inspector:
       groups:
         dev:
-          label: 'Advanced settings'
-          position: 95
+          label: 'Advanced CSS settings'
+          position: 40
           tab: dev
+          collapsed: true
         devCode:
           label: 'Custom code'
-          position: 95
+          position: 50
           tab: dev
   properties:
     customCssClass:
@@ -159,6 +160,7 @@
           position: 10
           tab: dev
           label: 'Custom look'
+          collapsed: true
   properties:
     customLook:
       type: array
@@ -195,8 +197,9 @@
       groups:
         devSemantic:
           label: 'Semantic Web'
-          position: 96
+          position: 70
           tab: dev
+          collapsed: true
   properties:
     customTagName:
       type: string

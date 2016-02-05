@@ -183,7 +183,83 @@
               hide-for-touch:
                 label: 'Hide for touch'
 
+'M12.Foundation:AbstractSpacing':
+  abstract: TRUE
+  ui:
+    inspector:
+      groups:
+        spacing:
+          label: 'Spacing'
+          position: 20
+          tab: dev
+          collapsed: true
+  properties:
+    marginTop:
+      type: string
+      ui:
+        label: 'Top'
+        reloadIfChanged: TRUE
+        help:
+          message: |
+            Add extra space before the element. Example values:
+            * **10** (same as **10px**)
+            * **10px**
+            * **0.5rem**
+            * **2em**
+            * **3pt**
 
+            Note that when unit is not provided, *px* is assumed.
+        inspector:
+          group: 'spacing'
+          position: 10
+          editorOptions:
+            placeholder: e.g. 10px
+            allowEmpty: TRUE
+      validation:
+        'TYPO3.Neos/Validation/RegularExpressionValidator':
+          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
+    marginBottom:
+      type: string
+      ui:
+        label: 'Bottom'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'spacing'
+          position: 20
+          editorOptions:
+            placeholder: e.g. 10px
+            allowEmpty: TRUE
+      validation:
+        'TYPO3.Neos/Validation/RegularExpressionValidator':
+          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
+    marginLeft:
+      type: string
+      ui:
+        label: 'Left'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'spacing'
+          position: 30
+          editorOptions:
+            placeholder: e.g. 10px
+            allowEmpty: TRUE
+      validation:
+        'TYPO3.Neos/Validation/RegularExpressionValidator':
+          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
+    marginRight:
+      type: string
+      ui:
+        label: 'Right'
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'spacing'
+          position: 40
+          editorOptions:
+            placeholder: e.g. 10px
+            allowEmpty: TRUE
+      validation:
+        'TYPO3.Neos/Validation/RegularExpressionValidator':
+          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
 
 
 # -----------------------------------------------------------------------------
@@ -194,5 +270,6 @@
 'TYPO3.Neos:Content':
   superTypes:
     'M12.Foundation:AbstractGenericHelpers': TRUE
+    'M12.Foundation:AbstractSpacing': TRUE
     'M12.Foundation:AbstractDevBase': TRUE
     'M12.Foundation:AbstractDevCustomLook': TRUE

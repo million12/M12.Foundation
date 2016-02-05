@@ -1,4 +1,8 @@
 TYPO3:
+  TypoScript:
+    defaultContext:
+      'M12.Foundation.Spacing': 'M12\Foundation\Eel\SpacingHelper'
+
   Neos:
     typoScript:
       autoInclude:

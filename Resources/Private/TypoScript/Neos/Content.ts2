@@ -70,6 +70,7 @@ prototype(TYPO3.Neos:Content) {
 
 	# style="..." attribute
 	attributes.style = ${q(node).property('customCssCode') ? String.trim(q(node).property('customCssCode')) : null}
+
 	# style: backgroundImage
 	attributes.style.@process.backgroundImage = ${q(node).property('backgroundImage') ? 'background-image:url('+backgroundImageUri+'); '+value : value}
 	attributes.style.@process.backgroundSize {
@@ -85,6 +86,11 @@ prototype(TYPO3.Neos:Content) {
 		expression = ${'background-repeat:' + (q(node).property('backgroundRepeat') ? q(node).property('backgroundRepeat') : 'no-repeat') + '; ' + value}
 	}
 
+	# style: margin/padding (spacing)
+	attributes.style.@process.spacing {
+		@if.spacingSet = ${(q(node).property('marginTop') || q(node).property('marginBottom') || q(node).property('marginLeft') || q(node).property('marginRight')) ? true : false}
+		expression = ${M12.Foundation.Spacing.generateCss(node) + value}
+	}
 	# Title and/or tooltip
 	attributes.title = ${q(node).property('htmlTitle') ? q(node).property('htmlTitle') : null}
 	attributes.data-tooltip = ${q(node).property('tooltip') && q(node).property('htmlTitle') ? true : false}
