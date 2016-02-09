@@ -17,7 +17,7 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 	@override.isLightbox = ${this.isLightbox}
 	
 	# Modal if `click-to-zoom` option is set and we're not in a lightbox mode
-	isModal = ${q(node).property('clickToZoom') == true && this.isLightbox == false}
+	isModal = ${q(node).property('clickToZoom') && !this.isLightbox}
 	@override.isModal = ${this.isModal}
 	
 	# Modal content with `click-to-zoom` image.
@@ -28,6 +28,7 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 		
 		content = TYPO3.TypoScript:Array
 		content.image = TYPO3.Neos:ImageTag {
+			@if.imagePresent = ${q(node).property('clickToZoomImage') || q(q(node).property('image'))}
 			asset = ${q(node).property('clickToZoomImage') ? q(node).property('clickToZoomImage') : q(q(node).property('image')).property('originalAsset')}
 			maximumWidth = 2560
 			maximumHeight = 2560
