@@ -17,6 +17,7 @@
         
         See alert boxes in action [here](http://foundation.zurb.com/docs/components/alert_boxes.html).
     icon: 'icon-warning-sign'
+    group: 'structure'
     inlineEditable: TRUE
     inspector:
       groups:

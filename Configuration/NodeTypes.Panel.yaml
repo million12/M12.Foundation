@@ -17,6 +17,7 @@
         
         See panels in action [here](http://foundation.zurb.com/docs/components/panels.html).
     icon: 'icon-check-empty'
+    group: 'structure'
     inlineEditable: TRUE
     inspector:
       groups:
