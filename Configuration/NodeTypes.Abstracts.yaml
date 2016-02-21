@@ -158,19 +158,17 @@
       groups:
         devView:
           position: 10
-          tab: dev
+          tab: view
           label: 'Custom look'
           collapsed: true
   properties:
     customLook:
       type: array
       ui:
-        label: 'Predefined style / look'
+        label: 'Style / look'
         help:
           message: |
-            Can be useful when working with external stylesheet when you have pre-defined set of styles for particular content element. Instead of typing the class name in _Element custom CSS class name_ field, you can select if from here.
-            
-            This setting will add `style-1`, `style-2`, `style-3` to the element's `class` attribute in the HTML code.
+            Change look/style of certain elements.
         reloadIfChanged: TRUE
         inspector:
           group: 'devView'
@@ -179,12 +177,14 @@
           editorOptions:
             placeholder: 'None'
             values:
-              style-1:
-                label: 'Style 1'
-              style-2:
-                label: 'Style 2'
-              style-3:
-                label: 'Style 3'
+              text-small:
+                label: 'text: small'
+              text-xsmall:
+                label: 'text: xsmall'
+              text-xxsmall:
+                label: 'text: xxsmall'
+              text-color-white:
+                label: 'text: white'
 
 #
 # Mixin:
