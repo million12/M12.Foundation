@@ -456,18 +456,34 @@
           tab: view
           collapsed: true
   properties:
+    backgroundImageExternal:
+      type: string
+      ui:
+        label: 'External image URL'
+        help:
+          message: |
+            If you want to use external image without uploading it to media library,
+            use this option. Place here link in format prefixed with *https://*, e.g. *https://source.unsplash.com/KR2mdHJ5qMg/1600x900*.
+        reloadIfChanged: TRUE
+        inspector:
+          group: 'background'
+          position: 10
+          editor: Content/Inspector/Editors/LinkEditor
+          editorOptions:
+            assets: FALSE
+            placeholder: 'e.g. https://placehold.it/1600x900'
     backgroundImage:
       type: TYPO3\Media\Domain\Model\ImageInterface
       ui:
-        label: 'Background image'
+        label: 'Image from Media library'
         reloadIfChanged: TRUE
         help:
           message: |
-            Add background image to the element. Use options below
-            (size, position, repeat) it tune your image.
+            Use image from Media library to add background image to the element.
+            Use extra options below (size, position, repeat) it tune your image.
         inspector:
           group: background
-          position: 10
+          position: 12
     backgroundSize:
       type: string
       ui:

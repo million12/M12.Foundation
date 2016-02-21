@@ -73,16 +73,17 @@ prototype(TYPO3.Neos:Content) {
 
 	# style: backgroundImage
 	attributes.style.@process.backgroundImage = ${q(node).property('backgroundImage') ? 'background-image:url('+backgroundImageUri+'); '+value : value}
+	attributes.style.@process.backgroundImageExternal = ${q(node).property('backgroundImageExternal') ? 'background-image:url('+q(node).property('backgroundImageExternal')+'); '+value : value}
 	attributes.style.@process.backgroundSize {
-		@if.backgroundImagePresent = ${q(node).property('backgroundImage') ? true : false}
+		@if.backgroundImagePresent = ${q(node).property('backgroundImage') || q(node).property('backgroundImageExternal') ? true : false}
 		expression = ${'background-size:' + (q(node).property('backgroundSize') ? q(node).property('backgroundSize') : 'cover') + '; ' + value}
 	}
 	attributes.style.@process.backgroundPosition {
-		@if.backgroundImagePresent = ${q(node).property('backgroundImage') ? true : false}
+		@if.backgroundImagePresent = ${q(node).property('backgroundImage') || q(node).property('backgroundImageExternal') ? true : false}
 		expression = ${'background-position:' + (q(node).property('backgroundPosition') ? q(node).property('backgroundPosition') : 'center') + '; ' + value}
 	}
 	attributes.style.@process.backgroundRepeat {
-		@if.backgroundImagePresent = ${q(node).property('backgroundImage') ? true : false}
+		@if.backgroundImagePresent = ${q(node).property('backgroundImage') || q(node).property('backgroundImageExternal') ? true : false}
 		expression = ${'background-repeat:' + (q(node).property('backgroundRepeat') ? q(node).property('backgroundRepeat') : 'no-repeat') + '; ' + value}
 	}
 
