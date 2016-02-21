@@ -402,7 +402,7 @@ M12:
                               - nodeType: 'M12.Foundation:FormInputTextarea'
                                 properties:
                                   inputLabelEnable: FALSE
-                                  inputValue: 'Write something...'
+                                  inputPlaceholder: 'Write something...'
               # Form last for (with centered column with submit)
               - nodeType: 'M12.Foundation:GridRow1Col'
                 enableAutoCreateNodes: FALSE

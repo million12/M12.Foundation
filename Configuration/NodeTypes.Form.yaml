@@ -547,6 +547,7 @@
   superTypes:
     'M12.Foundation:FormElementAbstract': TRUE
     'M12.Foundation:FormInputLabelAbstract': TRUE
+    'M12.Foundation:FormInputPlaceholderAbstract': TRUE
     'M12.Foundation:AbstractRadiusStyle': TRUE
   ui:
     label: 'Textarea'
