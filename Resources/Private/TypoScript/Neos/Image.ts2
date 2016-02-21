@@ -49,7 +49,7 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 		# Render caption: first from `clickToZoomCaption`, then default image `caption`.
 		content.caption = TYPO3.TypoScript:Tag {
 			tagName = 'figcaption'
-			content = ${q(node).property('clickToZoomCaption') ? q(node).property('clickToZoomCaption') : q(node).property('caption')}
+			content = ${q(node).property('clickToZoomCaption') ? q(node).property('clickToZoomCaption') : (q(node).property('caption') ? q(node).property('caption') : q(q(node).property('image')).property('caption') )}
 			@if.hasCaption = ${q(node).property('clickToZoomCaption') || q(node).property('caption')}
 		}
 		content.closeBtn = '<a class="close-reveal-modal">×</a>'
