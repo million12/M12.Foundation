@@ -73,6 +73,7 @@
   constraints:
     nodeTypes:
       'M12.Foundation:GridColumn': TRUE
+      'TYPO3.Neos.NodeTypes:ContentReferences': TRUE # So we can reference to other grid column via Content References node
       'M12.Foundation:FormLabel': TRUE # FormLabel can be inserted before columns (see Foundation doc)
       '*': FALSE
   properties:
