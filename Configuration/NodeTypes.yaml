@@ -207,6 +207,7 @@
             * **0.5rem**
             * **2em**
             * **3pt**
+            * **-10px**: when you would like to decrease the spacing.
 
             Note that when unit is not provided, *px* is assumed.
         inspector:
@@ -217,7 +218,7 @@
             allowEmpty: TRUE
       validation:
         'TYPO3.Neos/Validation/RegularExpressionValidator':
-          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
+          regularExpression: /^-?\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
     marginBottom:
       type: string
       ui:
@@ -231,7 +232,7 @@
             allowEmpty: TRUE
       validation:
         'TYPO3.Neos/Validation/RegularExpressionValidator':
-          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
+          regularExpression: /^-?\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
     marginLeft:
       type: string
       ui:
@@ -245,7 +246,7 @@
             allowEmpty: TRUE
       validation:
         'TYPO3.Neos/Validation/RegularExpressionValidator':
-          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
+          regularExpression: /^-?\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
     marginRight:
       type: string
       ui:
@@ -259,7 +260,7 @@
             allowEmpty: TRUE
       validation:
         'TYPO3.Neos/Validation/RegularExpressionValidator':
-          regularExpression: /^\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
+          regularExpression: /^-?\.?\d[\d\.]{0,4}([a-z]{2,4})?$/
 
 
 # -----------------------------------------------------------------------------
