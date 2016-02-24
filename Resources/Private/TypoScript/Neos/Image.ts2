@@ -5,23 +5,24 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 
 	# Override/set link to image, so it can be shown in modal (reveal modal or lightbox)
 	link.@process.clickToZoomLink = TYPO3.Neos:ImageUri {
+		@if.clickToZoom = ${q(node).property('clickToZoom') == true}
 		asset = ${q(node).property('clickToZoomImage') ? q(node).property('clickToZoomImage') : q(q(node).property('image')).property('originalAsset')}
 		maximumWidth = 2560
 		maximumHeight = 2560
-		@if.clickToZoom = ${q(node).property('clickToZoom') == true}
 	}
 	@override.url = ${this.link}
 	
 	# Lightbox is only supported in Block Grid
 	isLightbox = ${this.parentIsBlockGrid && q(this.parentNode).property('lightboxEnabled')}
-	@override.isLightbox = ${this.isLightbox}
+	@override.isLightbox = ${this.isLightbox ? true : false}
 	
 	# Modal if `click-to-zoom` option is set and we're not in a lightbox mode
-	isModal = ${q(node).property('clickToZoom') && !this.isLightbox}
+	isModal = ${q(node).property('clickToZoom') && !this.isLightbox ? true : false}
 	@override.isModal = ${this.isModal}
 
 	# Modal content with `click-to-zoom` image.
 	modalContent = TYPO3.TypoScript:Tag {
+		@if.isModal = ${isModal}
 		attributes.id = ${'modal-image-' + q(node).property('_identifier')}
 		attributes.data-reveal = ''
 		attributes.class = 'reveal-modal reveal-modal--image xlarge text-center'
@@ -48,13 +49,11 @@ prototype(TYPO3.Neos.NodeTypes:Image) {
 		}
 		# Render caption: first from `clickToZoomCaption`, then default image `caption`.
 		content.caption = TYPO3.TypoScript:Tag {
+			@if.hasCaption = ${q(node).property('clickToZoomCaption') || q(node).property('caption')}
 			tagName = 'figcaption'
 			content = ${q(node).property('clickToZoomCaption') ? q(node).property('clickToZoomCaption') : (q(node).property('caption') ? q(node).property('caption') : q(q(node).property('image')).property('caption') )}
-			@if.hasCaption = ${q(node).property('clickToZoomCaption') || q(node).property('caption')}
 		}
 		content.closeBtn = '<a class="close-reveal-modal">×</a>'
-		
-		@if.isModal = ${isModal}
 	}
 
 	imageAttributes = TYPO3.TypoScript:Attributes
