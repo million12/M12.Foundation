@@ -1,7 +1,7 @@
 # M12.Foundation: Zurb Foundation components for Neos CMS
 [![Circle CI](https://circleci.com/gh/million12/M12.Foundation.svg?style=svg)](https://circleci.com/gh/million12/M12.Foundation)
 
-M12.Foundation aims to implement majority of [Zurb Foundation](http://foundation.zurb.com/) components, in the best possible way, inside [Neos CMS](http://neos.io/).
+M12.Foundation aims to implement majority of [Zurb Foundation](http://foundation.zurb.com/) (v5) components, in the best possible way, inside [Neos CMS](http://neos.io/).
 
 # Features
 
@@ -11,17 +11,18 @@ M12.Foundation aims to implement majority of [Zurb Foundation](http://foundation
 * Alert and Panel
 * Button
 * Dropdown (with links or any content)
-* Flex Video
 * Font Icon (based on [Font Awesome](http://fontawesome.io/) icons)
 * Form elements: Form Container, Fieldset, Label (incl. pre/postfix labels), Input, Checkbox, Radio, Select, Textarea
 * Grid: Block Grid, Grid Row with Grid Column, simple Container
+* Lightbox (for images in Block Grid) 
 * Navigation: TopBar
 * Navigation: Side Nav, Sub Nav
 * Navigation: Magellan Sticky Navigation support
 * Orbit Slider
-* Reveal Modal
+* Reveal Modal (incl. support for opening images in modal window)
 * Tabs
 * Tooltips
+* Video (Flex Video)
 
 ### Other features
 
@@ -33,11 +34,13 @@ M12.Foundation aims to implement majority of [Zurb Foundation](http://foundation
   * `Form Container`: adding this component will create sample responsive form for you, incl. all grid row components, labels inside etc.
   
   See [Settings.yaml](Configuration/Settings.yaml) for full `Assistance Nodes` configuration (`M12.Foundation:assistanceChildNodes` section).
-  
-* Semantic tags: ability to define custom, semantic tag (e.g. `section` instead of `div`) for most components
-* Ability to define several Foundation common-use classes like `rounded`, `radius`, floats, text-align to almost all components (or where applicable)
-* Tooltips: ability to use them with many components, incl. default Neos compnents (e.g. Headline)
-* Font Icons: ability to add it to components where it make sense (i.e. Button)
+
+* Background image support (both from Media library and using external image) for many components. Thanks to that you can easily create a'la Hero components.
+* Spacing before/after and left/right from Inspector for each component.
+* Semantic tags: ability to define custom, semantic tag (e.g. `section` instead of `div`) for most components.
+* Ability to define several Foundation common-use classes like `rounded`, `radius`, floats, text-align to almost all components (or where applicable).
+* Tooltips: ability to use them with many components, incl. default Neos compnents (e.g. Headline).
+* Font Icons: ability to add it to components where it make sense (i.e. Button).
 
 ... and many more.
 
