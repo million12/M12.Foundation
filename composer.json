@@ -5,10 +5,12 @@
     "license": ["MIT"],
     "authors": [
         { "name": "Marcin Ryzycki", "role": "Developer", "email": "marcin@m12.io", "homepage": "http://m12.io" },
-        { "name": "Samuel Ryzycki", "role": "Developer", "email": "samuel@m12.io", "homepage": "http://m12.io" }
+        { "name": "Samuel Ryzycki", "role": "Developer", "email": "samuel@m12.io", "homepage": "http://m12.io" },
+        { "name": "Dmitri Pisarev", "role": "Developer", "email": "dimaip@gmail.com", "homepage": "http://dimaip.github.io/" }
     ],
     "require": {
-        "typo3/neos-nodetypes": "*",
+        "typo3/neos": "~2.1",
+        "typo3/neos-nodetypes": "~2.1",
         "m12/neos-utils": "*"
     },
     "conflict": {
