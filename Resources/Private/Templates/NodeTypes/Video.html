@@ -7,7 +7,13 @@
 				<iframe src="https://player.vimeo.com/video/{videoId}" id="iframe-{elementId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 			</f:case>
 			<f:case value="vimeo-api">
-				<iframe src="https://player.vimeo.com/video/{videoId}?api=1" id="iframe-{elementId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+				<f:comment>
+					See https://developer.vimeo.com/player/js-api
+
+					In addition, `data-progress` and `data-seek` attributes are added
+					so it works nicely with Vimeo GA tracking: https://github.com/sanderheilbron/vimeo.ga.js
+				</f:comment>
+				<iframe src="https://player.vimeo.com/video/{videoId}?api=1&player_id=iframe-{elementId}" id="iframe-{elementId}" width="{width}" height="{height}" webkitallowfullscreen mozallowfullscreen allowfullscreen data-progress="true" data-seek="true"></iframe>
 			</f:case>
 			<f:defaultCase>
 				<f:comment>By default we show YouTube video</f:comment>
