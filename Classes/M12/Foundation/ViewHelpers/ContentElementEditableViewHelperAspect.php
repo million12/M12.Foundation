@@ -22,11 +22,11 @@ class ContentElementEditableViewHelperAspect {
 	 * Strip off <div>...</div> inside Neos inline editable properties
 	 * when not in back-end editing workspace.
 	 *
-	 * @param \TYPO3\Flow\AOP\JoinPointInterface $joinPoint
+	 * @param \TYPO3\Flow\Aop\JoinPointInterface $joinPoint
 	 * @Flow\Around("method(TYPO3\Neos\ViewHelpers\ContentElement\EditableViewHelper->render())")
 	 * @return string
 	 */
-	public function catchRender(\TYPO3\Flow\AOP\JoinPointInterface $joinPoint) {
+	public function catchRender(\TYPO3\Flow\Aop\JoinPointInterface $joinPoint) {
 		// get original output
 		$res = $joinPoint->getAdviceChain()->proceed($joinPoint);
 
