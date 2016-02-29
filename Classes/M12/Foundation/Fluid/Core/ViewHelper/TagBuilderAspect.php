@@ -31,11 +31,11 @@ class TagBuilderAspect {
 	 * When attribute's value is NULL or FALSE, it does *unset* the value.
 	 * Otherwise addAttribute() method is called as usually.
 	 *
-	 * @param \TYPO3\Flow\AOP\JoinPointInterface $joinPoint
+	 * @param \TYPO3\Flow\Aop\JoinPointInterface $joinPoint
 	 * @Flow\Around("method(TYPO3\Fluid\Core\ViewHelper\TagBuilder->addAttribute())")
 	 * @return void
 	 */
-	public function catchAddAttribute(\TYPO3\Flow\AOP\JoinPointInterface $joinPoint) {
+	public function catchAddAttribute(\TYPO3\Flow\Aop\JoinPointInterface $joinPoint) {
 		if (NULL === $joinPoint->getMethodArgument('attributeValue') || FALSE === $joinPoint->getMethodArgument('attributeValue')) {
 			/** @var \TYPO3\Fluid\Core\ViewHelper\TagBuilder $tagBuilder */
 			$tagBuilder = $joinPoint->getProxy();
