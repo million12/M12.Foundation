@@ -44,8 +44,8 @@ M12.Foundation aims to implement majority of [Zurb Foundation](http://foundation
 
 ... and many more.
 
-Check the [issue tracker](issues) to see current work in progress and/or future plans.  
-Check the [releases](releases) page to see stable releases for your Neos version.
+Check the [issue tracker](https://github.com/million12/M12.Foundation/issues) to see current work in progress and/or future plans.  
+Check the [releases](https://github.com/million12/M12.Foundation/releases) page to see stable releases for your Neos version.
 
 ## Usage
 
