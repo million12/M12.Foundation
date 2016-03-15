@@ -31,7 +31,6 @@
           label: 'Advanced CSS settings'
           position: 40
           tab: dev
-          collapsed: true
         devCode:
           label: 'Custom code'
           position: 50
