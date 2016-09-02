@@ -18,67 +18,74 @@ use TYPO3\TYPO3CR\Domain\Model\NodeInterface;
 /**
  * Overrides default Neos MenuImplementation
  */
-class MenuImplementation extends NeosMenuImplementation {
+class MenuImplementation extends NeosMenuImplementation
+{
 
-	/**
-	 * {inheritdoc}
-	 */
-	protected function buildMenuLevelRecursive(array $menuLevelCollection) {
-		$items = parent::buildMenuLevelRecursive($menuLevelCollection);
-		$siteNode = $this->currentNode->getContext()->getCurrentSiteNode();
+    /**
+     * {inheritdoc}
+     */
+    protected function buildMenuLevelRecursive(array $menuLevelCollection)
+    {
+        $items = parent::buildMenuLevelRecursive($menuLevelCollection);
+        $siteNode = $this->currentNode->getContext()->getCurrentSiteNode();
 
-		$currentStateAlreadySet = false;
-		foreach ($items as &$item) {
-			/** @var NodeInterface $node */
-			$node = $item['node'];
+        $currentStateAlreadySet = false;
+        foreach ($items as &$item) {
+            /** @var NodeInterface $node */
+            $node = $item['node'];
 
-			// Initialize new variable with css classes
-			$item['cssClasses'] = 'menu-item--' . preg_replace('/[^-a-z0-9]/i', '-', $node->getProperty('uriPathSegment'));
+            // Initialize new variable with css classes
+            $item['cssClasses'] = 'menu-item--' . preg_replace('/[^-a-z0-9]/i', '-',
+                    $node->getProperty('uriPathSegment'));
 
-			//
-			// [FEATURE]
-			// Resolve #fragmentId part of url (set in node property 'fragmentId')
-			// and store it in $item, so it's easily available in the template.
-			//
-			$item['fragmentId'] = null;
-			if (($fragmentId = $node->getProperty('fragmentId')))
-				$item['fragmentId'] = $fragmentId;
+            //
+            // [FEATURE]
+            // Resolve #fragmentId part of url (set in node property 'fragmentId')
+            // and store it in $item, so it's easily available in the template.
+            //
+            $item['fragmentId'] = null;
+            if (($fragmentId = $node->getProperty('fragmentId'))) {
+                $item['fragmentId'] = $fragmentId;
+            }
 
-			//
-			// [IMPROVEMENT]
-			// Allow *only one* STATE_CURRENT on given menu level.
-			// This is useful when there's more then one URL on the same level pointing to the
-			// current page (and eg. #fragmentId is used to point different section on the page).
-			//
-			if (static::STATE_CURRENT === $item['state']) {
-				if ($currentStateAlreadySet)
-					$item['state'] = static::STATE_NORMAL;
-				else
-					$currentStateAlreadySet = true;
-			}
+            //
+            // [IMPROVEMENT]
+            // Allow *only one* STATE_CURRENT on given menu level.
+            // This is useful when there's more then one URL on the same level pointing to the
+            // current page (and eg. #fragmentId is used to point different section on the page).
+            //
+            if (static::STATE_CURRENT === $item['state']) {
+                if ($currentStateAlreadySet) {
+                    $item['state'] = static::STATE_NORMAL;
+                } else {
+                    $currentStateAlreadySet = true;
+                }
+            }
 
-			//
-			// [FEATURE]
-			// Collect necessary classes, compatible with Zurb Foundation
-			//
-			// 'active' for currently displayed node
-			if (static::STATE_CURRENT === $item['state'])
-				$item['cssClasses'] .= ($item['cssClasses']?' ':'') . 'active';
-			// 'active-trail' for nodes in the root-line
-			elseif (static::STATE_ACTIVE === $item['state']) {
-				// Exclude it for nodes pointing to site node.
-				// Root site node is always in the root-line, there might be plenty
-				// of items pointing (via shortcut) to that node and we don't want them
-				// all highlighted.
-				if ($item['node'] !== $siteNode)
-					$item['cssClasses'] .= ($item['cssClasses']?' ':'') . 'active-trail';
-			}
-			// 'has-dropdown' if there are items in sub-menu
-			if (false === empty($item['subItems']))
-				$item['cssClasses'] .= ($item['cssClasses']?' ':'') . 'has-dropdown';
-		}
+            //
+            // [FEATURE]
+            // Collect necessary classes, compatible with Zurb Foundation
+            //
+            // 'active' for currently displayed node
+            if (static::STATE_CURRENT === $item['state']) {
+                $item['cssClasses'] .= ($item['cssClasses'] ? ' ' : '') . 'active';
+            } // 'active-trail' for nodes in the root-line
+            elseif (static::STATE_ACTIVE === $item['state']) {
+                // Exclude it for nodes pointing to site node.
+                // Root site node is always in the root-line, there might be plenty
+                // of items pointing (via shortcut) to that node and we don't want them
+                // all highlighted.
+                if ($item['node'] !== $siteNode) {
+                    $item['cssClasses'] .= ($item['cssClasses'] ? ' ' : '') . 'active-trail';
+                }
+            }
+            // 'has-dropdown' if there are items in sub-menu
+            if (false === empty($item['subItems'])) {
+                $item['cssClasses'] .= ($item['cssClasses'] ? ' ' : '') . 'has-dropdown';
+            }
+        }
 
 //		\TYPO3\Flow\var_dump($items);
-		return $items;
-	}
+        return $items;
+    }
 }

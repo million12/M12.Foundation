@@ -11,14 +11,15 @@ namespace M12\Foundation\NodeTypePostprocessor;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-class BlockGridNodeTypePostprocessor extends AbstractGridNodeTypePostprocessor {
+class BlockGridNodeTypePostprocessor extends AbstractGridNodeTypePostprocessor
+{
 
-	/**
-	 * Settings section used to generate block grid properties
-	 * @see Settings.yaml
-	 * @var string
-	 */
-	protected static $SETTINGS_SECTION = 'blockGridSettings';
+    /**
+     * Settings section used to generate block grid properties
+     * @see Settings.yaml
+     * @var string
+     */
+    protected static $SETTINGS_SECTION = 'blockGridSettings';
 
-	protected static $PROPERTY_NAME_PATTERN = 'classGrid%s';
+    protected static $PROPERTY_NAME_PATTERN = 'classGrid%s';
 }

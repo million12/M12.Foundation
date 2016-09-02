@@ -26,20 +26,22 @@ use TYPO3\TypoScript\TypoScriptObjects\RawArrayImplementation;
  *
  * @package M12\Foundation\TypoScript
  */
-class ValueOptionsListImplementation extends RawArrayImplementation {
+class ValueOptionsListImplementation extends RawArrayImplementation
+{
 
-	public function evaluate() {
-		$optionsList = array();
+    public function evaluate()
+    {
+        $optionsList = array();
 
-		$lines = explode(chr(10), $this->tsValue('value'));
+        $lines = explode(chr(10), $this->tsValue('value'));
 
-		foreach ($lines as $line) {
-			$arr = explode('=', $line);
-			$value = trim(array_shift($arr));
-			$label = ($l = trim(array_shift($arr))) ? $l : $value;
-			$optionsList[$value] = $label;
-		}
+        foreach ($lines as $line) {
+            $arr = explode('=', $line);
+            $value = trim(array_shift($arr));
+            $label = ($l = trim(array_shift($arr))) ? $l : $value;
+            $optionsList[$value] = $label;
+        }
 
-		return $optionsList;
-	}
+        return $optionsList;
+    }
 }

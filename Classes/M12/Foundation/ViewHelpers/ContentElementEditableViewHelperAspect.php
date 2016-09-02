@@ -16,27 +16,29 @@ use TYPO3\Flow\Annotations as Flow;
 /**
  * @Flow\Aspect
  */
-class ContentElementEditableViewHelperAspect {
+class ContentElementEditableViewHelperAspect
+{
 
-	/**
-	 * Strip off <div>...</div> inside Neos inline editable properties
-	 * when not in back-end editing workspace.
-	 *
-	 * @param \TYPO3\Flow\Aop\JoinPointInterface $joinPoint
-	 * @Flow\Around("method(TYPO3\Neos\ViewHelpers\ContentElement\EditableViewHelper->render())")
-	 * @return string
-	 */
-	public function catchRender(\TYPO3\Flow\Aop\JoinPointInterface $joinPoint) {
-		// get original output
-		$res = $joinPoint->getAdviceChain()->proceed($joinPoint);
+    /**
+     * Strip off <div>...</div> inside Neos inline editable properties
+     * when not in back-end editing workspace.
+     *
+     * @param \TYPO3\Flow\Aop\JoinPointInterface $joinPoint
+     * @Flow\Around("method(TYPO3\Neos\ViewHelpers\ContentElement\EditableViewHelper->render())")
+     * @return string
+     */
+    public function catchRender(\TYPO3\Flow\Aop\JoinPointInterface $joinPoint)
+    {
+        // get original output
+        $res = $joinPoint->getAdviceChain()->proceed($joinPoint);
 
-		// Match for exact <div>...</div>
-		// If DIV contains extra properties, it means we're in back-end editing mode
-		// and it should NOT be stripped off.
-		if ($res && 'div' === $joinPoint->getMethodArgument('tag')) {
-			$res = preg_replace('#^<div>(.+?)</div>$#', '$1', $res);
-		}
+        // Match for exact <div>...</div>
+        // If DIV contains extra properties, it means we're in back-end editing mode
+        // and it should NOT be stripped off.
+        if ($res && 'div' === $joinPoint->getMethodArgument('tag')) {
+            $res = preg_replace('#^<div>(.+?)</div>$#', '$1', $res);
+        }
 
-		return $res;
-	}
+        return $res;
+    }
 }

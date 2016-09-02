@@ -20,110 +20,121 @@ use TYPO3\Flow\Annotations as Flow;
  * Additionally, we change the behaviour slightly: evaluate() return
  * object (itself), which with __toString method ensures that
  * {attributes} inside Flow views are rendered as usually.
- * 
+ *
  * In addition, we have a possibility to call {attributes.asString}
  * or {attributes.asArray} explicitly, when needed. This might be
  * needed when you want to pass arbitrary attributes to some view helpers
  * additionalAttributes param (e.g. f:form).
  */
-class AttributesImplementation extends TypoScriptAttributesImplementation {
+class AttributesImplementation extends TypoScriptAttributesImplementation
+{
 
-	/**
-	 * Key name under which custom user attributes might be available
-	 */
-	const CUSTOM_USER_ATTRIBUTES_KEY = 'customUserAttributes';
+    /**
+     * Key name under which custom user attributes might be available
+     */
+    const CUSTOM_USER_ATTRIBUTES_KEY = 'customUserAttributes';
 
-	/**
-	 * @var array
-	 */
-	protected $attributes;
+    /**
+     * @var array
+     */
+    protected $attributes;
 
-	/**
-	 * @var string
-	 */
-	protected $renderedAttributes;
+    /**
+     * @var string
+     */
+    protected $renderedAttributes;
 
-	/**
-	 * @return $this
-	 */
-	public function evaluate() {
-		$this->parseCustomUserAttributes();
+    /**
+     * @return $this
+     */
+    public function evaluate()
+    {
+        $this->parseCustomUserAttributes();
 
-		$allowEmpty = $this->getAllowEmpty();
-		$attributes = array();
-		$renderedAttributes = '';
-		foreach (array_keys($this->properties) as $attributeName) {
-			if ($attributeName === '__meta') continue;
+        $allowEmpty = $this->getAllowEmpty();
+        $attributes = array();
+        $renderedAttributes = '';
+        foreach (array_keys($this->properties) as $attributeName) {
+            if ($attributeName === '__meta') {
+                continue;
+            }
 
-			$encodedAttributeName = htmlspecialchars($attributeName, ENT_COMPAT, 'UTF-8', FALSE);
-			$attributeValue = $this->tsValue($attributeName);
+            $encodedAttributeName = htmlspecialchars($attributeName, ENT_COMPAT, 'UTF-8', false);
+            $attributeValue = $this->tsValue($attributeName);
 
-			if ($attributeValue === NULL || $attributeValue === FALSE) {
-				// No op
-			} elseif ($attributeValue === TRUE || $attributeValue === '') {
-				$attributes[$attributeName] = $attributeValue;
-				$renderedAttributes .= ' ' . $encodedAttributeName . ($allowEmpty ? '' : '=""');
-			} else {
-				if (is_array($attributeValue)) {
-					$joinedAttributeValue = '';
-					foreach ($attributeValue as $attributeValuePart) {
-						if ((string)$attributeValuePart !== '') {
-							$joinedAttributeValue .= ' ' . trim($attributeValuePart);
-						}
-					}
-					$attributeValue = trim($joinedAttributeValue);
-				}
-				$encodedAttributeValue = htmlspecialchars($attributeValue, ENT_COMPAT, 'UTF-8', FALSE);
-				
-				$attributes[$attributeName] = $attributeValue;
-				$renderedAttributes .= ' ' . $encodedAttributeName . '="' . $encodedAttributeValue . '"';
-			}
-		}
+            if ($attributeValue === null || $attributeValue === false) {
+                // No op
+            } elseif ($attributeValue === true || $attributeValue === '') {
+                $attributes[$attributeName] = $attributeValue;
+                $renderedAttributes .= ' ' . $encodedAttributeName . ($allowEmpty ? '' : '=""');
+            } else {
+                if (is_array($attributeValue)) {
+                    $joinedAttributeValue = '';
+                    foreach ($attributeValue as $attributeValuePart) {
+                        if ((string)$attributeValuePart !== '') {
+                            $joinedAttributeValue .= ' ' . trim($attributeValuePart);
+                        }
+                    }
+                    $attributeValue = trim($joinedAttributeValue);
+                }
+                $encodedAttributeValue = htmlspecialchars($attributeValue, ENT_COMPAT, 'UTF-8', false);
 
-		$this->attributes = $attributes;
-		$this->renderedAttributes = $renderedAttributes;
+                $attributes[$attributeName] = $attributeValue;
+                $renderedAttributes .= ' ' . $encodedAttributeName . '="' . $encodedAttributeValue . '"';
+            }
+        }
 
-		return $this;
-	}
+        $this->attributes = $attributes;
+        $this->renderedAttributes = $renderedAttributes;
 
-	/**
-	 * Get customUserAttributes, parse them (one attribute per line in format attribute=value)
-	 * and inject them to internal TS values, so they can be fetched in evaluate() method.
-	 */
-	protected function parseCustomUserAttributes() {
-		if (($value = trim($this->tsValue(static::CUSTOM_USER_ATTRIBUTES_KEY)))) {
-			$customUserAttributes = explode(chr(10), $value);
-			foreach ($customUserAttributes as $line) {
-				if (empty($line)) continue;
+        return $this;
+    }
 
-				$attributes = explode('=', $line);
-				$attributeName = trim(array_shift($attributes));
-				$attributeValue = trim(array_shift($attributes)); // support empty attributes too
+    /**
+     * Get customUserAttributes, parse them (one attribute per line in format attribute=value)
+     * and inject them to internal TS values, so they can be fetched in evaluate() method.
+     */
+    protected function parseCustomUserAttributes()
+    {
+        if (($value = trim($this->tsValue(static::CUSTOM_USER_ATTRIBUTES_KEY)))) {
+            $customUserAttributes = explode(chr(10), $value);
+            foreach ($customUserAttributes as $line) {
+                if (empty($line)) {
+                    continue;
+                }
 
-				// First: mark existence of custom attribute
-				// Second: add it to internal tsValueCache[], so $this->tsValue() can fetch it without evaluating.
-				$this->properties[$attributeName] = $attributeValue;
-				$this->tsValueCache[$this->path.'/'.$attributeName] = $attributeValue;
-			}
+                $attributes = explode('=', $line);
+                $attributeName = trim(array_shift($attributes));
+                $attributeValue = trim(array_shift($attributes)); // support empty attributes too
 
-			// unset original custom attribute
-			unset($this->properties[static::CUSTOM_USER_ATTRIBUTES_KEY]);
-		}
-	}
+                // First: mark existence of custom attribute
+                // Second: add it to internal tsValueCache[], so $this->tsValue() can fetch it without evaluating.
+                $this->properties[$attributeName] = $attributeValue;
+                $this->tsValueCache[$this->path . '/' . $attributeName] = $attributeValue;
+            }
 
-	public function getAsString() {
-		return $this->renderedAttributes;
-	}
+            // unset original custom attribute
+            unset($this->properties[static::CUSTOM_USER_ATTRIBUTES_KEY]);
+        }
+    }
 
-	public function getAsArray() {
-		return $this->attributes;
-	}
-	
-	public function getCount() {
-		return count($this->attributes);
-	}
+    public function getAsString()
+    {
+        return $this->renderedAttributes;
+    }
 
-	public function __toString() {
-		return $this->renderedAttributes;
-	}
+    public function getAsArray()
+    {
+        return $this->attributes;
+    }
+
+    public function getCount()
+    {
+        return count($this->attributes);
+    }
+
+    public function __toString()
+    {
+        return $this->renderedAttributes;
+    }
 }

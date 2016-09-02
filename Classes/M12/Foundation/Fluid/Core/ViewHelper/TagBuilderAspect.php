@@ -24,24 +24,26 @@ use TYPO3\Flow\Annotations as Flow;
  *
  * @Flow\Aspect
  */
-class TagBuilderAspect {
+class TagBuilderAspect
+{
 
-	/**
-	 * This changes how TagBuilder->addAttribute() method works.
-	 * When attribute's value is NULL or FALSE, it does *unset* the value.
-	 * Otherwise addAttribute() method is called as usually.
-	 *
-	 * @param \TYPO3\Flow\Aop\JoinPointInterface $joinPoint
-	 * @Flow\Around("method(TYPO3\Fluid\Core\ViewHelper\TagBuilder->addAttribute())")
-	 * @return void
-	 */
-	public function catchAddAttribute(\TYPO3\Flow\Aop\JoinPointInterface $joinPoint) {
-		if (NULL === $joinPoint->getMethodArgument('attributeValue') || FALSE === $joinPoint->getMethodArgument('attributeValue')) {
-			/** @var \TYPO3\Fluid\Core\ViewHelper\TagBuilder $tagBuilder */
-			$tagBuilder = $joinPoint->getProxy();
-			$tagBuilder->removeAttribute($joinPoint->getMethodArgument('attributeName'));
-		} else {
-			$joinPoint->getAdviceChain()->proceed($joinPoint);
-		}
-	}
+    /**
+     * This changes how TagBuilder->addAttribute() method works.
+     * When attribute's value is NULL or FALSE, it does *unset* the value.
+     * Otherwise addAttribute() method is called as usually.
+     *
+     * @param \TYPO3\Flow\Aop\JoinPointInterface $joinPoint
+     * @Flow\Around("method(TYPO3\Fluid\Core\ViewHelper\TagBuilder->addAttribute())")
+     * @return void
+     */
+    public function catchAddAttribute(\TYPO3\Flow\Aop\JoinPointInterface $joinPoint)
+    {
+        if (null === $joinPoint->getMethodArgument('attributeValue') || false === $joinPoint->getMethodArgument('attributeValue')) {
+            /** @var \TYPO3\Fluid\Core\ViewHelper\TagBuilder $tagBuilder */
+            $tagBuilder = $joinPoint->getProxy();
+            $tagBuilder->removeAttribute($joinPoint->getMethodArgument('attributeName'));
+        } else {
+            $joinPoint->getAdviceChain()->proceed($joinPoint);
+        }
+    }
 }
