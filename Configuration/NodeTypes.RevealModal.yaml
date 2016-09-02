@@ -57,8 +57,8 @@
       ui:
         label: 'Reveal Modal ID'
         help:
-          message:
-            _Reveal Modal ID_ is used to wire it with _Button_ element, which triggers/show the modal window. Once set, go to _Button_ element and put the same ID there in the _Reveal Modal ID_ field in _Modal & Dropdown options_ section.    
+          message: |
+            _Reveal Modal ID_ is used to wire it with _Button_ element, which triggers/show the modal window. Once set, go to _Button_ element and put the same ID there in the _Reveal Modal ID_ field in _Modal & Dropdown options_ section.
         inspector:
           group: 'options'
       validation:
