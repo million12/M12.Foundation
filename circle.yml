@@ -35,7 +35,6 @@ test:
         --link=db:db \
         --env="T3APP_NAME=neos" \
         --env="T3APP_VHOST_NAMES=neos dev.neos behat.dev.neos" \
-        --env="T3APP_DO_INIT_TESTS=true" \
         --env="T3APP_ALWAYS_DO_PULL=true" \
         million12/neos-protobrew-distribution " \
           su www -c \"
