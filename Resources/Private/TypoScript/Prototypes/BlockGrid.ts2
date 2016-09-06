@@ -21,8 +21,10 @@ prototype(M12.Foundation:BlockGrid) < prototype(M12.Foundation:Content) {
 			itemRenderer = M12.Foundation:BlockGridItem
 		}
 
-		# Add additional wrapping, because otherwise createjs won't work (it requires elements of contentcollection to be direct children of contentcollection).
-		# Can be removed when createjs is dropped.
+		# Add additional wrapping to outer DIV, because otherwise
+		# CreateJS won't work. It requires elements of ContentCollection
+		# to be direct children of ContentCollection).
+		# TODO: Can be removed when createjs is dropped.
 		@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 	}
 
@@ -34,10 +36,5 @@ prototype(M12.Foundation:BlockGridItem) < prototype(TYPO3.TypoScript:Tag) {
 	tagName = 'li'
 
 	content = TYPO3.Neos:ContentCase
-
-	prototype(TYPO3.Neos:Content) {
-		# Remove contentElementWrapping, because wrapping was already added in BlockGridItem
-		@process.contentElementWrapping >
-	}
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }

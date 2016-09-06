@@ -46,8 +46,10 @@ prototype(M12.Foundation:AccordionItem) < prototype(M12.Foundation:Content) {
 		# These attributes are added to div.content, which contains the accordion item content.
 		attributes = ${attributes}
 		content = TYPO3.Neos:ContentCollectionRenderer
-		# Add additional wrapping, because otherwise createjs won't work (it requires elements of contentcollection to be direct children of contentcollection).
-		# Can be removed when createjs is dropped.
+		# Add additional wrapping to outer DIV, because otherwise
+		# CreateJS won't work. It requires elements of ContentCollection
+		# to be direct children of ContentCollection).
+		# TODO: Can be removed when createjs is dropped.
 		@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 	}
 }

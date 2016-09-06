@@ -40,8 +40,10 @@ prototype(M12.Foundation:Orbit) < prototype(M12.Foundation:Content) {
 			itemName = 'node'
 			iterationName = 'iterator'
 		}
-		# Add additional wrapping to orbit-content, because otherwise createjs won't work (it requires elements of contentcollection to be direct children of contentcollection).
-		# Can be removed when createjs is dropped.
+		# Add additional wrapping to outer DIV, because otherwise
+		# CreateJS won't work. It requires elements of ContentCollection
+		# to be direct children of ContentCollection).
+		# TODO: Can be removed when createjs is dropped.
 		@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 	}
 	@process.wrapRemover = M12.Utils:WrapRemover
@@ -54,11 +56,5 @@ prototype(M12.Foundation:OrbitItem) < prototype(TYPO3.TypoScript:Tag) {
 	attributes.data-orbit-slide = ${iterator.cycle}
 
 	content = TYPO3.Neos:ContentCase
-
-	prototype(TYPO3.Neos:Content) {
-		# Remove contentElementWrapping, because wrapping is already added for OrbitItem (see below)
-		@process.contentElementWrapping >
-	}
-
 	@process.contentElementWrapping = TYPO3.Neos:ContentElementWrapping
 }
