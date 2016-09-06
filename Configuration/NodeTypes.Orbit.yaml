@@ -17,7 +17,6 @@
   properties:
     animation:
       type: string
-      defaultValue: ''
       ui:
         label: 'Animation effect'
         help:
@@ -84,7 +83,6 @@
           group: 'orbitSettings'
     navigationArrows:
       type: boolean
-      defaultValue: TRUE
       ui:
         label: 'Show navigation arrows'
         reloadIfChanged: TRUE
@@ -92,7 +90,6 @@
           group: 'orbitSettings'
     slideNumber:
       type: boolean
-      defaultValue: FALSE
       ui:
         label: 'Show slide number'
         reloadIfChanged: TRUE

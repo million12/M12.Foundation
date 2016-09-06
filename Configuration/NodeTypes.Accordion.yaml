@@ -98,9 +98,8 @@
             autoparagraph: FALSE
     isAccordionItemActive:
       type: boolean
-      defaultValue: FALSE
       ui:
-        label: 'Make this accordion item open'
+        label: 'Active accordion item'
         help:
           message: "Set it to have this accordion item open by default. Only one _Accordion Item_ in _Accordion_ can have this value set."
         reloadIfChanged: TRUE

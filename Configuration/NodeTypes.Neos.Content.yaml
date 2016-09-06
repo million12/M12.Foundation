@@ -60,7 +60,6 @@
           position: 60
     clickToZoom:
       type: boolean
-      defaultValue: false
       ui:
         label: 'Click-to-zoom in modal window'
         inspector:
