@@ -41,7 +41,7 @@ test:
             cd ~/neos; \
             composer update m12/*; \
             cd Packages/Plugins/M12.Foundation; \
-            git fetch && git checkout --force $CIRCLE_BRANCH; \
+            git fetch origin && git checkout --force -b $CIRCLE_BRANCH origin/$CIRCLE_BRANCH; \
             cd ~/neos; \
             ./flow flow:cache:flush --force; \
             ./flow cache:warmup
