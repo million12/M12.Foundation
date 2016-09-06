@@ -108,6 +108,7 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
                         'editorOptions' => [
                             'placeholder' => 'None',
                             'multiple' => true,
+                            'allowEmpty' => true,
                             'values' => $editorValues,
                         ],
                     ],
