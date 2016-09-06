@@ -22,7 +22,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'dropdownOptions'
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default (Tiny)'
             allowEmpty: TRUE

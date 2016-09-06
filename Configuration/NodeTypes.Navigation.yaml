@@ -67,7 +67,7 @@
         inspector:
           group: 'navOptions'
           position: 20
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default'
             values:
@@ -252,7 +252,7 @@
             Paste a full URL address starting with `http://` or `https://` to link to _external_ page.
         inspector:
           group: 'options'
-          editor: Content/Inspector/Editors/LinkEditor
+          editor: TYPO3.Neos/Inspector/Editors/LinkEditor
           editorOptions:
             placeholder: 'Page name or external URL...'
     classActive:

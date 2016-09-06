@@ -63,7 +63,7 @@
         inspector:
           group: 'utilityClasses'
           position: 30
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             allowEmpty: TRUE
@@ -96,7 +96,7 @@
         inspector:
           group: 'visibilityClasses'
           position: 10
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             allowEmpty: TRUE
@@ -127,7 +127,7 @@
         inspector:
           group: 'visibilityClasses'
           position: 20
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             allowEmpty: TRUE
@@ -156,7 +156,7 @@
         inspector:
           group: 'visibilityClasses'
           position: 30
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             allowEmpty: TRUE
@@ -173,7 +173,7 @@
         inspector:
           group: 'visibilityClasses'
           position: 40
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             allowEmpty: TRUE

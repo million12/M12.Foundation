@@ -100,7 +100,7 @@
         inspector:
           group: 'devCode'
           position: 40
-          editor: Content/Inspector/Editors/TextAreaEditor
+          editor: TYPO3.Neos/Inspector/Editors/TextAreaEditor
           editorOptions:
             placeholder: 'e.g. custom-data-attribute=value'
 
@@ -116,7 +116,7 @@
         inspector:
           group: 'utilityClasses'
           position: 50
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'No'
             allowEmpty: TRUE
@@ -142,7 +142,7 @@
         inspector:
           group: 'utilityClasses'
           position: 50
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'No'
             allowEmpty: TRUE
@@ -172,7 +172,7 @@
         inspector:
           group: 'devView'
           position: 40
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             values:
@@ -210,7 +210,7 @@
         inspector:
           group: 'devSemantic'
           position: 50
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default / None'
             allowEmpty: TRUE
@@ -344,7 +344,7 @@
         inspector:
           group: 'options'
           position: 10
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'None'
             allowEmpty: TRUE
@@ -406,7 +406,7 @@
         inspector:
           group: 'tooltip'
           position: 30
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default (Bottom)'
             allowEmpty: TRUE
@@ -426,7 +426,7 @@
         inspector:
           group: 'tooltip'
           position: 40
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Tooltip options'
             values:
@@ -467,7 +467,7 @@
         inspector:
           group: 'background'
           position: 10
-          editor: Content/Inspector/Editors/LinkEditor
+          editor: TYPO3.Neos/Inspector/Editors/LinkEditor
           editorOptions:
             assets: FALSE
             placeholder: 'e.g. https://placehold.it/1600x900'
@@ -498,7 +498,7 @@
         inspector:
           group: 'background'
           position: 20
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'cover'
             allowEmpty: TRUE
@@ -521,7 +521,7 @@
         inspector:
           group: 'background'
           position: 30
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'center'
             allowEmpty: TRUE
@@ -552,7 +552,7 @@
         inspector:
           group: 'background'
           position: 40
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'no-repeat'
             allowEmpty: TRUE

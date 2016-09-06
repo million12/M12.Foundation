@@ -79,7 +79,7 @@
         inspector:
           group: 'linkOptions'
           position: 20
-          editor: Content/Inspector/Editors/LinkEditor
+          editor: TYPO3.Neos/Inspector/Editors/LinkEditor
           editorOptions:
             placeholder: 'Page name or external URL...'
     htmlTargetBlank:
@@ -90,7 +90,7 @@
         inspector:
           group: 'linkOptions'
           position: 30
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'No'
             allowEmpty: TRUE
@@ -159,7 +159,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'revDropOptions'
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Default / Bottom'
             allowEmpty: TRUE
@@ -214,7 +214,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'buttonOptions'
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Button options'
             values:
@@ -276,7 +276,7 @@
         reloadIfChanged: TRUE
         inspector:
           group: 'buttonOptions'
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Button type'
             allowEmpty: TRUE

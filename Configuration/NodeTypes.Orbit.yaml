@@ -26,7 +26,7 @@
         inspector:
           group: 'orbitSettings'
           position: 10
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             values:
               '':

@@ -104,7 +104,7 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
                     'inspector' => [
                         'group' => $setData['uiInspectorGroup'],
                         'position' => isset($setData['uiInspectorPosition']) ? (int)$setData['uiInspectorPosition'] : ($k + 1) * 10,
-                        'editor' => 'Content/Inspector/Editors/SelectBoxEditor',
+                        'editor' => 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor',
                         'editorOptions' => [
                             'placeholder' => 'None',
                             'multiple' => true,
@@ -124,7 +124,7 @@ abstract class AbstractGridNodeTypePostprocessor implements NodeTypePostprocesso
             $k++;
         }
 
-//		\TYPO3\Flow\var_dump($configuration);
+//        \TYPO3\Flow\var_dump($configuration, 'NodeType config for ' . $nodeType->getName());
     }
 
     /**

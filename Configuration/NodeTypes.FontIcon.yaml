@@ -22,7 +22,7 @@
         inspector:
           group: 'fontIconOptions'
           position: 10
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             dataSourceIdentifier: 'font-icon-list'
             allowEmpty: TRUE
@@ -35,7 +35,7 @@
         inspector:
           group: 'fontIconOptions'
           position: 20
-          editor: Content/Inspector/Editors/SelectBoxEditor
+          editor: TYPO3.Neos/Inspector/Editors/SelectBoxEditor
           editorOptions:
             placeholder: 'Icon options'
             values:
